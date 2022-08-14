@@ -1,0 +1,7 @@
+{
+  "name": "bikriworld",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

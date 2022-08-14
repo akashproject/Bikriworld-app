@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      All Categories
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="search-circle" size="large" [routerLink]="['/search']"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- List of Text Items -->
+  <ion-row class="ion-text-center">
+    <ion-col size="6">
+      <div class="category-grid" >
+        <img src="https://bikriworld.com/assets/images/icons/mobile.png" />
+        <ion-label>
+          <h2> Sell Mobile </h2>
+        </ion-label>
+      </div>
+    </ion-col>
+    <ion-col size="6">
+      <div class="category-grid" >
+        <img src="https://bikriworld.com/assets/images/icons/laptop.png" />
+        <ion-label>
+          <h2> Sell Laptop </h2>
+        </ion-label>
+      </div>
+    </ion-col>
+    <ion-col size="6">
+      <div class="category-grid" >
+        <img src="https://bikriworld.com/assets/images/icons/motorcycle.png" />
+        <ion-label>
+          <h2> Sell Bike </h2>
+        </ion-label>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>
