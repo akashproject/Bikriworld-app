@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'https://bikriworld.com/',
-  mediaUrl: '/administrator/public/images/'
+  mediaUrl: 'https://bikriworld.com/administrator/public/images/',
+  authToken: "123456789",
 };
 
 /*

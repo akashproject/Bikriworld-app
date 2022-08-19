@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { CategoriesService } from '../../all-services/categories.service';
 import { Router } from '@angular/router';
+import { ApiService } from '../../all-services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomePage {
   constructor(
     private location:Location,
     private router : Router,
-    private categoriesservice : CategoriesService,
+    public api: ApiService,
   ) {
 
   }
@@ -42,15 +43,17 @@ export class HomePage {
   };
 
   ngOnInit() {
-
+    this.getCategories();
   }
 
   getCategories(){
-    this.categoriesservice.getCategories().subscribe(res =>{
-      console.log(res);
-      //this.loaderservice.hideLoading();
-      this.categories = res;
-    })
+    this.api.get('api/categories').subscribe((datas: any) => {
+      this.categories = datas;
+    });
+  }
+
+  goToBrands(category_id){
+    this.router.navigate(['/brands'], {state : {category_id :category_id}});
   }
   
 }
