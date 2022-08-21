@@ -7,7 +7,7 @@
       All Categories
     </ion-title>
     <ion-buttons slot="end">
-      <ion-icon slot="end" name="search-circle" size="large" [routerLink]="['/search']"></ion-icon>
+      <ion-icon slot="end" name="search-circle" size="large" (click)="goToSearch('category')" ></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -18,7 +18,7 @@
       <div class="category-grid">
         <img src="https://bikriworld.com/assets/images/icons/{{category.icon}}.png" />
         <ion-label>
-          <h2> {{category.name }} </h2>
+          <h2 class="product_label"> {{category.name }} </h2>
         </ion-label>
       </div>
     </ion-col>

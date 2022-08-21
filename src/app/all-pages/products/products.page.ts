@@ -17,13 +17,14 @@ export class ProductsPage implements OnInit {
   ngOnInit() {
     this.loc = this.location.getState();
     this.brand_id = this.loc.brand_id;
-    this.getProducts(this.brand_id)
+    localStorage.setItem("brand_id", this.brand_id);
+    this.getProducts()
   }
 
-  getProducts(brand_id){
+  getProducts(){    
     let param = {
-      "brand_id":brand_id,
-      "category_id":"2"
+      "brand_id":localStorage.getItem("brand_id"),
+      "category_id":localStorage.getItem("category_id")
     }
 
     this.api.post('api/products', param).subscribe((data: any) => {

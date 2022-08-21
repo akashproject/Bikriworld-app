@@ -13,7 +13,7 @@ export class CatagoriesPage {
   constructor(
     public api: ApiService,
     public router: Router,
-  ) {
+  ) {    
     this.getCatagories();
   }
 
@@ -25,6 +25,10 @@ export class CatagoriesPage {
 
   goToBrands(category_id){
     this.router.navigate(['/brands'], {state : {category_id :category_id}});
+  }
+
+  goToSearch(){
+    this.router.navigate(['/search'], {state : {key :'category'}});
   }
 
 }

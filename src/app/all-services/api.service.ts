@@ -36,17 +36,25 @@ export class ApiService {
     const header = {
       headers: new HttpHeaders()
         .set("Content-Type", "application/x-www-form-urlencoded")
-        .set("Basic", `${environment.authToken}`),
     };
     const param = this.JSON_to_URLEncoded(body);
     return this.http.post(this.baseUrl + url, param, header);
+
+    // return this.http.post(`${environment.apiUrl}/login`, {mobile:mobile,password:password}).pipe(
+    //   switchMap(data => {
+    //     return from(this.storage.set(JWT_KEY, data));
+    //   }),
+    //   tap(data => {
+    //     this.user.next(data);
+    //   })
+    // );
+
   }
 
   get(url) {
     const header = {
       headers: new HttpHeaders()
         .set("Content-Type", "application/x-www-form-urlencoded")
-        .set("Basic", `${environment.authToken}`),
     };
     return this.http.get(this.baseUrl + url, header);
   }

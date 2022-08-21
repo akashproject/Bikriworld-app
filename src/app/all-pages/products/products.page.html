@@ -3,17 +3,20 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
-    <ion-title>Products</ion-title>
+    <ion-title>Select Model To Sell</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-row class="ion-text-center">
-    <ion-col size="6" *ngFor="let product of products" (click)="goToProduct(product.id)">
-      <div class="category-grid" >
-        <img style="width: 100%;" src="https://bikriworld.com/administrator/public/images/{{ product.image }}" />
+    <ion-col size="4" *ngFor="let product of products" (click)="goToProduct(product.id)">
+      <div class="product-grid" >
+        <div class="image_wrap">
+          <img style="width: 80px;" src="https://bikriworld.com/administrator/public/images/{{ product.image }}" />
+        </div>
+        
         <ion-label>
-          <h2> {{ product.name }} </h2>
+          <h2 class="product_label"> {{ product.name }} </h2>
         </ion-label>
       </div>
     </ion-col>

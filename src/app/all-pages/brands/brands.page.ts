@@ -16,12 +16,13 @@ export class BrandsPage implements OnInit {
   ngOnInit() {
     this.loc = this.location.getState();
     this.category_id = this.loc.category_id;
-    this.getBrands(this.category_id)
+    localStorage.setItem("category_id", this.category_id);
+    this.getBrands()
     
   }
 
-  getBrands(category_id){
-    this.api.get('api/brands/'+category_id).subscribe((datas: any) => {
+  getBrands(){
+    this.api.get('api/brands/'+localStorage.getItem("category_id")).subscribe((datas: any) => {
       this.brands = datas;
     });
   }

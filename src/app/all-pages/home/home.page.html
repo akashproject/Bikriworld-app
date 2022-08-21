@@ -21,11 +21,13 @@
   <h4 class="margin-10px-left"> Select Your Device For Sell </h4>
    <!-- List of Text Items -->
   <ion-row class="ion-text-center">
-    <ion-col size="6" *ngFor="let category of categories" (click)="goToBrands(category.id)">
+    <ion-col size="4" *ngFor="let category of categories" (click)="goToBrands(category.id)">
       <div class="category-grid" >
-        <img src="https://bikriworld.com/assets/images/icons/{{category.icon}}.png" />
+        <div class="image-wrap">
+          <img src="https://bikriworld.com/assets/images/icons/{{category.icon}}.png" />
+        </div>
         <ion-label>
-          <h2> Sell {{category.name }} </h2>
+          <h4 > Sell {{category.name }} </h4>
         </ion-label>
       </div>
     </ion-col>

@@ -43,13 +43,20 @@ export class HomePage {
   };
 
   ngOnInit() {
+    console.log("Init");
+    
     this.getCategories();
   }
 
   getCategories(){
+    console.log("one");
+    
     this.api.get('api/categories').subscribe((datas: any) => {
+      console.log(datas);
+      
       this.categories = datas;
     });
+    console.log("last");
   }
 
   goToBrands(category_id){
