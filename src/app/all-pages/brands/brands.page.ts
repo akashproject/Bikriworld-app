@@ -28,7 +28,12 @@ export class BrandsPage implements OnInit {
   }
 
   goToProducts(brand_id){
+    localStorage.setItem("brand_id",brand_id);
     this.router.navigate(['/products'], {state : {brand_id :brand_id}});
   }
 
+  goToSearch(key){
+    this.router.navigate(['/search'], {state : {key :key}});
+  }
+  
 }

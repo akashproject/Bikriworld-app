@@ -27,8 +27,8 @@ export class CatagoriesPage {
     this.router.navigate(['/brands'], {state : {category_id :category_id}});
   }
 
-  goToSearch(){
-    this.router.navigate(['/search'], {state : {key :'category'}});
+  goToSearch(key){
+    this.router.navigate(['/search'], {state : {key :key}});
   }
 
 }

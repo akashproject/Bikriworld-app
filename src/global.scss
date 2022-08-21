@@ -24,8 +24,31 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+:root {
+	--ion-color-main: #00986b;
+	--ion-color-main-rgb: 105,187,123;
+	--ion-color-main-contrast: #000000;
+	--ion-color-main-contrast-rgb: 0,0,0;
+	--ion-color-main-shade: #00986b;
+	--ion-color-main-tint: #00986b;
+}
+
+.ion-color-main {
+	--ion-color-base: var(--ion-color-main);
+	--ion-color-base-rgb: var(--ion-color-main-rgb);
+	--ion-color-contrast: var(--ion-color-main-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-main-contrast-rgb);
+	--ion-color-shade: var(--ion-color-main-shade);
+	--ion-color-tint: var(--ion-color-main-tint);
+}
 ion-icon,ion-title {
     color: #00986b;
+}
+.searchbar-md .searchbar-input {
+    background:none;
+    color:#00986b;
+    box-shadow:none;
 }
 
 .margin-10px-left {

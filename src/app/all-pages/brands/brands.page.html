@@ -1,9 +1,12 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
     <ion-title >Select Brand To Sell</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="search-circle" size="large" (click)="goToSearch('brand')" ></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

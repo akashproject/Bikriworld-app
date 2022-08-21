@@ -4,12 +4,15 @@
       <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
     <ion-title>Select Model To Sell</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="search-circle" size="large" (click)="goToSearch('product')" ></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-row class="ion-text-center">
-    <ion-col size="4" *ngFor="let product of products" (click)="goToProduct(product.id)">
+    <ion-col size="4" *ngFor="let product of products" (click)="viewProduct(product.id)">
       <div class="product-grid" >
         <div class="image_wrap">
           <img style="width: 80px;" src="https://bikriworld.com/administrator/public/images/{{ product.image }}" />

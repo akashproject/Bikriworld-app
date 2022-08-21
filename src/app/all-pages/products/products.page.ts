@@ -10,14 +10,10 @@ import { ApiService } from '../../all-services/api.service';
 })
 export class ProductsPage implements OnInit {
   products : any = [];
-  brand_id : string;
   loc : any;
   constructor(public api: ApiService,private location:Location,public router: Router) { }
 
   ngOnInit() {
-    this.loc = this.location.getState();
-    this.brand_id = this.loc.brand_id;
-    localStorage.setItem("brand_id", this.brand_id);
     this.getProducts()
   }
 
@@ -32,6 +28,14 @@ export class ProductsPage implements OnInit {
     }, error => {
 
     });
+  }
+
+  viewProduct(product_id){
+    this.router.navigate(['/view-product'], {state : {product_id :product_id}});
+  }
+
+  goToSearch(key){
+    this.router.navigate(['/search'], {state : {key :key}});
   }
 
 }
