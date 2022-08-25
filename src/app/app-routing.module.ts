@@ -40,6 +40,10 @@ const routes: Routes = [
   {
     path: 'condition',
     loadChildren: () => import('./all-pages/condition/condition.module').then( m => m.ConditionPageModule)
+  },
+  {
+    path: 'signin',
+    loadChildren: () => import('./all-pages/signin/signin.module').then( m => m.SigninPageModule)
   }
 
 ];

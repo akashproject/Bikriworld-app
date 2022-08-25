@@ -38,7 +38,7 @@ export class ConditionPage implements OnInit {
     localStorage.setItem("condition", JSON.stringify(this.selectedCondition));
     console.log(this.selectedCondition);
     
-    //this.router.navigate(['/age']);
+    this.router.navigate(['/signin']);
   }
 
 }
