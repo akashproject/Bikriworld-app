@@ -24,6 +24,22 @@ const routes: Routes = [
   {
     path: 'view-product',
     loadChildren: () => import('./all-pages/view-product/view-product.module').then( m => m.ViewProductPageModule)
+  },
+  {
+    path: 'question',
+    loadChildren: () => import('./all-pages/question/question.module').then( m => m.QuestionPageModule)
+  },
+  {
+    path: 'accessories',
+    loadChildren: () => import('./all-pages/accessories/accessories.module').then( m => m.AccessoriesPageModule)
+  },
+  {
+    path: 'age',
+    loadChildren: () => import('./all-pages/age/age.module').then( m => m.AgePageModule)
+  },
+  {
+    path: 'condition',
+    loadChildren: () => import('./all-pages/condition/condition.module').then( m => m.ConditionPageModule)
   }
 
 ];

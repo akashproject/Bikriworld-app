@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Select Device Accessories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="ion-margin summary-wrap"  >
+    <ion-row class="ion-text-center">
+      <h2 class="summary-heading"> Let us know following accessories with your device!</h2>
+      <h5 class="summary-heading"> What you have accessories with your device</h5>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col size="6" *ngFor="let accessory of accessories" >
+        <ion-label  class="accessories_wrap">
+          <input class="accessory_input" type="checkbox" (click)="setAccessories(accessory.id)" id="{{accessory.id}}" >
+          <label class="accessory_label" for="{{accessory.id}}">
+            <img src="https://bikriworld.com/assets/images/icons/{{accessory.icon}}.png" style="width: auto;">
+            <h6 >{{accessory.name}}</h6>
+          </label> 
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </section>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" color="main" (click)="saveCondition()" [disabled]="disableBtn">
+      Continue
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

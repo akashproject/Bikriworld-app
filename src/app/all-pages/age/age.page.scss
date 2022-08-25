@@ -1,0 +1,31 @@
+.summary-heading {
+    color: #303030;
+}
+
+.summary-wrap {
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0px 1px 8px 1px #ecf2ff;
+    margin-bottom: 30px;
+    .ages_wrap {
+        input {
+            position: absolute;
+            visibility: hidden;
+        }
+        label {
+            padding: 10px 6px;
+            border: 1px solid #00986b;
+            border-radius: 6px;
+            color: #025a40;
+            font-size: 14px;
+            font-weight: 700;
+            width: 94%;
+            margin-top: 5px;    
+        }
+    }
+}
+.age_input:checked + .age_label {
+    font-weight: bold;
+    border: 1px solid #00986b;
+    background: rgba(0, 152, 107, 0.1803921569);
+}

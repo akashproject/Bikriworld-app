@@ -28,7 +28,7 @@
 :root {
 	--ion-color-main: #00986b;
 	--ion-color-main-rgb: 105,187,123;
-	--ion-color-main-contrast: #000000;
+	--ion-color-main-contrast: #ffffff;
 	--ion-color-main-contrast-rgb: 0,0,0;
 	--ion-color-main-shade: #00986b;
 	--ion-color-main-tint: #00986b;
@@ -42,6 +42,16 @@
 	--ion-color-shade: var(--ion-color-main-shade);
 	--ion-color-tint: var(--ion-color-main-tint);
 }
+
+.round-corner-btn {
+    --border-radius: 11px;
+    --vertical-align: middle;
+    display: flex;
+    height: 50px;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
 ion-icon,ion-title {
     color: #00986b;
 }

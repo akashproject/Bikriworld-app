@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Select Device Conditions</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="ion-margin summary-wrap"  >
+    <ion-row class="ion-text-center">
+      <h2 class="summary-heading"> Let us know some questions about your device ! </h2>
+      <h5 class="summary-heading"> What is the current condition of your device </h5>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col size="12" *ngFor="let question of questions" >
+        <ion-label  class="question_wrap">
+          <input class="form-check-input" type="radio" value="{{question.question}}" id="{{question.id}}" >
+          <label class="form-check-label" for="{{question.id}}">{{question.question}}</label> 
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </section>
+  
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" color="main" (click)="saveCondition()" [disabled]="disableBtn">
+      Continue
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

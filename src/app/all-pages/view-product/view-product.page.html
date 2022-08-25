@@ -17,24 +17,23 @@
       </ion-col>
       <ion-col size="7">
         <ion-label>
-          <h2> {{product.name }} </h2>
+          <h2> {{ product.name }} </h2>
         </ion-label>
         <div class="product-variation" >
-          <ion-button color="main" shape="round" fill="outline">6 GB | 128 GB</ion-button>
-          <ion-button color="main" shape="round" fill="outline">6 GB | 128 GB</ion-button>
-          <ion-button color="main" shape="round" fill="outline">6 GB | 128 GB</ion-button>
+          <ion-button class="variant" color="main" shape="round" fill="outline" *ngFor="let variant of variants | keyvalue" (click)="setVariant(variant.value)"> 
+           {{ variant.value['ram'] }} | {{ variant.value['storage'] }}
+          </ion-button>
         </div>
         <h4> Get Upto </h4>
-        <h2 style="margin-top: 0;">  ₹ 33000/- </h2>
-        
+        <h2 style="margin-top: 0;">  ₹ {{maxPrice}}/- </h2>
       </ion-col>
     </ion-row>
   </div>
 </ion-content>
 <ion-footer collapse="fade">
-  <ion-toolbar>
-    <ion-button expand="block"  size="large" color="main"  fill="solid" class="getPrice">
-      Get exact value
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" color="main" (click)="gotoQuestion()" [disabled]="disableBtn">
+      Get Sell Price
       <ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>

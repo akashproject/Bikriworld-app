@@ -1,7 +1,7 @@
 .product-view {
     background: #eee;
     padding: 10px;
-    margin: 25px 8px;
+    margin: 8px 8px;
     border-radius: 10px;
     h2 {
         color: #2caa85;
@@ -14,17 +14,14 @@
     width: 100%;
     margin-top: 20px;
     padding: 5px;
-    span.variant {
-        display: block;
-        border: 1px solid #2caa85;
-        margin: 10px 0;
-        padding: 4px;
-        border-radius: 13px;
+    .variant {
+        box-shadow: 0px 0px 2px 0.5px #2125295c;
+        border-radius: 24px;
     }
 }
 
 ion-button{
-    color: #fff;
+    border-radius: 5px;
     ion-icon{
         color: #fff;
     }
