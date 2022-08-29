@@ -63,7 +63,7 @@
     <ion-button class="round-corner-btn" *ngIf="sendOtp == false" color="main" (click)="sentOtp()" [disabled]="disableBtn">
       Continue
     </ion-button>
-    <ion-button class="round-corner-btn" *ngIf="sendOtp == true" color="main" (click)="sentOtp()" [disabled]="disableBtn">
+    <ion-button class="round-corner-btn" *ngIf="sendOtp == true" color="main" (click)="gotoQuote()" [disabled]="disableBtn">
       Submit
     </ion-button>
   </ion-toolbar>

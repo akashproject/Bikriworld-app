@@ -44,6 +44,10 @@ const routes: Routes = [
   {
     path: 'signin',
     loadChildren: () => import('./all-pages/signin/signin.module').then( m => m.SigninPageModule)
+  },
+  {
+    path: 'quote',
+    loadChildren: () => import('./all-pages/quote/quote.module').then( m => m.QuotePageModule)
   }
 
 ];

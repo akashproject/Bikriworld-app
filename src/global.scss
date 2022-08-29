@@ -25,6 +25,15 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+@font-face {   
+    font-family: 'Montserrat';    //This is what we are going to call
+    src: url('./assets/fonts/Montserrat\ SemiBold\ 600.ttf');
+}
+
+ion-content{ 
+    font-family:'Montserrat', sans-serif !important;
+}
+
 :root {
 	--ion-color-main: #00986b;
 	--ion-color-main-rgb: 105,187,123;
