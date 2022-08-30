@@ -6,9 +6,57 @@
     padding: 10px;
     border-radius: 14px;
     box-shadow: 0px 1px 8px 1px #ecf2ff;
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
+.highlights {
+    display: inline-block;
+    width: auto;
+    padding: 0 10px;
+    margin-top: 20px;
+    h4 {
+        font-size: 12px;
+        margin-top: 14px;
+    }
+}
+.sidebar_widget {
+    padding: 0;
+    background: none;
+    box-shadow: 2px 2px 10px 0px rgb(var(75, 131, 251), 50%);
+    .widget_title {
+        padding: 15px 20px;
+        background-image: url('https://bikriworld.com/assets/images/bg/widget_header.png');
+        background-color: #65cfa9;
+        padding: 15px 30px;
+        color: #ffffff;
+        font-weight: 500;
+        margin-bottom: 0;
+        border-top-right-radius: 8px;
+        border-top-left-radius: 8px;
+    }
+    .sidebar_widget_inner {
+        padding: 20px;
+    }
 
+    .info_widget {
+        padding: 0;
+    }
+    .info_widget>li {
+        font-size: 14px;
+        font-weight: 600;
+        color: #1b2336;
+        list-style: disc;
+        margin-left: 20px;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+        span {
+            color: #415674;
+            max-width: 120px;
+            width: 100%;
+            display: inline-flex;
+            position: relative;
+        }
+    }
+}
 ion-button{
     border-radius: 5px;
     ion-icon{

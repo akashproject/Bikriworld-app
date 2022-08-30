@@ -70,10 +70,6 @@ ion-icon,ion-title {
     box-shadow:none;
 }
 
-.margin-10px-left {
-  margin-left: 10px;
-}
-
 .category-grid {
     padding: 11px;
     border-radius: 10px;
@@ -111,4 +107,29 @@ section {
 
 .column-right {
     float: right;
+}
+
+.img-avater {
+    display: inline;
+    margin: 0 17px;
+    img {
+        border-radius: 50%;
+    }
+}
+.story_author {
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    h4 {
+        font-weight: 600;
+        margin: 0;
+    }
+    p {
+        font-size: 14px;
+        color: #999696;
+        margin: 0;
+    }
+}
+.story_content {
+    height: 132px;
 }

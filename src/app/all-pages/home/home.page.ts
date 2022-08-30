@@ -12,6 +12,7 @@ import { ApiService } from '../../all-services/api.service';
 export class HomePage {
 
   categories : any = [];
+  topSellingBrands : any = [];
   constructor(
     private location:Location,
     private router : Router,
@@ -42,10 +43,22 @@ export class HomePage {
     spaceBetween: 0,    
   };
 
+  slideBrands = {
+    initialSlide: 0,
+    autoplay:true,
+    freeMode: true,
+    speed: 400,
+    slidesPerView: 4,
+    watchSlidesProgress: true,
+    grabCursor: true,
+    spaceBetween: 5,    
+  };
+
   ngOnInit() {
     console.log("Init");
     
     this.getCategories();
+    this.getTopSellingBrands();
   }
 
   getCategories(){
@@ -61,6 +74,14 @@ export class HomePage {
 
   goToBrands(category_id){
     this.router.navigate(['/brands'], {state : {category_id :category_id}});
+  }
+
+  getTopSellingBrands(){
+    this.api.get('api/top-brands').subscribe((datas: any) => {
+      this.topSellingBrands = datas;
+      console.log(datas);
+      
+    });
   }
   
 }
