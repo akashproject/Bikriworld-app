@@ -35,9 +35,7 @@ export class AgePage implements OnInit {
   }
 
   saveCondition(){
-    localStorage.setItem("age", JSON.stringify(this.selectedAge));
-    console.log(this.selectedAge);
-    
+    localStorage.setItem("age", JSON.stringify(this.selectedAge));    
     this.router.navigate(['/condition']);
   }
 

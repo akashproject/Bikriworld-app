@@ -24,6 +24,19 @@
         }
     }
 }
+
+.highlights {
+    display: inline-block;
+    width: auto;
+    padding: 20px 10px;
+    margin-top: 20px;
+    border-bottom: 0.09rem solid #e5e5e5;
+    h4 {
+        font-size: 12px;
+        margin-top: 14px;
+    }
+}
+
 .product-view {
     background: #eee;
     padding: 10px;

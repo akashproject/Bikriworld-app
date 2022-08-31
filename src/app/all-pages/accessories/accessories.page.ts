@@ -35,9 +35,7 @@ export class AccessoriesPage implements OnInit {
   }
 
   saveCondition(){
-    localStorage.setItem("accessories", JSON.stringify(this.selectedAccessories));
-    console.log(this.selectedAccessories);
-    
+    localStorage.setItem("accessories", JSON.stringify(this.selectedAccessories));    
     this.router.navigate(['/age']);
   }
 

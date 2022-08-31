@@ -99,8 +99,17 @@ section {
     margin-left: auto;
 }
 
+.bw-border-top {
+    border-top: 1px solid #e5e5e5;
+}
 
+.bw-border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
 
+.text-small {
+    font-size: 12px;
+}
 .column-left {
     float: left;
 }
