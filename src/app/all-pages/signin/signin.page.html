@@ -35,22 +35,22 @@
         <ion-label class="form-label">Please enter OTP </ion-label>
         <ion-row >
           <ion-col size="2"  >
-            <ion-input class="form-field" maxLength="1"></ion-input>
+            <ion-input class="form-field" #otp1 type="number" name="one" id="one" [(ngModel)]="one" maxlength="1" [disabled]="!disable" (keyup)="gotoNextField(otp2)" ></ion-input>
           </ion-col>
           <ion-col size="2"  >
-            <ion-input class="form-field" maxLength="1"></ion-input>
+            <ion-input class="form-field" #otp2 type="number" name="two" id="two" [(ngModel)]="two" maxlength="1" [disabled]="!disable"(keyup)="gotoNextField(otp3)"></ion-input>
           </ion-col>
           <ion-col size="2"  >
-            <ion-input class="form-field" maxLength="1"></ion-input>
+            <ion-input class="form-field" #otp3 type="number" name="three" id="three" [(ngModel)]="three" maxlength="1" [disabled]="!disable" (keyup)="gotoNextField(otp4)"></ion-input>
           </ion-col>
           <ion-col size="2"  >
-            <ion-input class="form-field" maxLength="1"></ion-input>
+            <ion-input class="form-field" #otp4 type="number" name="four" id="four" [(ngModel)]="four" maxlength="1" [disabled]="!disable" (keyup)="gotoNextField(otp5)"></ion-input>
           </ion-col>
           <ion-col size="2"  >
-            <ion-input class="form-field" maxLength="1"></ion-input>
+            <ion-input class="form-field" #otp5 type="text" name="five" id="five" [(ngModel)]="five" maxlength="1" [disabled]="!disable" (keyup)="gotoNextField(otp6)"></ion-input>
           </ion-col>
           <ion-col size="2"  >
-            <ion-input class="form-field" maxLength="1"></ion-input>
+            <ion-input class="form-field" #otp6 type="text" name="six" id="six" [(ngModel)]="six" maxlength="1" ></ion-input>
           </ion-col>
         </ion-row>
         
@@ -63,7 +63,7 @@
     <ion-button class="round-corner-btn" *ngIf="sendOtp == false" color="main" (click)="sentOtp()" [disabled]="disableBtn">
       Continue
     </ion-button>
-    <ion-button class="round-corner-btn" *ngIf="sendOtp == true" color="main" (click)="gotoQuote()" [disabled]="disableBtn">
+    <ion-button class="round-corner-btn" *ngIf="sendOtp == true" color="main" (click)="matchOtp()" [disabled]="disableBtn">
       Submit
     </ion-button>
   </ion-toolbar>

@@ -10,6 +10,9 @@ export class QuotePage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    let user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+    
   }
 
 }

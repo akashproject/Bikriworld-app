@@ -1,17 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Account Details
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="">
+  <div class="setting-outer ion-padding" >
+    <ion-row class="account_options ion-padding">
+      <div class="setting-icon" >
+        <img src="https://dummyimage.com/32x32" >
+      </div>
+      <h6> Personal Information </h6>
+    </ion-row>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+    <ion-row class="account_options ion-padding">
+      <div class="setting-icon" >
+        <img src="https://dummyimage.com/32x32" >
+      </div>
+      <h6> Payment Methods </h6>
+    </ion-row>
+
+    <ion-row class="account_options ion-padding">
+      <div class="setting-icon" >
+        <img src="https://dummyimage.com/32x32" >
+      </div>
+      <h6> Addresses </h6>
+    </ion-row>
+
+    <ion-row class="account_options ion-padding">
+      <div class="setting-icon" >
+        <img src="https://dummyimage.com/32x32" >
+      </div>
+      <h6> Pickups </h6>
+    </ion-row>
+
+    <ion-button class="round-corner-btn" color="main" (click)="logout()">
+      Logout
+      <ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon>
+    </ion-button>
+  </div>
 </ion-content>

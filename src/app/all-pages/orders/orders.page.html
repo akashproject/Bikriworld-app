@@ -1,9 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>orders</ion-title>
+    <ion-title>Selling Information</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content class="ion-padding">
+  <ion-row class="order_wraper" *ngFor="let pickup of pickups">
+    <ion-col size="7" >
+      <h5 style="margin:0"> {{pickup.name}} </h5>
+      <p> {{ pickup.variation_type}}</p>
+    </ion-col>
+    <ion-col size="5" >
+      <img src="https://bikriworld.com/administrator/public/images/{{pickup.image}}" />
+    </ion-col>
+    <ion-col size="12" >
+      <h6>Order Status : <span style="color:red"> {{pickup.status}} </span> </h6>
+      <h6>Pickup Date : {{pickup.pickup_schedule}} </h6>
+      <h6> Selling Amount : Rs. {{pickup.amount}}/- </h6>
+    </ion-col>
+    <ion-col size="12" >
+      <ion-button class="round-corner-btn" color="main" (click)="goToViewOrder(brand.id)">
+        View More
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-content>

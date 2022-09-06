@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController,ToastController } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
@@ -7,7 +7,9 @@ export class UtilService {
 
   loading : any;
   isLoading = false;
-  constructor(private loadingController : LoadingController) { }
+  public userInfo: any;
+  constructor(private loadingController : LoadingController,public toastController: ToastController) { }
+
   async presentLoading() {
     this.isLoading = true;
     // Prepare a loading controller
@@ -32,4 +34,14 @@ export class UtilService {
       }
     });
   }
+
+  async presentToast(message) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+
 }

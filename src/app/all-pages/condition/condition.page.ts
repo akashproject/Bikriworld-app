@@ -11,6 +11,7 @@ export class ConditionPage implements OnInit {
   conditions : any =[];
   selectedCondition : any =[];
   disableBtn = true;
+  
   constructor(
     public api: ApiService,
     public router: Router,
@@ -37,8 +38,15 @@ export class ConditionPage implements OnInit {
   saveCondition(){
     localStorage.setItem("condition", JSON.stringify(this.selectedCondition));
     console.log(this.selectedCondition);
+
+    let userInfo = localStorage.getItem("user");
+    if(userInfo !== null){
+      this.router.navigate(['/quote']);
+    } else {
+      this.router.navigate(['/signin']);
+    }
     
-    this.router.navigate(['/signin']);
+    //this.router.navigate(['/signin']);
   }
 
 }
