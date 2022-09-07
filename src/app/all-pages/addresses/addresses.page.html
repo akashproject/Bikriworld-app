@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Saved Addresses</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="home" size="large" [routerLink]="['/']"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button color="main" fill="outline" expand="block">
+    Add new Address
+  </ion-button>
+  <ion-row class="address_wraper">
+    <ion-col size="2">
+      <img src="https://dummyimage.com/32x32" >
+    </ion-col>
+    <ion-col size="10">
+      <h5> 71/2 Garadhar Bhatta Road, Bhattanagar, Liluah, Howrah</h5>
+      <div class="options" >
+        <ion-router-link color="primary" class="option" href="#">Edit</ion-router-link>
+        <ion-router-link color="danger" class="option" href="#">Delete</ion-router-link>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>
+

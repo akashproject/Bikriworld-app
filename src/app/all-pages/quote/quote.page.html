@@ -4,6 +4,9 @@
       <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
     <ion-title>Selling Price</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="home" size="large" [routerLink]="['/']"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -132,7 +135,7 @@
 </ion-content>
 <ion-footer collapse="fade">
   <ion-toolbar class="ion-padding-start ion-padding-end">
-    <ion-button class="round-corner-btn" color="main" (click)="sellNow()">
+    <ion-button class="round-corner-btn" color="main" (click)="goToAddress()">
       Sell Now
     </ion-button>
   </ion-toolbar>

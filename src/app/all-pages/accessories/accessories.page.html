@@ -16,7 +16,7 @@
     <ion-row class="ion-text-center">
       <ion-col size="6" *ngFor="let accessory of accessories" >
         <ion-label  class="accessories_wrap">
-          <input class="accessory_input" type="checkbox" (click)="setAccessories(accessory.id)" id="{{accessory.id}}" >
+          <input class="accessory_input" type="checkbox" (change)="onChangeAccessories($event,accessory.id)" id="{{accessory.id}}" >
           <label class="accessory_label" for="{{accessory.id}}">
             <img src="https://bikriworld.com/assets/images/icons/{{accessory.icon}}.png" style="width: auto;">
             <h6 >{{accessory.name}}</h6>

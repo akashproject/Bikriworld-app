@@ -48,6 +48,10 @@ const routes: Routes = [
   {
     path: 'quote',
     loadChildren: () => import('./all-pages/quote/quote.module').then( m => m.QuotePageModule)
+  },
+  {
+    path: 'addresses',
+    loadChildren: () => import('./all-pages/addresses/addresses.module').then( m => m.AddressesPageModule)
   }
 
 ];

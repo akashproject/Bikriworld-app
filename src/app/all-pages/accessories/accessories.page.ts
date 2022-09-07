@@ -29,9 +29,18 @@ export class AccessoriesPage implements OnInit {
     });
   }
 
-  setAccessories(variant){
-    this.selectedAccessories.push(variant);
-    this.disableBtn = false;
+  onChangeAccessories(event,variant){
+    if (event.target.checked) {
+        this.selectedAccessories.push(variant);
+        this.disableBtn = false;
+    } else {
+       const index = this.selectedAccessories.findIndex(x => x.value === variant);
+       this.selectedAccessories.pop(index);
+    }
+
+    if(this.selectedAccessories.length <= 0){
+      this.disableBtn = true;
+    }
   }
 
   saveCondition(){
