@@ -19,11 +19,18 @@ export class OrdersPage implements OnInit {
     public router: Router,
     private location:Location,
     private util:UtilService
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit() {
-    console.log("hi",this.userInfo);
-    this.getOrders()
+    let userInfo = localStorage.getItem("user");    
+    if(userInfo === null){
+      this.router.navigate(['/signin']);
+    } else {
+      this.getOrders()
+    }
+    
 
 
   }

@@ -11,18 +11,19 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-button color="main" fill="outline" expand="block">
+  <ion-button color="main" fill="outline" expand="block" (click)="gotoViewAddress()">
     Add new Address
   </ion-button>
-  <ion-row class="address_wraper">
+  <ion-row class="address_wraper" *ngFor="let address of addresses">
     <ion-col size="2">
       <img src="https://dummyimage.com/32x32" >
     </ion-col>
     <ion-col size="10">
-      <h5> 71/2 Garadhar Bhatta Road, Bhattanagar, Liluah, Howrah</h5>
+      <h5> {{address.address_1}}, {{city}} {{ address.state }}, {{ address.pincode }} </h5>
+      <h5> Type : {{address.type}} </h5>
       <div class="options" >
-        <ion-router-link color="primary" class="option" href="#">Edit</ion-router-link>
-        <ion-router-link color="danger" class="option" href="#">Delete</ion-router-link>
+        <ion-router-link color="primary" class="option" (click)="gotoViewAddress(address.id)" >Edit</ion-router-link>
+        <ion-router-link color="danger" class="option" (click)="confirmDelete(address.id)" >Delete</ion-router-link>
       </div>
     </ion-col>
   </ion-row>

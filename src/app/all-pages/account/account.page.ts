@@ -25,13 +25,17 @@ export class AccountPage {
     }
   }
 
-  ngOnInit() {
+  ionViewWillEnter(){
     let userInfo = localStorage.getItem("user");
     console.log(userInfo);
     
     if(userInfo === null){
       this.router.navigate(['/signin']);
     }
+  }
+
+  ngOnInit() {
+   
 
   }
 

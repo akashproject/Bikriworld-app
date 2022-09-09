@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
+import { AuthGuard } from "./guard/auth.guard";
 const routes: Routes = [
   {
     path: '',
@@ -8,12 +8,14 @@ const routes: Routes = [
   },
   {
     path: 'orders',
-    loadChildren: () => import('./all-pages/orders/orders.module').then( m => m.OrdersPageModule)
+    loadChildren: () => import('./all-pages/orders/orders.module').then( m => m.OrdersPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'search',
     loadChildren: () => import('./all-pages/search/search.module').then( m => m.SearchPageModule)
-  },  {
+  },
+  {
     path: 'brands',
     loadChildren: () => import('./all-pages/brands/brands.module').then( m => m.BrandsPageModule)
   },
@@ -47,11 +49,18 @@ const routes: Routes = [
   },
   {
     path: 'quote',
-    loadChildren: () => import('./all-pages/quote/quote.module').then( m => m.QuotePageModule)
+    loadChildren: () => import('./all-pages/quote/quote.module').then( m => m.QuotePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'addresses',
-    loadChildren: () => import('./all-pages/addresses/addresses.module').then( m => m.AddressesPageModule)
+    loadChildren: () => import('./all-pages/addresses/addresses.module').then( m => m.AddressesPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'view-address',
+    loadChildren: () => import('./all-pages/view-address/view-address.module').then( m => m.ViewAddressPageModule),
+    canActivate: [AuthGuard]
   }
 
 ];
