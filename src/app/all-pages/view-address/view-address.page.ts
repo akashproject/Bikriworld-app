@@ -14,7 +14,7 @@ export class ViewAddressPage implements OnInit {
   loc : any;
   address: any = {
     id:'',
-    type:'home',
+    type:'',
     address_1:'',
     city:'',
     state:'',
@@ -33,15 +33,33 @@ export class ViewAddressPage implements OnInit {
 
   
   ngOnInit() {
-    this.loc = this.location.getState();    
-    this.address_id = this.loc.address_id;
+    this.loc = this.location.getState(); 
+    console.log(this.loc.address_id);
+       
+    if (this.loc.address_id !== null) {
+      this.address_id = this.loc.address_id;
+      this.viewAddress();
+    }
     this.address.id = this.loc.address_id;
+    
     this.address.token = btoa(this.userInfo.id);
   }
 
   validate(){
     console.log(this.address);
-    
+  }
+
+  viewAddress(){
+    this.util.presentLoading(); 
+    this.api.get('api/view-address/'+this.address_id).subscribe((data: any) => {
+      console.log(data);
+      
+      this.address = data
+      this.util.hideLoading();
+    }, error => {
+      this.util.hideLoading();
+      this.util.presentToast("Unable to save address! Please try again")
+    });
   }
 
   saveAddress(){

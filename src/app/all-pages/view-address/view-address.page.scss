@@ -1,0 +1,17 @@
+.address-type-grid {
+    border: 1px solid #00986bc7;
+    padding: 6px;
+    background: #d2fff2;
+    border-radius: 7PX;
+    ion-radio {
+        vertical-align: middle;
+        margin-right: 0.4rem;
+    }
+    ion-radio:after {
+        background-color: #00986bc7;
+        border: 2px solid #00986bc7;
+    }
+    ion-label {
+        vertical-align: middle;
+    }
+}

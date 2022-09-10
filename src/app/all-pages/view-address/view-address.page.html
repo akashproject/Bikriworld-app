@@ -24,6 +24,29 @@
     <ion-label position="floating">Pincode</ion-label>
     <ion-input [(ngModel)]="address.pincode" type="number" (change)="validate()"></ion-input>
   </ion-item>
+  <h5> Address Type </h5>
+  <ion-radio-group [(ngModel)]="address.type">
+    <ion-row class="ion-text-center">
+      <ion-col size="4">
+        <div class="address-type-grid" >
+          <ion-radio slot="start" value="Home"></ion-radio>
+          <ion-label>Home</ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="address-type-grid" >
+          <ion-radio slot="start" value="Office"></ion-radio>
+          <ion-label>Office</ion-label>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <div class="address-type-grid" >
+          <ion-radio slot="start" value="Other"></ion-radio>
+          <ion-label>Other</ion-label>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-radio-group>
 </ion-content>
 <ion-footer collapse="fade">
   <ion-toolbar class="ion-padding-start ion-padding-end">

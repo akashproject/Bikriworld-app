@@ -21,7 +21,7 @@ export class QuotePage implements OnInit {
     console.log(user);
     
   }
-  goToAddress(){
-    this.router.navigate(['/addresses']);
+  goToSelectAddress(){
+    this.router.navigate(['/select-addresses']);
   }
 }

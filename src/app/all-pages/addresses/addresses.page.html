@@ -16,10 +16,10 @@
   </ion-button>
   <ion-row class="address_wraper" *ngFor="let address of addresses">
     <ion-col size="2">
-      <img src="https://dummyimage.com/32x32" >
+      <img src="assets/icon/pin.png" >
     </ion-col>
     <ion-col size="10">
-      <h5> {{address.address_1}}, {{city}} {{ address.state }}, {{ address.pincode }} </h5>
+      <h5> {{address.address_1}}, {{address.city}} {{ address.state }}, {{ address.pincode }} </h5>
       <h5> Type : {{address.type}} </h5>
       <div class="options" >
         <ion-router-link color="primary" class="option" (click)="gotoViewAddress(address.id)" >Edit</ion-router-link>

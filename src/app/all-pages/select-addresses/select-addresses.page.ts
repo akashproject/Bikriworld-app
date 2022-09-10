@@ -5,12 +5,13 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
 
+
 @Component({
-  selector: 'app-addresses',
-  templateUrl: './addresses.page.html',
-  styleUrls: ['./addresses.page.scss'],
+  selector: 'app-select-addresses',
+  templateUrl: './select-addresses.page.html',
+  styleUrls: ['./select-addresses.page.scss'],
 })
-export class AddressesPage implements OnInit {
+export class SelectAddressesPage implements OnInit {
 
   addresses : any = [];
   loc : any;
@@ -39,6 +40,8 @@ export class AddressesPage implements OnInit {
     }
     this.api.post('api/addresses', param).subscribe((data: any) => {
       this.addresses = data;
+      console.log(this.addresses);
+      
       this.util.hideLoading();
     }, error => {
 

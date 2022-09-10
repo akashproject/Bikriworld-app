@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Select Address</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="home" size="large" [routerLink]="['/']"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button color="main" fill="outline" expand="block" (click)="gotoViewAddress()">
+    Add new Address
+  </ion-button>
+  <ion-radio-group >
+    <ion-row class="address_wraper" *ngFor="let address of addresses">
+      <ion-col size="2">
+        <ion-radio slot="start" value="Home"></ion-radio>
+      </ion-col>
+      <ion-col size="10">
+        <h5> {{address.address_1}}, {{address.city}} {{ address.state }}, {{ address.pincode }} </h5>
+        <h5> Type : {{address.type}} </h5>
+        <div class="options" >
+          <ion-router-link color="primary" class="option" (click)="gotoViewAddress(address.id)" >Edit</ion-router-link>
+          <ion-router-link color="danger" class="option" (click)="confirmDelete(address.id)" >Delete</ion-router-link>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-radio-group>
+</ion-content>
+

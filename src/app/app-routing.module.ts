@@ -61,7 +61,23 @@ const routes: Routes = [
     path: 'view-address',
     loadChildren: () => import('./all-pages/view-address/view-address.module').then( m => m.ViewAddressPageModule),
     canActivate: [AuthGuard]
+  },  {
+    path: 'profile',
+    loadChildren: () => import('./all-pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'upi',
+    loadChildren: () => import('./all-pages/upi/upi.module').then( m => m.UpiPageModule)
+  },
+  {
+    path: 'bank',
+    loadChildren: () => import('./all-pages/bank/bank.module').then( m => m.BankPageModule)
+  },
+  {
+    path: 'select-addresses',
+    loadChildren: () => import('./all-pages/select-addresses/select-addresses.module').then( m => m.SelectAddressesPageModule)
   }
+
 
 ];
 @NgModule({
