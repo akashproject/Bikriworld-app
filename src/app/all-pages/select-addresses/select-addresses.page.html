@@ -14,15 +14,19 @@
   <ion-button color="main" fill="outline" expand="block" (click)="gotoViewAddress()">
     Add new Address
   </ion-button>
-  <ion-radio-group >
+  <ion-radio-group [(ngModel)]="selected_address">
     <ion-row class="address_wraper" *ngFor="let address of addresses">
-      <ion-col size="2">
-        <ion-radio slot="start" value="Home"></ion-radio>
+      <ion-col size="12">
+        <ion-item >
+          <ion-radio slot="start" value="{{address.id}}" id="address_{{address.id}}" (click)="selectAddress(address.id)"></ion-radio>
+          <label class="labels" for="address_{{address.id}}">
+            <h5> {{address.address_1}}, {{address.city}} {{ address.state }}, {{ address.pincode }} </h5>
+            <h5> Type : {{address.type}} </h5>
+          </label>
+        </ion-item>  
       </ion-col>
-      <ion-col size="10">
-        <h5> {{address.address_1}}, {{address.city}} {{ address.state }}, {{ address.pincode }} </h5>
-        <h5> Type : {{address.type}} </h5>
-        <div class="options" >
+      <ion-col size="12" >
+        <div class="options ion-margin-start" >
           <ion-router-link color="primary" class="option" (click)="gotoViewAddress(address.id)" >Edit</ion-router-link>
           <ion-router-link color="danger" class="option" (click)="confirmDelete(address.id)" >Delete</ion-router-link>
         </div>

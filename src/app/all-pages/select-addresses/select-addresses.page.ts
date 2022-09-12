@@ -15,6 +15,7 @@ export class SelectAddressesPage implements OnInit {
 
   addresses : any = [];
   loc : any;
+  selected_address : any;
   userInfo : any = JSON.parse(localStorage.getItem("user"))
   constructor(
     public api: ApiService,
@@ -90,7 +91,14 @@ export class SelectAddressesPage implements OnInit {
   }
 
   gotoViewAddress(address_id = null){    
+    console.log(address_id);
+    
     this.router.navigate(['/view-address'], {state : {address_id :address_id}});
+  }
+
+  selectAddress(id){
+    console.log(id);
+    this.router.navigate(['/upi']);
   }
 
 }

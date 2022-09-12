@@ -31,8 +31,6 @@ export class OrdersPage implements OnInit {
       this.getOrders()
     }
     
-
-
   }
 
 
@@ -46,6 +44,10 @@ export class OrdersPage implements OnInit {
       this.util.hideLoading();
     }, error => {
     });
+  }
+
+  goToViewOrder(order){
+    this.router.navigate(['/view-order'], {state : {order :order}});
   }
 
 }

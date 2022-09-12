@@ -76,6 +76,14 @@ const routes: Routes = [
   {
     path: 'select-addresses',
     loadChildren: () => import('./all-pages/select-addresses/select-addresses.module').then( m => m.SelectAddressesPageModule)
+  },
+  {
+    path: 'payments',
+    loadChildren: () => import('./all-pages/payments/payments.module').then( m => m.PaymentsPageModule)
+  },
+  {
+    path: 'view-order',
+    loadChildren: () => import('./all-pages/view-order/view-order.module').then( m => m.ViewOrderPageModule)
   }
 
 

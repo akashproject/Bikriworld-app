@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Order Number : {{order.service_no}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <ion-row class="order_wraper">
+    <h5> Device Information </h5>
+    <hr>
+    <ion-col size="7" >
+      <h6 style="margin:0"> {{order.name}} </h6>
+      <p> {{ order.variation_type}}</p>
+    </ion-col>
+    <ion-col size="5" >
+      <img src="https://bikriworld.com/administrator/public/images/{{order.image}}" />
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="order_wraper">
+    <ion-col size="12" >
+      <h5> Order Summary </h5>
+      <hr>
+      <h6>Order Placed at : <span> {{order.created_at}} </span> </h6>
+      <h6>Selling Amount : <span style="color:red">Rs. {{order.amount}}/-</span> </h6>
+      <h6>Order Status : <span class="order_status"> {{order.status}} </span> </h6>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="order_wraper">
+    <ion-col size="12" >
+      <h5> Pickup Summary </h5>
+      <hr>
+      <h6><span class="summary_label" >Pickup Address : </span> {{order.pickup_city}}, {{order.pickup_state}}, {{order.pincode}}  </h6>
+      <h6><span class="summary_label" >Pickup Schedule : </span>{{order.pickup_schedule}} </h6>
+      <h6><span class="summary_label" >Payment Mode : </span> {{order.payment_mode}} </h6>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar style="padding: 0.5rem;">
+    <ion-button slot="start" class="round-corner-btn" color="main" (click)="cancelOrder()">
+      Modify Order
+    </ion-button>
+    <ion-button slot="end" class="round-corner-btn" color="danger" (click)="cancelOrder()">
+      Cancel Order
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
