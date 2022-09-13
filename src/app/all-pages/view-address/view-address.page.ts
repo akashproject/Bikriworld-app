@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, NavigationExtras } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
 
@@ -10,7 +11,7 @@ import { UtilService } from 'src/app/all-services/util.service';
   styleUrls: ['./view-address.page.scss'],
 })
 export class ViewAddressPage implements OnInit {
-  address_id : string;
+  @Input() address_id: any;
   loc : any;
   address: any = {
     id:'',
@@ -27,21 +28,19 @@ export class ViewAddressPage implements OnInit {
     private location:Location,
     public router: Router,
     private util:UtilService,
+    private modalCtrl: ModalController
   ) { 
    
   }
 
   
-  ngOnInit() {
-    this.loc = this.location.getState(); 
-    console.log(this.loc.address_id);
-       
-    if (this.loc.address_id !== null) {
-      this.address_id = this.loc.address_id;
+  ngOnInit() {     
+    console.log(this.address_id);
+      
+    if (this.address_id !== null) {
       this.viewAddress();
     }
-    this.address.id = this.loc.address_id;
-    
+    this.address.id = this.address_id;
     this.address.token = btoa(this.userInfo.id);
   }
 
@@ -58,19 +57,24 @@ export class ViewAddressPage implements OnInit {
       this.util.hideLoading();
     }, error => {
       this.util.hideLoading();
-      this.util.presentToast("Unable to save address! Please try again")
+      this.util.presentToast("Unable to load address! Please try again")
     });
   }
 
   saveAddress(){
     this.util.presentLoading(); 
     this.api.post('api/save-address', this.address).subscribe((data: any) => {
-      this.router.navigate(['/addresses']);
       this.util.hideLoading();
+      return this.modalCtrl.dismiss(null, 'confirm');
     }, error => {
       this.util.hideLoading();
       this.util.presentToast("Unable to save address! Please try again")
+      return this.modalCtrl.dismiss(null, 'confirm');
     });
+  }
+
+  cancel() {
+    return this.modalCtrl.dismiss(null, 'cancel');
   }
 
 }

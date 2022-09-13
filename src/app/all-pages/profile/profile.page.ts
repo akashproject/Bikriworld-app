@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Router, NavigationExtras } from '@angular/router';
+import { ApiService } from '../../all-services/api.service';
+import { UtilService } from 'src/app/all-services/util.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfilePage implements OnInit {
 
-  constructor() { }
+  profile : any = {};
+  constructor(
+    public api: ApiService,
+    private location:Location,
+    public router: Router,
+    private util:UtilService,
+    ) { }
 
   ngOnInit() {
+    this.profile = JSON.parse(localStorage.getItem("user"))
+  }
+
+  saveProfile(){
+    console.log(this.profile);
+    this.profile.token = btoa(this.profile.id);
+    this.util.presentLoading(); 
+    this.api.post('api/save-profile', this.profile).subscribe((data: any) => {
+      localStorage.setItem("user", JSON.stringify(data));
+      this.util.userInfo = data;
+      this.util.hideLoading();
+      this.router.navigate(['/account']);
+    }, error => {
+      this.util.hideLoading();
+      this.util.presentToast("Unable to save address! Please try again")
+    });
+    
+  }
+
+  validate(){
+    console.log(this.profile);
   }
 
 }

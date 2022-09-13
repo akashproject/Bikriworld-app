@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-button color="main" fill="outline" expand="block" (click)="gotoViewAddress()">
+  <ion-button color="main" fill="outline" expand="block" (click)="modalViewAddress()">
     Add new Address
   </ion-button>
   <ion-radio-group [(ngModel)]="selected_address">
@@ -27,7 +27,7 @@
       </ion-col>
       <ion-col size="12" >
         <div class="options ion-margin-start" >
-          <ion-router-link color="primary" class="option" (click)="gotoViewAddress(address.id)" >Edit</ion-router-link>
+          <ion-router-link color="primary" class="option" (click)="modalViewAddress(address.id)" >Edit</ion-router-link>
           <ion-router-link color="danger" class="option" (click)="confirmDelete(address.id)" >Delete</ion-router-link>
         </div>
       </ion-col>

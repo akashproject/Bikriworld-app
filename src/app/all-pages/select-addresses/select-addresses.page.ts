@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { AlertController } from '@ionic/angular';
+import { AlertController , ModalController } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
+import { ViewAddressPage } from '../view-address/view-address.page';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class SelectAddressesPage implements OnInit {
     public router: Router,
     private location:Location,
     private util:UtilService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private modalCtrl: ModalController
   ) { }
 
   ionViewWillEnter(){
@@ -47,6 +49,20 @@ export class SelectAddressesPage implements OnInit {
     }, error => {
 
     });
+  }
+
+  async modalViewAddress(address_id = null){
+    const modal = await this.modalCtrl.create({
+      component: ViewAddressPage,
+      componentProps: { address_id: address_id }
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+      this.getAddress();
+    }
   }
 
   async confirmDelete(id) {
@@ -88,12 +104,6 @@ export class SelectAddressesPage implements OnInit {
     }, error => {
       this.util.hideLoading();
     });
-  }
-
-  gotoViewAddress(address_id = null){    
-    console.log(address_id);
-    
-    this.router.navigate(['/view-address'], {state : {address_id :address_id}});
   }
 
   selectAddress(id){

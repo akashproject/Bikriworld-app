@@ -1,9 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile Infomation</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-item lines="full">
+    <ion-label position="floating">Fullname</ion-label>
+    <ion-input [(ngModel)]="profile.name" type="text" (change)="validate()"></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="floating">Mobile Number</ion-label>
+    <ion-input [(ngModel)]="profile.mobile" type="number" (change)="validate()" readonly="true" [disabled]="true"></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="floating">Email Address</ion-label>
+    <ion-input [(ngModel)]="profile.email" type="text" (change)="validate()"></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="floating">Alt Mobile No</ion-label>
+    <ion-input [(ngModel)]="profile.alt_mobile" type="number" (change)="validate()"></ion-input>
+  </ion-item>
 </ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" color="main" (click)="saveProfile()" [disabled]="disableBtn">
+      Save Infomation
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
