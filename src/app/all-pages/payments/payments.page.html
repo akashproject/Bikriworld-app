@@ -6,29 +6,27 @@
     <ion-title>Payment Options</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content class="">
+  <div class="setting-outer ion-padding" >
+    <ion-row class="account_options ion-padding" (click)="openBankTransfar()">
+      <div class="setting-icon" >
+        <img src="assets/icon/valid.png" >
+      </div>
+      <h6> Bank Transfar </h6>
+    </ion-row>
 
-<ion-content class="ion-padding">
-  <ion-row class="payment_options">
-    <ion-col size="2">
-    </ion-col>
-    <ion-col size="10">
-      <h5> Bank Transfar </h5>
-    </ion-col>
-  </ion-row>
-  <ion-row class="payment_options">
-    <ion-col size="2">
-      <img src="assets/icon/pin.png" >
-    </ion-col>
-    <ion-col size="10">
-      <h5> UPI </h5>
-    </ion-col>
-  </ion-row>
-  <ion-row class="payment_options">
-    <ion-col size="2">
-      <img src="assets/icon/pin.png" >
-    </ion-col>
-    <ion-col size="10">
-      <h5> Mobile Number </h5>
-    </ion-col>
-  </ion-row>
+    <ion-row class="account_options ion-padding" (click)="openUpi()">
+      <div class="setting-icon" >
+        <img src="assets/icon/pin.png" >
+      </div>
+      <h6> UPI </h6>
+    </ion-row>
+
+    <ion-row class="account_options ion-padding" (click)="openMobileTransfar()">
+      <div class="setting-icon" >
+        <img src="assets/icon/account.png" >
+      </div>
+      <h6> Mobile Transfar </h6>
+    </ion-row>
+  </div>
 </ion-content>
