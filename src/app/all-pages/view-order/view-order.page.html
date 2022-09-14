@@ -20,7 +20,9 @@
       <img src="https://bikriworld.com/administrator/public/images/{{order.image}}" />
     </ion-col>
   </ion-row>
-
+  <ion-button class="round-corner-btn" color="main" (click)="cancelOrder()"  *ngIf="order.status == 'pending'">
+    Update Order  
+  </ion-button> 
   <ion-row class="order_wraper">
     <ion-col size="12" >
       <h5> Order Summary </h5>
@@ -28,9 +30,11 @@
       <h6>Order Placed at : <span> {{order.created_at}} </span> </h6>
       <h6>Selling Amount : <span style="color:red">Rs. {{order.amount}}/-</span> </h6>
       <h6>Order Status : <span class="order_status"> {{order.status}} </span> </h6>
+      <h6>Cancellation Reason : <span class=""> {{order.reason}} </span> </h6>
+      
     </ion-col>
   </ion-row>
-
+  
   <ion-row class="order_wraper">
     <ion-col size="12" >
       <h5> Pickup Summary </h5>
@@ -41,13 +45,10 @@
     </ion-col>
   </ion-row>
 </ion-content>
-<ion-footer collapse="fade">
+<ion-footer collapse="fade" *ngIf="order.status == 'pending'">
   <ion-toolbar style="padding: 0.5rem;">
-    <ion-button slot="start" type="outline" class="round-corner-btn" color="main" (click)="cancelOrder()">
-      Modify Order
-    </ion-button>
-    <ion-button slot="end" type="outline" class="round-corner-btn" color="danger" (click)="cancelOrder()">
+    <ion-button expand="block" size="medium" fill="outline" class="round-corner-btn" color="danger" (click)="modalCancelOrder()">
       Cancel Order
-    </ion-button>
+    </ion-button>   
   </ion-toolbar>
 </ion-footer>

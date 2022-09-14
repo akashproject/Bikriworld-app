@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, NavigationExtras } from '@angular/router';
+import { ModalController } from '@ionic/angular';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
+import { CancelReasonPage } from '../cancel-reason/cancel-reason.page';
 
 @Component({
   selector: 'app-view-order',
@@ -10,7 +12,6 @@ import { UtilService } from 'src/app/all-services/util.service';
   styleUrls: ['./view-order.page.scss'],
 })
 export class ViewOrderPage implements OnInit {
-  order_id : string;
   userInfo : any = JSON.parse(localStorage.getItem("user"))
   loc : any;
   order : any = {};
@@ -18,6 +19,7 @@ export class ViewOrderPage implements OnInit {
     private location:Location,
     public router: Router,
     private util:UtilService,
+    private modalCtrl: ModalController
     ) { }
 
   ngOnInit() {
@@ -28,15 +30,21 @@ export class ViewOrderPage implements OnInit {
     
   }
 
-  viewOrder(){
-    this.util.presentLoading(); 
-    this.api.get('api/view-order/'+this.order_id).subscribe((data: any) => {
-      console.log(data);
-      this.order = data
-      this.util.hideLoading();
-    }, error => {
-      this.util.hideLoading();
-      this.util.presentToast("Unable to load order! Please try again")
+  async modalCancelOrder(){
+    console.log(this.order.id);
+    
+    const modal = await this.modalCtrl.create({
+      component: CancelReasonPage,
+      componentProps: { order_id: this.order.id }
     });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+      this.order.status = "cancelled"
+    }
   }
+
+
 }

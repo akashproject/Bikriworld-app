@@ -84,6 +84,10 @@ const routes: Routes = [
   {
     path: 'view-order',
     loadChildren: () => import('./all-pages/view-order/view-order.module').then( m => m.ViewOrderPageModule)
+  },
+  {
+    path: 'cancel-reason',
+    loadChildren: () => import('./all-pages/cancel-reason/cancel-reason.module').then( m => m.CancelReasonPageModule)
   }
 
 

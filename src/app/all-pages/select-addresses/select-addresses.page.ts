@@ -5,6 +5,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
 import { ViewAddressPage } from '../view-address/view-address.page';
+import { UpiPage } from '../upi/upi.page';
 
 
 @Component({
@@ -106,9 +107,17 @@ export class SelectAddressesPage implements OnInit {
     });
   }
 
-  selectAddress(id){
-    console.log(id);
-    this.router.navigate(['/upi']);
+  async selectAddress(id){
+    const modal = await this.modalCtrl.create({
+      component: UpiPage,
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+      this.getAddress();
+    }
   }
 
 }

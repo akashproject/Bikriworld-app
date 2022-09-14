@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Reason for Cancellation</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="medium" (click)="cancel()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="reason">
+      <ion-list-header>
+        <ion-label>Please tell us the reason</ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>Got a better price</ion-label>
+        <ion-radio slot="start" color="main" value="Got a better price"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Sold it in my network</ion-label>
+        <ion-radio slot="start" color="main" value="Sold it in my network"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Gave it to someone</ion-label>
+        <ion-radio slot="start" color="main" value="Gave it to someone"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Would like to reschedule</ion-label>
+        <ion-radio slot="start" color="main" value="Would like to reschedule"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>No one from Bikriworld contacted me</ion-label>
+        <ion-radio slot="start" color="main" value="No one from Bikriworld contacted me"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Required documents not available</ion-label>
+        <ion-radio slot="start" color="main" value="Required documents not available"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Not Bikriworld about payment</ion-label>
+        <ion-radio slot="start" color="main" value="Not Bikriworld about payment"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Device is still under EMI</ion-label>
+        <ion-radio slot="start" color="main" value="Device is still under EMI"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Not confident about Bikriworld!</ion-label>
+        <ion-radio slot="start" color="main" value="Not confident about Bikriworld!"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Not interested, was just exploring the option!</ion-label>
+        <ion-radio slot="start" color="main" value="Not interested, was just exploring the option!"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Others!</ion-label>
+        <ion-radio slot="start" color="main" value="Others!"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-textarea  color="main" placeholder="Leave comment for us"></ion-textarea>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar style="padding: 0.5rem;">
+    <ion-button class="round-corner-btn" color="main" (click)="alertModal()" >
+      Confirm Cancellation  
+    </ion-button>   
+  </ion-toolbar>
+</ion-footer>

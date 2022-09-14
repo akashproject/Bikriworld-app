@@ -24,7 +24,6 @@ export class ProfilePage implements OnInit {
   }
 
   saveProfile(){
-    console.log(this.profile);
     this.profile.token = btoa(this.profile.id);
     this.util.presentLoading(); 
     this.api.post('api/save-profile', this.profile).subscribe((data: any) => {

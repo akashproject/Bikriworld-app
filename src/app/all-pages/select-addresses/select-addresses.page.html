@@ -18,7 +18,7 @@
     <ion-row class="address_wraper" *ngFor="let address of addresses">
       <ion-col size="12">
         <ion-item >
-          <ion-radio slot="start" value="{{address.id}}" id="address_{{address.id}}" (click)="selectAddress(address.id)"></ion-radio>
+          <ion-radio color="main" slot="start" value="{{address.id}}" id="address_{{address.id}}" (click)="selectAddress(address.id)"></ion-radio>
           <label class="labels" for="address_{{address.id}}">
             <h5> {{address.address_1}}, {{address.city}} {{ address.state }}, {{ address.pincode }} </h5>
             <h5> Type : {{address.type}} </h5>
