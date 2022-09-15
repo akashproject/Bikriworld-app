@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Order Placed</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="home" size="large" [routerLink]="['/']"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-text-center" > 
+    <h2> Thank You </h2>
+    <h6> Order Has been placed successfully </h6>
+    <div class="ion-margin-top" >
+      <img src="https://dummyimage.com/65x65" >
+    </div>
+  </div>
+  <ion-row class="order_wraper">
+    <h5> Device Information </h5>
+    <hr>
+    <ion-col size="7" >
+      <h6 style="margin:0"> Iphone 5s </h6>
+      <p>  2GB | 32GB </p>
+    </ion-col>
+    <ion-col size="5" >
+      <img src="https://bikriworld.com/administrator/public/images/product/apple_iphone_11_logo_1651756489.jpg" />
+    </ion-col>
+    <ion-col size="12" >
+      <h6>Order Number : <span class=""> 5465898 </span> </h6>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" color="main" (click)="goToViewOrder()" >
+      View Detail 
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

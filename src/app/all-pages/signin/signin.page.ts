@@ -11,7 +11,7 @@ import { UtilService } from 'src/app/all-services/util.service';
 })
 export class SigninPage implements OnInit {
 
-  sendOtp = false;
+  sendOtp = true;
   mobileNo : any ;
   userData : any [];
   session_id : any ;

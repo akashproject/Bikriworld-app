@@ -31,7 +31,7 @@ export class PamentOptionsComponent implements OnInit {
   }
 
   async selectPaymentOption(){
-
+    this.modalCtrl.dismiss(null, 'confirm');
     console.log(this.paymentOption);
     const modal = await this.modalCtrl.create({
       component: PickupOptionsComponent,

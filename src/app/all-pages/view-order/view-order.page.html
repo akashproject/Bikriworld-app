@@ -3,12 +3,18 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
-    <ion-title>Order Number : {{order.service_no}}</ion-title>
+    <ion-title>Order Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="home" size="large" [routerLink]="['/']"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content class="ion-padding">
+  <div class="ion-text-center ion-margin-bottom" > 
+    <h4> Order Number : {{order.service_no}} </h4>
+  </div>
   <ion-row class="order_wraper">
     <h5> Device Information </h5>
     <hr>

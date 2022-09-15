@@ -88,6 +88,10 @@ const routes: Routes = [
   {
     path: 'cancel-reason',
     loadChildren: () => import('./all-pages/cancel-reason/cancel-reason.module').then( m => m.CancelReasonPageModule)
+  },
+  {
+    path: 'order-placed',
+    loadChildren: () => import('./all-pages/order-placed/order-placed.module').then( m => m.OrderPlacedPageModule)
   }
 
 

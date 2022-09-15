@@ -4,13 +4,15 @@ import { ApiService } from '../../all-services/api.service';
 import { AlertController ,ModalController } from '@ionic/angular';
 import { UtilService } from 'src/app/all-services/util.service';
 
-@Component({
-  selector: 'app-pickup-options',
-  templateUrl: './pickup-options.component.html',
-  styleUrls: ['./pickup-options.component.scss'],
-})
-export class PickupOptionsComponent implements OnInit {
 
+@Component({
+  selector: 'app-order-placed',
+  templateUrl: './order-placed.page.html',
+  styleUrls: ['./order-placed.page.scss'],
+})
+export class OrderPlacedPage implements OnInit {
+
+  order : any = {};
   constructor(
     public api: ApiService,
     public router: Router,
@@ -18,15 +20,10 @@ export class PickupOptionsComponent implements OnInit {
     private modalCtrl: ModalController
   ) { }
 
-  ngOnInit() {}
-
-  placeOrder(){
-    this.modalCtrl.dismiss(null, 'confirm');
-    this.router.navigate(['/order-placed']);
+  ngOnInit() {
   }
 
-  cancel() {
-    return this.modalCtrl.dismiss(null, 'cancel');
+  goToViewOrder(){
+    this.router.navigate(['/view-order'], {state : {order :this.order}});
   }
-
 }

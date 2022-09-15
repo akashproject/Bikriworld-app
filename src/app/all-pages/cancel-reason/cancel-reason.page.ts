@@ -13,6 +13,7 @@ import { UtilService } from 'src/app/all-services/util.service';
 export class CancelReasonPage implements OnInit {
   @Input() order_id: any;
   reason : any;
+  userInfo : any = JSON.parse(localStorage.getItem("user"))
   constructor(
     public api: ApiService,
     private location:Location,
@@ -55,7 +56,8 @@ export class CancelReasonPage implements OnInit {
     console.log(this.reason,this.order_id);
     let params = {
       'reason':this.reason,
-      'order_id':this.order_id
+      'order_id':this.order_id,
+      "token":btoa(this.userInfo.id)
     }
     this.util.presentLoading(); 
     this.api.post('api/cancel-order', params).subscribe((data: any) => {

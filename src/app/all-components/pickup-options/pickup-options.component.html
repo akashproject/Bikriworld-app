@@ -11,3 +11,11 @@
 <ion-content>
   
 </ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" color="main" (click)="placeOrder()"  [disabled]="disableBtn">
+      Confirm Pickup 
+      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
