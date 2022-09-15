@@ -6,7 +6,6 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <section class="ion-margin login-summary-wrap"  >
     <ion-row class="ion-text-center" *ngIf="sendOtp == false">
@@ -34,23 +33,23 @@
       <ion-col size="12" class="custom_text-field" >
         <ion-label class="form-label">Please enter OTP </ion-label>
         <ion-row >
-          <ion-col size="2"  >
-            <ion-input class="form-field" type="number" maxlength="1" [(ngModel)]="one" #otp1 (keyup)="gotoNextField()" ></ion-input>
+          <ion-col size="2">
+            <ion-input class="form-field" #otp1 maxlength="1" [(ngModel)]="otpValue[0]" (paste)="onPaste($event)" (keyup)="gotoNextField(otp2)" ></ion-input>
           </ion-col>
-          <ion-col size="2"  >
-            <ion-input class="form-field" type="number" maxlength="1" [(ngModel)]="two" #otp2 (keyup)="gotoNextField()"></ion-input>
+          <ion-col size="2">
+            <ion-input class="form-field" #otp2 maxlength="1" [(ngModel)]="otpValue[1]" (keyup)="gotoNextField(otp3)"></ion-input>
           </ion-col>
-          <ion-col size="2"  >
-            <ion-input class="form-field" type="number" maxlength="1"  (keyup)="gotoNextField()"></ion-input>
+          <ion-col size="2">
+            <ion-input class="form-field" #otp3 maxlength="1" [(ngModel)]="otpValue[2]" (keyup)="gotoNextField(otp4)"></ion-input>
           </ion-col>
-          <ion-col size="2"  >
-            <ion-input class="form-field" type="number" maxlength="1"  (keyup)="gotoNextField()"></ion-input>
+          <ion-col size="2">
+            <ion-input class="form-field" #otp4 maxlength="1" [(ngModel)]="otpValue[3]" (keyup)="gotoNextField(otp5)"></ion-input>
           </ion-col>
-          <ion-col size="2"  >
-            <ion-input class="form-field" type="number" maxlength="1"  (keyup)="gotoNextField()"></ion-input>
+          <ion-col size="2">
+            <ion-input class="form-field" #otp5 maxlength="1" [(ngModel)]="otpValue[4]" (keyup)="gotoNextField(otp6)"></ion-input>
           </ion-col>
-          <ion-col size="2"  >
-            <ion-input class="form-field" type="number" maxlength="1" ></ion-input>
+          <ion-col size="2">
+            <ion-input class="form-field" #otp6 maxlength="1" [(ngModel)]="otpValue[5]" (keyup)="matchOtp()"></ion-input>
           </ion-col>
         </ion-row>
         
