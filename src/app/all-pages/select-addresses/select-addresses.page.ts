@@ -5,7 +5,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
 import { ViewAddressPage } from '../view-address/view-address.page';
-import { UpiPage } from '../upi/upi.page';
+import { PamentOptionsComponent } from '../../all-components/pament-options/pament-options.component';
 
 
 @Component({
@@ -109,7 +109,7 @@ export class SelectAddressesPage implements OnInit {
 
   async selectAddress(id){
     const modal = await this.modalCtrl.create({
-      component: UpiPage,
+      component: PamentOptionsComponent,
     });
     modal.present();
 
