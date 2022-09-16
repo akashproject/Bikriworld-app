@@ -61,38 +61,51 @@ const routes: Routes = [
     path: 'view-address',
     loadChildren: () => import('./all-pages/view-address/view-address.module').then( m => m.ViewAddressPageModule),
     canActivate: [AuthGuard]
-  },  {
+  },
+  {
     path: 'profile',
-    loadChildren: () => import('./all-pages/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./all-pages/profile/profile.module').then( m => m.ProfilePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'upi',
-    loadChildren: () => import('./all-pages/upi/upi.module').then( m => m.UpiPageModule)
+    loadChildren: () => import('./all-pages/upi/upi.module').then( m => m.UpiPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'bank',
-    loadChildren: () => import('./all-pages/bank/bank.module').then( m => m.BankPageModule)
+    loadChildren: () => import('./all-pages/bank/bank.module').then( m => m.BankPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'select-addresses',
-    loadChildren: () => import('./all-pages/select-addresses/select-addresses.module').then( m => m.SelectAddressesPageModule)
+    loadChildren: () => import('./all-pages/select-addresses/select-addresses.module').then( m => m.SelectAddressesPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'payments',
-    loadChildren: () => import('./all-pages/payments/payments.module').then( m => m.PaymentsPageModule)
+    loadChildren: () => import('./all-pages/payments/payments.module').then( m => m.PaymentsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'view-order',
-    loadChildren: () => import('./all-pages/view-order/view-order.module').then( m => m.ViewOrderPageModule)
+    loadChildren: () => import('./all-pages/view-order/view-order.module').then( m => m.ViewOrderPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'cancel-reason',
-    loadChildren: () => import('./all-pages/cancel-reason/cancel-reason.module').then( m => m.CancelReasonPageModule)
+    loadChildren: () => import('./all-pages/cancel-reason/cancel-reason.module').then( m => m.CancelReasonPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'order-placed',
-    loadChildren: () => import('./all-pages/order-placed/order-placed.module').then( m => m.OrderPlacedPageModule)
+    loadChildren: () => import('./all-pages/order-placed/order-placed.module').then( m => m.OrderPlacedPageModule),
+    canActivate: [AuthGuard]
+  },  {
+    path: 'mobile-transfar',
+    loadChildren: () => import('./all-pages/mobile-transfar/mobile-transfar.module').then( m => m.MobileTransfarPageModule)
   }
+
 
 
 ];

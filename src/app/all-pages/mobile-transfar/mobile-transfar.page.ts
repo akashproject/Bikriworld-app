@@ -6,13 +6,12 @@ import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
 
 @Component({
-  selector: 'app-bank',
-  templateUrl: './bank.page.html',
-  styleUrls: ['./bank.page.scss'],
+  selector: 'app-mobile-transfar',
+  templateUrl: './mobile-transfar.page.html',
+  styleUrls: ['./mobile-transfar.page.scss'],
 })
-export class BankPage implements OnInit {
-
-  bankAccount : any = JSON.parse(localStorage.getItem("payment"))
+export class MobileTransfarPage implements OnInit {
+  mobile : any = JSON.parse(localStorage.getItem("payment"))
   constructor(
     public api: ApiService,
     private location:Location,
@@ -22,14 +21,6 @@ export class BankPage implements OnInit {
   ) { }
 
   ngOnInit() {
-  }
-
-  saveBankAccount(){
-    return this.modalCtrl.dismiss(null, 'confirm');
-  }
-
-  cancel() {
-    return this.modalCtrl.dismiss(null, 'cancel');
   }
 
 }

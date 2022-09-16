@@ -24,16 +24,18 @@ export class OrdersPage implements OnInit {
   }
 
   ngOnInit() {
-    let userInfo = localStorage.getItem("user");    
-    if(userInfo === null){
-      this.router.navigate(['/signin']);
-    } else {
-      this.getOrders()
-    }
-    
+    this.getOrders()
   }
 
 
+  doRefresh(event) {
+    this.getOrders()
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
+  
   getOrders(){
     this.util.presentLoading(); 
     let param = {

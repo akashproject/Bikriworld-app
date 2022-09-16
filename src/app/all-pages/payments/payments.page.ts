@@ -6,8 +6,7 @@ import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
 import { UpiPage } from '../upi/upi.page';
 import { BankPage } from '../bank/bank.page';
-
-
+import { MobileTransfarPage } from '../mobile-transfar/mobile-transfar.page';
 
 @Component({
   selector: 'app-payments',
@@ -15,7 +14,10 @@ import { BankPage } from '../bank/bank.page';
   styleUrls: ['./payments.page.scss'],
 })
 export class PaymentsPage implements OnInit {
-
+  payments : any = [];
+  loc : any;
+  payements : any;
+  userInfo : any = JSON.parse(localStorage.getItem("user"))
   constructor(
     public api: ApiService,
     public router: Router,
@@ -27,6 +29,7 @@ export class PaymentsPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getPayment()
   }
 
   async openBankTransfar(){
@@ -53,8 +56,29 @@ export class PaymentsPage implements OnInit {
     }
   }
 
-  openMobileTransfar(){
+  async openMobileTransfar(){
+    const modal = await this.modalCtrl.create({
+      component: MobileTransfarPage,
+    });
+    modal.present();
 
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+    }
+  }
+
+  getPayment(){
+    this.util.presentLoading(); 
+    let param = {
+      "token":btoa(this.userInfo.id),
+    }
+    this.api.post('api/payments', param).subscribe((data: any) => {
+      localStorage.setItem("payment",JSON.stringify(data))
+      this.util.hideLoading();
+    }, error => {
+
+    });
   }
   
 

@@ -61,8 +61,6 @@ export class CancelReasonPage implements OnInit {
     }
     this.util.presentLoading(); 
     this.api.post('api/cancel-order', params).subscribe((data: any) => {
-      localStorage.setItem("user", JSON.stringify(data));
-      this.util.userInfo = data;
       this.util.hideLoading();
       return this.modalCtrl.dismiss(null, 'confirm');
     }, error => {

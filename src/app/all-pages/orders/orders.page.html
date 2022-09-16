@@ -8,6 +8,9 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-row class="order_wraper" *ngFor="let pickup of pickups">
     <ion-col size="7" >
       <h5 style="margin:0"> {{pickup.name}} </h5>

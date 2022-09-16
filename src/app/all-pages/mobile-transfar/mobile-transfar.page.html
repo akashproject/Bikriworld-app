@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>UPI Details</ion-title>
+    <ion-title>Mobile Number</ion-title>
     <ion-buttons slot="end">
       <ion-button color="medium" (click)="cancel()">
         <ion-icon slot="icon-only" name="close"></ion-icon>
@@ -11,9 +11,8 @@
 
 <ion-content class="ion-padding">
   <ion-item>
-    <ion-label position="stacked">UPI Id</ion-label>
-    <ion-input [(ngModel)]="upi.upi_id" ></ion-input>
+    <ion-label position="stacked">Mobile Number</ion-label>
+    <ion-input [(ngModel)]="mobile.online_payment_no" ></ion-input>
   </ion-item>
-  <ion-button expand="block" size="medium" color="main" >Save UPI ID</ion-button>
-
+  <ion-button expand="block" size="medium" color="main" (click)="saveMobile()">Save</ion-button>
 </ion-content>

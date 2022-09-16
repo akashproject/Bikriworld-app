@@ -107,7 +107,7 @@ export class SigninPage implements OnInit {
       console.log(this.util.userInfo);
       
       this.util.hideLoading();
-      this.gotoQuote()
+      return true;
     }, error => {
       this.util.hideLoading();
       this.util.presentToast("Unable to Login! Please try again")

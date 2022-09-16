@@ -31,11 +31,11 @@ export class ViewOrderPage implements OnInit {
   }
 
   async modalCancelOrder(){
-    console.log(this.order.id);
+    console.log(this.order.order_id);
     
     const modal = await this.modalCtrl.create({
       component: CancelReasonPage,
-      componentProps: { order_id: this.order.id }
+      componentProps: { order_id: this.order.order_id }
     });
     modal.present();
 

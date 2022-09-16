@@ -17,21 +17,21 @@ export class AccountPage {
     private location:Location,
     private util:UtilService
   ) {
-    let userInfo = localStorage.getItem("user");
-    console.log(userInfo);
+    // let userInfo = localStorage.getItem("user");
+    // console.log(userInfo);
     
-    if(userInfo === null){
-      this.router.navigate(['/signin']);
-    }
+    // if(userInfo === null){
+    //   this.router.navigate(['/signin']);
+    // }
   }
 
   ionViewWillEnter(){
-    let userInfo = localStorage.getItem("user");
-    console.log(userInfo);
+    // let userInfo = localStorage.getItem("user");
+    // console.log(userInfo);
     
-    if(userInfo === null){
-      this.router.navigate(['/signin']);
-    }
+    // if(userInfo === null){
+    //   this.router.navigate(['/signin']);
+    // }
   }
 
   ngOnInit() {

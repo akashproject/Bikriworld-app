@@ -11,7 +11,7 @@ import { UtilService } from 'src/app/all-services/util.service';
   styleUrls: ['./upi.page.scss'],
 })
 export class UpiPage implements OnInit {
-
+  upi : any = JSON.parse(localStorage.getItem("payment"))
   constructor(
     public api: ApiService,
     private location:Location,
