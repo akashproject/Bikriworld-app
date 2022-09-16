@@ -25,7 +25,18 @@ export class BankPage implements OnInit {
   }
 
   saveBankAccount(){
-    return this.modalCtrl.dismiss(null, 'confirm');
+    this.util.presentLoading(); 
+    this.bankAccount.token = btoa(this.bankAccount.user_id);
+    this.api.post('api/save-bank-account', this.bankAccount).subscribe((data: any) => {
+      this.util.hideLoading();
+      localStorage.setItem("payment",JSON.stringify(data))
+      this.util.presentToast("Bank details has been saved successfully")
+      return this.modalCtrl.dismiss(null, 'confirm');
+    }, error => {
+      this.util.hideLoading();
+      this.util.presentToast("Unable to save address! Please try again")
+    });
+    
   }
 
   cancel() {

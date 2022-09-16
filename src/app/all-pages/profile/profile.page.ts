@@ -30,7 +30,7 @@ export class ProfilePage implements OnInit {
       localStorage.setItem("user", JSON.stringify(data));
       this.util.userInfo = data;
       this.util.hideLoading();
-      this.router.navigate(['/account']);
+      this.util.presentToast("Account information has been saved successfully")
     }, error => {
       this.util.hideLoading();
       this.util.presentToast("Unable to save address! Please try again")

@@ -10,7 +10,7 @@ import { UtilService } from 'src/app/all-services/util.service';
   styleUrls: ['./pickup-options.component.scss'],
 })
 export class PickupOptionsComponent implements OnInit {
-
+  pickupSchedule : string;
   constructor(
     public api: ApiService,
     public router: Router,
@@ -21,8 +21,16 @@ export class PickupOptionsComponent implements OnInit {
   ngOnInit() {}
 
   placeOrder(){
+    console.log(this.pickupSchedule);
+    
     this.modalCtrl.dismiss(null, 'confirm');
     this.router.navigate(['/order-placed']);
+  }
+
+  setSchedule(event){
+    this.pickupSchedule = event.detail.value.split('T')[0]; 
+    // 2019-04-22
+    console.log(this.pickupSchedule);
   }
 
   cancel() {

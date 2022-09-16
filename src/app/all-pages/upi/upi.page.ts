@@ -24,7 +24,23 @@ export class UpiPage implements OnInit {
   }
 
   saveUpi(){
-    return this.modalCtrl.dismiss(null, 'confirm');
+    this.util.presentLoading(); 
+    let params = {
+      "token" :btoa(this.upi.user_id),
+      "upi_id":this.upi.upi_id,
+      "id":this.upi.id
+    }
+
+    this.api.post('api/save-upi', params).subscribe((data: any) => {
+      this.util.hideLoading();
+      localStorage.setItem("payment",JSON.stringify(data))
+      this.util.presentToast("UPI Id has been saved successfully")
+      return this.modalCtrl.dismiss(null, 'confirm');
+    }, error => {
+      this.util.hideLoading();
+      this.util.presentToast("Unable to UPI! Please try again")
+    });
+   
   }
 
   cancel() {

@@ -23,4 +23,28 @@ export class MobileTransfarPage implements OnInit {
   ngOnInit() {
   }
 
+  saveMobileTransfar(){
+    this.util.presentLoading(); 
+    let params = {
+      "token" :btoa(this.mobile.user_id),
+      "online_payment_no":this.mobile.online_payment_no,
+      "id":this.mobile.id
+    }
+
+    this.api.post('api/save-mobile-transfar', params).subscribe((data: any) => {
+      this.util.hideLoading();
+      localStorage.setItem("payment",JSON.stringify(data))
+      this.util.presentToast("UPI Id has been saved successfully")
+      return this.modalCtrl.dismiss(null, 'confirm');
+    }, error => {
+      this.util.hideLoading();
+      this.util.presentToast("Unable to UPI! Please try again")
+    });
+   
+  }
+
+  cancel() {
+    return this.modalCtrl.dismiss(null, 'cancel');
+  }
+
 }
