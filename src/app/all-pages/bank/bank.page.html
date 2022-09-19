@@ -12,7 +12,7 @@
 <ion-content class="ion-padding">
   <ion-item>
     <ion-label position="stacked">Account Holder Name</ion-label>
-    <ion-input [(ngModel)]="bankAccount.account_holder_name" ></ion-input>
+    <ion-input [(ngModel)]="bankAccount.account_holder_name"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="stacked">IFSC Code</ion-label>
@@ -27,9 +27,9 @@
     <ion-input [(ngModel)]="bankAccount.account_no"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="stacked">Confirm Account Number</ion-label>
+    <ion-label position="stacked" [(ngModel)]="confirmAccount" name="confirmAccount" ngDefaultControl (keyup)="checkValiation()" >Confirm Account Number</ion-label>
     <ion-input ></ion-input>
   </ion-item>
-  <ion-button expand="block" size="medium" color="main" (click)="saveBankAccount()">Save Account</ion-button>
+  <ion-button expand="block" size="medium" color="main" (click)="saveBankAccount()" [disabled]="disableBtn" >Save Account</ion-button>
 
 </ion-content>

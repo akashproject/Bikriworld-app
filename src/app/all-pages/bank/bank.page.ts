@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router, NavigationExtras } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+ import { ModalController } from '@ionic/angular';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
 
@@ -11,17 +11,19 @@ import { UtilService } from 'src/app/all-services/util.service';
   styleUrls: ['./bank.page.scss'],
 })
 export class BankPage implements OnInit {
-
-  bankAccount : any = JSON.parse(localStorage.getItem("payment"))
+  bankAccount : any ;
+  confirmAccount : string = '';
+  disableBtn = true;
   constructor(
     public api: ApiService,
     private location:Location,
     public router: Router,
     private util:UtilService,
-    private modalCtrl: ModalController
+     private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
+    this.bankAccount = JSON.parse(localStorage.getItem("payment"))
   }
 
   saveBankAccount(){
@@ -35,12 +37,22 @@ export class BankPage implements OnInit {
     }, error => {
       this.util.hideLoading();
       this.util.presentToast("Unable to save address! Please try again")
-    });
-    
+    }); 
   }
 
   cancel() {
     return this.modalCtrl.dismiss(null, 'cancel');
+  }
+
+  checkValiation(){
+    console.log("jo");
+    
+    console.log(this.confirmAccount,this.bankAccount.account_no);
+    
+    if(this.confirmAccount == this.bankAccount.account_no) {
+      console.log(this.confirmAccount);
+      this.disableBtn = true;
+    }
   }
 
 }
