@@ -65,3 +65,25 @@ ion-button{
         color: #fff;
     }
 }
+
+.conditions_wrap {
+    input {
+        position: absolute;
+        visibility: hidden;
+    }
+    label {
+        padding: 10px 6px;
+        border: 1px solid #00986b;
+        border-radius: 6px;
+        color: #025a40;
+        font-size: 14px;
+        font-weight: 700;
+        width: 94%;
+        margin-top: 5px;    
+    }
+}
+.condition_input:checked + .condition_label {
+    font-weight: bold;
+    border: 1px solid #00986b;
+    background: rgba(0, 152, 107, 0.1803921569);
+}

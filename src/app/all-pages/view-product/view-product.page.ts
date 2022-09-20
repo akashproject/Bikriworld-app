@@ -41,7 +41,7 @@ export class ViewProductPage implements OnInit {
   }
 
   setVariant(variant){
-    
+    console.log(variant);
     localStorage.setItem("variant", JSON.stringify(variant));
     this.maxPrice = variant.price;
     this.disableBtn = false;
