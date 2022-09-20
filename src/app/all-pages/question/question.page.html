@@ -16,7 +16,7 @@
     <ion-row class="ion-text-center">
       <ion-col size="12" *ngFor="let question of questions" >
         <ion-label  class="question_wrap">
-          <input class="form-check-input" [(ngModel)]="checkedQuestions[question.id]" type="checkbox" value="{{question.question}}" id="{{question.id}}" >
+          <input class="form-check-input" type="checkbox" value="{{question.question}}" id="{{question.id}}"  (change)="onSelectQuestion($event,question.id)" >
           <label class="form-check-label" for="{{question.id}}">{{question.question}}</label> 
         </ion-label>
       </ion-col>

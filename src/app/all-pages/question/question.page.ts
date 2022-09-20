@@ -24,6 +24,15 @@ export class QuestionPage implements OnInit {
     this.getQuestions();
   }
 
+  onSelectQuestion(event,variant){
+    if (event.target.checked) {
+        this.checkedQuestions.push(variant);
+    } else {
+      const index = this.checkedQuestions.findIndex(x => x.value === variant);
+      this.checkedQuestions.pop(index);
+    }
+  }
+
   getQuestions(){
     this.util.presentLoading();
     this.api.get('api/questions/'+localStorage.getItem("category_id")).subscribe((datas: any) => {
@@ -34,7 +43,7 @@ export class QuestionPage implements OnInit {
 
   saveCondition(){
     console.log(this.checkedQuestions);
-    
+    localStorage.setItem("questions", JSON.stringify(this.checkedQuestions));    
     this.router.navigate(['/accessories']);
   }
 

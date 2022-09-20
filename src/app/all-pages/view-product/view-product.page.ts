@@ -25,6 +25,7 @@ export class ViewProductPage implements OnInit {
   ngOnInit() {
     
     this.loc = this.location.getState();
+    localStorage.setItem("product_id", JSON.stringify(this.loc.product_id));
     this.viewProduct(this.loc.product_id);
   }
 

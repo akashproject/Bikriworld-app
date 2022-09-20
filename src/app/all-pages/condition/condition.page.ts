@@ -36,8 +36,33 @@ export class ConditionPage implements OnInit {
   }
 
   saveCondition(){
+    //this.util.presentLoading();   
     localStorage.setItem("condition", JSON.stringify(this.selectedCondition));
-    this.router.navigate(['/quote']);
+    console.log(localStorage.getItem("questions"));
+    console.log(localStorage.getItem("accessories"));
+    console.log(localStorage.getItem("accessories"));
+    console.log(localStorage.getItem("condition"));
+    let allConditions = {
+      "category_id" : localStorage.getItem("category_id"),
+      "product_id" : localStorage.getItem("product_id"),
+      "variant" : localStorage.getItem("variant"),
+      "questions" : localStorage.getItem("questions"),
+      "accessories" : localStorage.getItem("accessories"),
+      "age" : localStorage.getItem("age"),
+      "condition_id" : localStorage.getItem("condition"),
+    }
+    console.log();
+    
+    console.log(allConditions);
+    
+    this.api.post('api/calculate-price', allConditions).subscribe((data: any) => {
+      
+      //this.util.hideLoading();
+    }, error => {
+
+    });    
+
+   // this.router.navigate(['/quote']);
   }
 
 }
