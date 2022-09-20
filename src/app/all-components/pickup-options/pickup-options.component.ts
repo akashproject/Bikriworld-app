@@ -3,6 +3,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { AlertController ,ModalController } from '@ionic/angular';
 import { UtilService } from 'src/app/all-services/util.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-pickup-options',
@@ -11,6 +12,7 @@ import { UtilService } from 'src/app/all-services/util.service';
 })
 export class PickupOptionsComponent implements OnInit {
   pickupSchedule : string;
+  public minDate = moment().format();
   constructor(
     public api: ApiService,
     public router: Router,

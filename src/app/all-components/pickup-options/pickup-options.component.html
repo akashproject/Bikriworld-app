@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-datetime min="2021" [(ngModel)]="pickupSchedule" (ionChange)="setSchedule($event)" ></ion-datetime>
+  <ion-datetime presentation="date" [min]="minDate" [(ngModel)]="pickupSchedule" (ionChange)="setSchedule($event)" ></ion-datetime>
 </ion-content>
 <ion-footer collapse="fade">
   <ion-toolbar class="ion-padding-start ion-padding-end">

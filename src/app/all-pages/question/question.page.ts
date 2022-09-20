@@ -10,6 +10,7 @@ import { UtilService } from 'src/app/all-services/util.service';
 })
 export class QuestionPage implements OnInit {
   questions : any = [];
+  checkedQuestions : any = []
   constructor(
     public api: ApiService,
     private location:Location,
@@ -18,6 +19,8 @@ export class QuestionPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(localStorage.getItem("variant"));
+    
     this.getQuestions();
   }
 
@@ -30,6 +33,8 @@ export class QuestionPage implements OnInit {
   }
 
   saveCondition(){
+    console.log(this.checkedQuestions);
+    
     this.router.navigate(['/accessories']);
   }
 

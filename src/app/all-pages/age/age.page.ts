@@ -18,6 +18,7 @@ export class AgePage implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(localStorage.getItem("accessories"));
     this.getAge();
   }
 
