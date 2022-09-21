@@ -37,13 +37,13 @@ export class ViewProductPage implements OnInit {
       this.maxPrice = data.max_price
       this.util.hideLoading();
     });
-
-    
   }
 
   setVariant(variant){
-    console.log(variant);
+    let variation_type = variant.ram +' | '+ variant.storage
     localStorage.setItem("variant", JSON.stringify(variant));
+    localStorage.setItem("variation_type", variation_type);
+    localStorage.setItem("veriation_price", variant.price);
     this.maxPrice = variant.price;
     this.disableBtn = false;
   }

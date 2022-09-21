@@ -9,7 +9,7 @@ import { UtilService } from 'src/app/all-services/util.service';
 })
 export class AgePage implements OnInit {
   ages : any =[];
-  selectedAge : any =[];
+  selectedAge : any;
   disableBtn = true;
   constructor(
     public api: ApiService,
@@ -31,12 +31,12 @@ export class AgePage implements OnInit {
   }
 
   setAge(variant){
-    this.selectedAge.push(variant);
+    this.selectedAge = variant;
     this.disableBtn = false;
   }
 
   saveCondition(){
-    localStorage.setItem("age", JSON.stringify(this.selectedAge));    
+    localStorage.setItem("age", this.selectedAge);    
     this.router.navigate(['/condition']);
   }
 

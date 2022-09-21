@@ -20,10 +20,10 @@
       </ion-col>
       <ion-col size="7" class="ion-padding-start">
         <ion-label>
-          <h2>Infinix Hot 10 Play ( 3 GB | 32 GB  )</h2>
+          <h2>{{ product.name }} ( {{calculatedData.variation_type}}  )</h2>
           <p>The amount is based on the your device condition as you mentioned. </p>
         </ion-label>
-        <h2 style="margin-top: 10px;">  ₹ 6290/- </h2>
+        <h2 style="margin-top: 10px;">  ₹ {{calculatedData.exact_price}}/- </h2>
       </ion-col>
     </ion-row>   
   </div>
@@ -54,7 +54,7 @@
         <ul class="info_widget">
             <li>
                 <span style="float:left;width: 49%;">Base Price</span>
-                <span style="float:right">₹3,290/- </span>
+                <span style="float:right">₹{{calculatedData.exact_price}}/- </span>
             </li>
             <li>
                 <span style="width: 49%;float:left">Pickup Charges</span>
@@ -62,7 +62,7 @@
             </li>
             <li>
                 <span style="width: 49%;float:left">Total Amount</span>
-                <span style="float:right">₹3,290/- </span>
+                <span style="float:right">₹{{calculatedData.exact_price}}/- </span>
             </li>
             
         </ul>

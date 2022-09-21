@@ -43,9 +43,7 @@ export class SelectAddressesPage implements OnInit {
       "token":btoa(this.userInfo.id),
     }
     this.api.post('api/addresses', param).subscribe((data: any) => {
-      this.addresses = data;
-      console.log(this.addresses);
-      
+      this.addresses = data;      
       this.util.hideLoading();
     }, error => {
 
@@ -108,6 +106,7 @@ export class SelectAddressesPage implements OnInit {
   }
 
   async selectAddress(id){
+    localStorage.setItem("address_id",id)
     const modal = await this.modalCtrl.create({
       component: PamentOptionsComponent,
     });

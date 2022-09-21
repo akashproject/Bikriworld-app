@@ -20,7 +20,7 @@
             Bank Transfar
             <p>Provide your bank account details</p>
           </ion-label>  
-          <ion-radio slot="start" color="main" value="Bank Transfar" (click)="changePaymentOption()"></ion-radio>
+          <ion-radio slot="start" color="main" value="Bank Transfar" (click)="changePaymentOption('Bank Transfar')"></ion-radio>
         </ion-item>
     
         <ion-item>
@@ -28,7 +28,7 @@
             UPI
             <p>Add a verified UPI id</p>
           </ion-label>
-          <ion-radio slot="start" color="main" value="Upi" (click)="changePaymentOption()" ></ion-radio>
+          <ion-radio slot="start" color="main" value="Upi" (click)="changePaymentOption('Upi')" ></ion-radio>
         </ion-item>   
 
         <ion-item>
@@ -36,7 +36,7 @@
             Mobile Transfar
             <p slot="content">Add mobile number which connected to UPI</p>
           </ion-label>
-          <ion-radio slot="start" color="main" value="Online Payment" (click)="changePaymentOption()"></ion-radio>
+          <ion-radio slot="start" color="main" value="Online Payment" (click)="changePaymentOption('Online Payment')"></ion-radio>
         </ion-item>  
 
         <ion-item>
@@ -44,7 +44,7 @@
             Instant Cash
             <p slot="content">Signature on payment recive invoice </p>
           </ion-label>
-          <ion-radio slot="start" color="main" value="Cash on pickup" (click)="changePaymentOption()"></ion-radio>
+          <ion-radio slot="start" color="main" value="Cash on pickup" (click)="changePaymentOption('Cash on pickup')"></ion-radio>
         </ion-item>  
       </ion-radio-group>
     </ion-list>

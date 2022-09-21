@@ -13,7 +13,6 @@ import { PickupOptionsComponent } from '../../all-components/pickup-options/pick
 })
 export class PamentOptionsComponent implements OnInit {
 
-  paymentOption : any;
   disableBtn = true
   constructor(
     public api: ApiService,
@@ -26,13 +25,13 @@ export class PamentOptionsComponent implements OnInit {
 
   ngOnInit() {}
 
-  changePaymentOption(){
+  changePaymentOption(payemnt_option){
+    localStorage.setItem("payment_mode",payemnt_option)
     this.disableBtn = false
   }
 
   async selectPaymentOption(){
     this.modalCtrl.dismiss(null, 'confirm');
-    console.log(this.paymentOption);
     const modal = await this.modalCtrl.create({
       component: PickupOptionsComponent,
     });

@@ -9,7 +9,7 @@ import { UtilService } from 'src/app/all-services/util.service';
 })
 export class ConditionPage implements OnInit {
   conditions : any =[];
-  selectedCondition : any =[];
+  selectedCondition : any;
   disableBtn = true;
   
   constructor(
@@ -31,38 +31,33 @@ export class ConditionPage implements OnInit {
   }
 
   setCondition(variant){
-    this.selectedCondition.push(variant);
+    this.selectedCondition = variant;
     this.disableBtn = false;
   }
 
   saveCondition(){
-    //this.util.presentLoading();   
-    localStorage.setItem("condition", JSON.stringify(this.selectedCondition));
-    console.log(localStorage.getItem("questions"));
-    console.log(localStorage.getItem("accessories"));
-    console.log(localStorage.getItem("accessories"));
-    console.log(localStorage.getItem("condition"));
+    this.util.presentLoading();   
+    localStorage.setItem("condition", this.selectedCondition);
     let allConditions = {
       "category_id" : localStorage.getItem("category_id"),
       "product_id" : localStorage.getItem("product_id"),
+      "variation_type" : localStorage.getItem("variation_type"),
+      "veriation_price" : localStorage.getItem("veriation_price"),
       "variant" : localStorage.getItem("variant"),
       "questions" : localStorage.getItem("questions"),
       "accessories" : localStorage.getItem("accessories"),
       "age" : localStorage.getItem("age"),
       "condition_id" : localStorage.getItem("condition"),
     }
-    console.log();
-    
-    console.log(allConditions);
-    
+
     this.api.post('api/calculate-price', allConditions).subscribe((data: any) => {
-      
-      //this.util.hideLoading();
+      localStorage.setItem("calculatedData", JSON.stringify(data));
+      this.util.hideLoading();
+      this.router.navigate(['/quote']);
     }, error => {
-
+      this.util.hideLoading();
+      this.util.presentToast("Unable to Calculate! Please try again")
     });    
-
-   // this.router.navigate(['/quote']);
   }
 
 }
