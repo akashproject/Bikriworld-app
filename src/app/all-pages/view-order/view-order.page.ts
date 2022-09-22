@@ -24,9 +24,7 @@ export class ViewOrderPage implements OnInit {
 
   ngOnInit() {
     this.loc = this.location.getState(); 
-    this.order = this.loc.order;
-    console.log(this.order);
-    //this.viewOrder()
+    this.viewOrder(this.loc.order_id)
     
   }
 
@@ -44,6 +42,14 @@ export class ViewOrderPage implements OnInit {
     if (role === 'confirm') {
       this.order.status = "cancelled"
     }
+  }
+
+  viewOrder(order_id){
+    this.util.presentLoading();
+    this.api.get('api/view-order/'+order_id).subscribe((data: any) => {
+      this.order = data;
+      this.util.hideLoading();
+    });
   }
 
 

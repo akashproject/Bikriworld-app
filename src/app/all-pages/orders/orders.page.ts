@@ -49,7 +49,7 @@ export class OrdersPage implements OnInit {
   }
 
   goToViewOrder(order){
-    this.router.navigate(['/view-order'], {state : {order :order}});
+    this.router.navigate(['/view-order'], {state : {order_id :order.id}});
   }
 
 }

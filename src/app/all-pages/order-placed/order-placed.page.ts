@@ -3,6 +3,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { AlertController ,ModalController } from '@ionic/angular';
 import { UtilService } from 'src/app/all-services/util.service';
+import { JsonPipe } from '@angular/common';
 
 
 @Component({
@@ -11,8 +12,8 @@ import { UtilService } from 'src/app/all-services/util.service';
   styleUrls: ['./order-placed.page.scss'],
 })
 export class OrderPlacedPage implements OnInit {
-
-  order : any = {};
+  product : any = {};
+  order : any = JSON.parse(localStorage.getItem("orderData"));
   constructor(
     public api: ApiService,
     public router: Router,
@@ -21,9 +22,19 @@ export class OrderPlacedPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.viewProduct()
   }
 
   goToViewOrder(){
-    this.router.navigate(['/view-order'], {state : {order :this.order}});
+    this.router.navigate(['/view-order'], {state : {order_id :this.order.id}});
   }
+
+  viewProduct(){    
+    this.util.presentLoading();
+    this.api.get('api/product/'+this.order.product_id).subscribe((data: any) => {
+      this.product = data
+      this.util.hideLoading();
+    });
+  }
+
 }

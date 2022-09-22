@@ -19,14 +19,14 @@
     <h5> Device Information </h5>
     <hr>
     <ion-col size="7" >
-      <h6 style="margin:0"> Iphone 5s </h6>
-      <p>  2GB | 32GB </p>
+      <h6 style="margin:0"> {{ product.name }} </h6>
+      <p>  {{order.service_no}} </p>
     </ion-col>
     <ion-col size="5" >
-      <img src="https://bikriworld.com/administrator/public/images/product/apple_iphone_11_logo_1651756489.jpg" />
+      <img src="https://bikriworld.com/administrator/public/images/{{product.image}}" />
     </ion-col>
     <ion-col size="12" >
-      <h6>Order Number : <span class=""> 5465898 </span> </h6>
+      <h6>Order Number : <span class=""> {{order.service_no}} </span> </h6>
     </ion-col>
   </ion-row>
 </ion-content>
