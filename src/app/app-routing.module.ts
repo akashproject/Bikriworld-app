@@ -104,6 +104,10 @@ const routes: Routes = [
   },  {
     path: 'mobile-transfar',
     loadChildren: () => import('./all-pages/mobile-transfar/mobile-transfar.module').then( m => m.MobileTransfarPageModule)
+  },
+  {
+    path: 'test',
+    loadChildren: () => import('./all-pages/test/test.module').then( m => m.TestPageModule)
   }
 
 
