@@ -4,7 +4,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
 import { ModalController } from '@ionic/angular';
-import { ConfigurationComponent } from '../configuration/configuration.component';
+import { ConfigurationPage } from '../../all-pages/configuration/configuration.page';
 @Component({
   selector: 'app-laptop-view',
   templateUrl: './laptop-view.component.html',
@@ -54,7 +54,7 @@ export class LaptopViewComponent implements OnInit {
   async seeConfiguration (){
     
     const modal = await this.modalCtrl.create({
-      component: ConfigurationComponent,
+      component: ConfigurationPage,
       componentProps: { product_id: this.product.id }
     });
     modal.present();

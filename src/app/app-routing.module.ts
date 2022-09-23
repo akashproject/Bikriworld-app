@@ -108,6 +108,10 @@ const routes: Routes = [
   {
     path: 'test',
     loadChildren: () => import('./all-pages/test/test.module').then( m => m.TestPageModule)
+  },
+  {
+    path: 'configuration',
+    loadChildren: () => import('./all-pages/configuration/configuration.module').then( m => m.ConfigurationPageModule)
   }
 
 

@@ -17,11 +17,11 @@ export class ViewProductPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    localStorage.removeItem("variant");
+    localStorage.removeItem("veriation_price");
   }
 
   async gotoQuestion(){
-    if(localStorage.getItem("variant")){
+    if(localStorage.getItem("veriation_price")){
       this.router.navigate(['/question']);
     } else {
       const alert = await this.alertController.create({

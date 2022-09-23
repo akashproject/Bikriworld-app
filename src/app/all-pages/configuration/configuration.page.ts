@@ -3,13 +3,14 @@ import { Location } from '@angular/common';
 import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
+import { AlertController ,ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.page.html',
-  styleUrls: ['./test.page.scss'],
+  selector: 'app-configuration',
+  templateUrl: './configuration.page.html',
+  styleUrls: ['./configuration.page.scss'],
 })
-export class TestPage implements OnInit {
+export class ConfigurationPage implements OnInit {
 
   configuration : any = []
   selectedConfigurationLabel : any = []
@@ -20,7 +21,8 @@ export class TestPage implements OnInit {
     public api: ApiService,
     public router: Router,
     private location:Location,
-    private util:UtilService
+    private util:UtilService,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
@@ -34,9 +36,7 @@ export class TestPage implements OnInit {
   }
 
   handleChange(event,key){
-    console.log(this.selectedDeviceConfiguration);
-    
-    //this.selectedDeviceConfiguration[key] = event.detail.value;
+    this.selectedConfigurationLabel[key] = event.detail.value;
     if( 
       this.selectedDeviceConfiguration['processer'] &&
       this.selectedDeviceConfiguration['ram'] && 
@@ -61,6 +61,7 @@ export class TestPage implements OnInit {
       //localStorage.setItem("variant", JSON.stringify(variant));
       localStorage.setItem("variation_type", variation_type);
       localStorage.setItem("veriation_price", data);
+      this.modalCtrl.dismiss(null, 'confirm');
     }, error => {
       this.util.hideLoading();
       this.util.presentToast("Unable to Calculate! Please try again")
@@ -69,5 +70,8 @@ export class TestPage implements OnInit {
     
   }
 
+  cancel() {
+    return this.modalCtrl.dismiss(null, 'cancel');
+  }
 
 }

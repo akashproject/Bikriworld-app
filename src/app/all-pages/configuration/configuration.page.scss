@@ -1,0 +1,27 @@
+.setting-outer {
+    background: #c8e9df33;
+    .confiduration_options {
+      box-shadow: 0px 1px 8px 3px rgb(215 215 215 / 54%);
+      padding: 0;
+      border-radius: 10px;
+      margin: 0.9rem 0;
+      background-color: #fff;
+      border: 1.5px solid #47b393;
+        /* DOES NOT work */
+        ion-select-option {
+            color: red;
+        }
+        .custom-options {
+            font-size: 20px;
+        }
+        ion-select {
+            font-size: 20px;
+        }
+    }
+    ion-button{
+        border-radius: 5px;
+        ion-icon{
+            color: #fff;
+        }
+    }
+}

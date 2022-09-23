@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
-
+import { AlertController ,ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-product-view',
   templateUrl: './product-view.component.html',
@@ -19,7 +19,8 @@ export class ProductViewComponent implements OnInit {
     public api: ApiService,
     public router: Router,
     private location:Location,
-    private util:UtilService
+    private util:UtilService,
+    private modalCtrl: ModalController
   ) {
     this.loc = this.location.getState();
     localStorage.setItem("product_id", JSON.stringify(this.loc.product_id));
@@ -47,4 +48,9 @@ export class ProductViewComponent implements OnInit {
     localStorage.setItem("veriation_price", variant.price);
     this.maxPrice = variant.price;
   }
+
+  cancel() {
+    return this.modalCtrl.dismiss(null, 'cancel');
+  }
+
 }
