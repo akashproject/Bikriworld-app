@@ -28,9 +28,7 @@ export class ViewOrderPage implements OnInit {
     
   }
 
-  async modalCancelOrder(){
-    console.log(this.order.order_id);
-    
+  async modalCancelOrder(){    
     const modal = await this.modalCtrl.create({
       component: CancelReasonPage,
       componentProps: { order_id: this.order.order_id }
@@ -50,6 +48,10 @@ export class ViewOrderPage implements OnInit {
       this.order = data;
       this.util.hideLoading();
     });
+  }
+
+  updateOrder(){
+    this.router.navigate(['/update-order'], {state : {order_id :this.order.order_id}});
   }
 
 

@@ -20,8 +20,9 @@
       </ion-label>
       <h4> Get Upto </h4>
       <h2 style="margin-top: 0;" color="danger">  ₹ {{maxPrice}}/- </h2>
-      
+      <span *ngIf="variation_type != ''"> {{variation_type}}</span>
     </ion-col>
+
   </ion-row>
   <ion-button expand="block" size="medium" fill="outline" class="round-corner-btn" color="main" (click)="seeConfiguration()">
     See Configuration

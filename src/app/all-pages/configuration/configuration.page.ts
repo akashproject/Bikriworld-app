@@ -58,7 +58,11 @@ export class ConfigurationPage implements OnInit {
     }
     this.api.post('api/set-device-price', config).subscribe((data: any) => {
       this.util.hideLoading();
-      let variation_type = this.selectedConfigurationLabel['year']+" | Processer : "+this.selectedConfigurationLabel['processer']+" | Ram : "+this.selectedConfigurationLabel['ram']+" | Storage : "+this.selectedConfigurationLabel['hdd']+" | Graphic : "+this.selectedConfigurationLabel['graphic']+" | Screen : "+this.selectedConfigurationLabel['screen']
+      let selectedConfigurationLabel;
+      if(this.selectedConfigurationLabel['year'] != ''){
+        selectedConfigurationLabel = this.selectedConfigurationLabel['year']
+      }
+      let variation_type = selectedConfigurationLabel+" | Processer : "+this.selectedConfigurationLabel['processer']+" | Ram : "+this.selectedConfigurationLabel['ram']+" | Storage : "+this.selectedConfigurationLabel['hdd']+" | Graphic : "+this.selectedConfigurationLabel['graphic']+" | Screen : "+this.selectedConfigurationLabel['screen']
       //localStorage.setItem("variant", JSON.stringify(variant));
       localStorage.setItem("variation_type", variation_type);
       localStorage.setItem("veriation_price", data);

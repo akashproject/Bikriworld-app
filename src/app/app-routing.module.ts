@@ -112,6 +112,10 @@ const routes: Routes = [
   {
     path: 'configuration',
     loadChildren: () => import('./all-pages/configuration/configuration.module').then( m => m.ConfigurationPageModule)
+  },
+  {
+    path: 'update-order',
+    loadChildren: () => import('./update-order/update-order.module').then( m => m.UpdateOrderPageModule)
   }
 
 

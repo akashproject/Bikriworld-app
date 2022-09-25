@@ -26,7 +26,7 @@
       <img src="https://bikriworld.com/administrator/public/images/{{order.image}}" />
     </ion-col>
   </ion-row>
-  <ion-button class="round-corner-btn" color="main" (click)="cancelOrder()"  *ngIf="order.status == 'pending'">
+  <ion-button class="round-corner-btn" color="main" (click)="updateOrder()"  *ngIf="order.status == 'pending'">
     Update Order  
   </ion-button> 
   <ion-row class="order_wraper">

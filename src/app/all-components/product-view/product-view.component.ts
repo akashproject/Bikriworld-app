@@ -22,16 +22,14 @@ export class ProductViewComponent implements OnInit {
     private util:UtilService,
     private modalCtrl: ModalController
   ) {
-    this.loc = this.location.getState();
-    localStorage.setItem("product_id", JSON.stringify(this.loc.product_id));
-    this.viewProduct(this.loc.product_id);
+    this.viewProduct();
    }
 
   ngOnInit() {
    
   }
 
-  viewProduct(product_id){    
+  viewProduct(){    
     this.util.presentLoading();
     this.api.get('api/product/'+localStorage.getItem("product_id")).subscribe((data: any) => {
       this.product = data;

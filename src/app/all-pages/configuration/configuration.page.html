@@ -12,7 +12,7 @@
   <div class="setting-outer ion-padding" >
     <h4> Select all device configurations</h4>
     <p size="small" style="font-size: 0.7em;"> Please choose all configurations of your device </p>
-    <ion-list class="confiduration_options">
+    <ion-list class="confiduration_options" *ngIf="configuration.year">
       <ion-item>
         <ion-label position="stacked"> Release Year </ion-label>
         <ion-select placeholder="Select processer of device" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'year')" >

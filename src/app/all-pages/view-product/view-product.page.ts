@@ -25,7 +25,7 @@ export class ViewProductPage implements OnInit {
       this.router.navigate(['/question']);
     } else {
       const alert = await this.alertController.create({
-        header: 'Select Product Veriation',
+        header: 'Select Product Configuration',
         buttons: ['Dismiss']
       });
   

@@ -17,6 +17,7 @@ export class LaptopViewComponent implements OnInit {
   maxPrice : string;
   loc : any;
   category_id = localStorage.getItem("category_id")
+  variation_type : any;
   constructor(
     public api: ApiService,
     public router: Router,
@@ -24,31 +25,21 @@ export class LaptopViewComponent implements OnInit {
     private util:UtilService,
     private modalCtrl: ModalController
   ) {
-    this.loc = this.location.getState();
-    localStorage.setItem("product_id", JSON.stringify(this.loc.product_id));
-    this.viewProduct(this.loc.product_id);
+    this.viewProduct();
    }
 
   ngOnInit() {
-   
+    this.variation_type = (localStorage.getItem("variation_type"))?localStorage.getItem("variation_type"):'';
   }
 
-  viewProduct(product_id){    
+  viewProduct(){    
     this.util.presentLoading();
-    this.api.get('api/product/'+product_id).subscribe((data: any) => {
+    this.api.get('api/product/'+localStorage.getItem("product_id")).subscribe((data: any) => {
       this.product = data;
       this.variants = JSON.parse(data.variant);
       this.maxPrice = data.max_price
       this.util.hideLoading();
     });
-  }
-
-  setVariant(variant){
-    let variation_type = variant.ram +' | '+ variant.storage
-    localStorage.setItem("variant", JSON.stringify(variant));
-    localStorage.setItem("variation_type", variation_type);
-    localStorage.setItem("veriation_price", variant.price);
-    this.maxPrice = variant.price;
   }
 
   async seeConfiguration (){
@@ -62,7 +53,7 @@ export class LaptopViewComponent implements OnInit {
     const { data, role } = await modal.onWillDismiss();
 
     if (role === 'confirm') {
-
+      this.variation_type = (localStorage.getItem("variation_type"))?localStorage.getItem("variation_type"):'';
     }
   }
 }

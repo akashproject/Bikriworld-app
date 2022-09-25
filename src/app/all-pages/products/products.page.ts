@@ -37,7 +37,8 @@ export class ProductsPage implements OnInit {
   }
 
   viewProduct(product_id){
-    this.router.navigate(['/view-product'], {state : {product_id :product_id}});
+    localStorage.setItem("product_id", product_id);
+    this.router.navigate(['/view-product']);
   }
 
   goToSearch(key){
