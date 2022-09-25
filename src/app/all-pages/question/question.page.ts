@@ -18,9 +18,7 @@ export class QuestionPage implements OnInit {
     private util:UtilService
   ) { }
 
-  ngOnInit() {
-    console.log(localStorage.getItem("variant"));
-    
+  ngOnInit() {    
     this.getQuestions();
   }
 

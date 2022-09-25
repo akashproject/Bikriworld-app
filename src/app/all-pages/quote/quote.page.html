@@ -23,7 +23,11 @@
           <h2>{{ product.name }} ( {{calculatedData.variation_type}}  )</h2>
           <p>The amount is based on the your device condition as you mentioned. </p>
         </ion-label>
-        <h2 style="margin-top: 10px;">  ₹ {{calculatedData.exact_price}}/- </h2>
+        <h2 style="margin-top: 10px;" *ngIf="calculatedData.exact_price >= 500">  ₹ {{calculatedData.exact_price}}/- </h2>
+        <h2 style="margin-top: 10px;" class="sorry_message" *ngIf="calculatedData.exact_price <= 500">  
+          <span> We Are Sorry </span>
+          <p> Price is too low as per your device condition </p>
+        </h2>
       </ion-col>
     </ion-row>   
   </div>

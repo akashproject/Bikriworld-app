@@ -43,7 +43,6 @@ export class ConditionPage implements OnInit {
       "product_id" : localStorage.getItem("product_id"),
       "variation_type" : localStorage.getItem("variation_type"),
       "veriation_price" : localStorage.getItem("veriation_price"),
-      "variant" : localStorage.getItem("variant"),
       "questions" : localStorage.getItem("questions"),
       "accessories" : localStorage.getItem("accessories"),
       "age" : localStorage.getItem("age"),

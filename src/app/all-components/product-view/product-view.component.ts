@@ -33,7 +33,7 @@ export class ProductViewComponent implements OnInit {
 
   viewProduct(product_id){    
     this.util.presentLoading();
-    this.api.get('api/product/'+product_id).subscribe((data: any) => {
+    this.api.get('api/product/'+localStorage.getItem("product_id")).subscribe((data: any) => {
       this.product = data;
       this.variants = JSON.parse(data.variant);
       this.maxPrice = data.max_price
@@ -43,7 +43,6 @@ export class ProductViewComponent implements OnInit {
 
   setVariant(variant){
     let variation_type = variant.ram +' | '+ variant.storage
-    localStorage.setItem("variant", JSON.stringify(variant));
     localStorage.setItem("variation_type", variation_type);
     localStorage.setItem("veriation_price", variant.price);
     this.maxPrice = variant.price;

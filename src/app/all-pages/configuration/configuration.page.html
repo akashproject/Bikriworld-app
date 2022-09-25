@@ -15,48 +15,48 @@
     <ion-list class="confiduration_options">
       <ion-item>
         <ion-label position="stacked"> Release Year </ion-label>
-        <ion-select [(ngModel)]="this.selectedDeviceConfiguration['year']" placeholder="Select processer of device" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'year')" >
-          <ion-select-option *ngFor="let year of configuration.year" [value]="year.id" class="brown-option" >{{ year.value }}</ion-select-option>
+        <ion-select placeholder="Select processer of device" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'year')" >
+          <ion-select-option *ngFor="let year of configuration.year" [value]="year" class="brown-option" >{{ year.value }}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
     <ion-list class="confiduration_options">
       <ion-item>
         <ion-label position="stacked"> Device Processer </ion-label>
-        <ion-select [(ngModel)]="this.selectedDeviceConfiguration['processer']" placeholder="Select processer of device" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'processer')" >
-          <ion-select-option *ngFor="let processer of configuration.processer" [value]="processer.id" class="brown-option" >{{ processer.value }}</ion-select-option>
+        <ion-select placeholder="Select processer of device" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'processer')" >
+          <ion-select-option *ngFor="let processer of configuration.processer" [value]="processer" class="brown-option" >{{ processer.value }}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
     <ion-list class="confiduration_options">
       <ion-item>
         <ion-label position="stacked"> Device Ram Memory </ion-label>
-        <ion-select [(ngModel)]="this.selectedDeviceConfiguration['ram']" placeholder="Select Ram Memory of device" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'ram')">
-          <ion-select-option *ngFor="let ram of configuration.ram" [value]="ram.id" class="brown-option" >{{ ram.value }}</ion-select-option>
+        <ion-select placeholder="Select Ram Memory of device" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'ram')">
+          <ion-select-option *ngFor="let ram of configuration.ram" [value]="ram" class="brown-option" >{{ ram.value }}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
     <ion-list class="confiduration_options">
       <ion-item>
         <ion-label position="floating"> Device Storage </ion-label>
-        <ion-select [(ngModel)]="this.selectedDeviceConfiguration['hdd']" placeholder="Select Storage of device" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'hdd')">
-          <ion-select-option *ngFor="let hdd of configuration.hdd" [value]="hdd.id" class="brown-option" >{{ hdd.value }}</ion-select-option>
+        <ion-select placeholder="Select Storage of device" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'hdd')">
+          <ion-select-option *ngFor="let hdd of configuration.hdd" [value]="hdd" class="brown-option" >{{ hdd.value }}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
     <ion-list class="confiduration_options">
       <ion-item>
         <ion-label position="floating"> Display Size </ion-label>
-        <ion-select [(ngModel)]="this.selectedDeviceConfiguration['screen']" placeholder="Select  Display Size of device" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'screen')">
-          <ion-select-option *ngFor="let screen of configuration.screen" [value]="screen.id" class="brown-option" >{{ screen.value }}</ion-select-option>
+        <ion-select placeholder="Select  Display Size of device" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'screen')">
+          <ion-select-option *ngFor="let screen of configuration.screen" [value]="screen" class="brown-option" >{{ screen.value }}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
     <ion-list class="confiduration_options">
       <ion-item>
         <ion-label position="floating"> Graphics Card </ion-label>
-        <ion-select [(ngModel)]="this.selectedDeviceConfiguration['graphic']" placeholder="Select Graphics Card" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'graphic')">
-          <ion-select-option *ngFor="let graphic of configuration.graphic" [value]="graphic.id" class="brown-option" >{{ graphic.value }}</ion-select-option>
+        <ion-select placeholder="Select Graphics Card" class="custom-options" interface="action-sheet" (ionChange)="handleChange($event,'graphic')">
+          <ion-select-option *ngFor="let graphic of configuration.graphic" [value]="graphic" class="brown-option" >{{ graphic.value }}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>

@@ -36,7 +36,8 @@ export class ConfigurationPage implements OnInit {
   }
 
   handleChange(event,key){
-    this.selectedConfigurationLabel[key] = event.detail.value;
+    this.selectedConfigurationLabel[key] = event.detail.value.value;
+    this.selectedDeviceConfiguration[key] = event.detail.value.id;
     if( 
       this.selectedDeviceConfiguration['processer'] &&
       this.selectedDeviceConfiguration['ram'] && 
@@ -57,7 +58,7 @@ export class ConfigurationPage implements OnInit {
     }
     this.api.post('api/set-device-price', config).subscribe((data: any) => {
       this.util.hideLoading();
-      let variation_type = "Release Year : "+this.selectedConfigurationLabel['year']+" | Processer : "+this.selectedConfigurationLabel['processer']+" | Ram : "+this.selectedConfigurationLabel['ram']+" | Storage : "+this.selectedConfigurationLabel['hdd']+" | Graphic : "+this.selectedConfigurationLabel['graphic']+" | Screen : "+this.selectedConfigurationLabel['screen']
+      let variation_type = this.selectedConfigurationLabel['year']+" | Processer : "+this.selectedConfigurationLabel['processer']+" | Ram : "+this.selectedConfigurationLabel['ram']+" | Storage : "+this.selectedConfigurationLabel['hdd']+" | Graphic : "+this.selectedConfigurationLabel['graphic']+" | Screen : "+this.selectedConfigurationLabel['screen']
       //localStorage.setItem("variant", JSON.stringify(variant));
       localStorage.setItem("variation_type", variation_type);
       localStorage.setItem("veriation_price", data);
