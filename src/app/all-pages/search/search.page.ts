@@ -28,7 +28,6 @@ export class SearchPage implements OnInit {
   }
 
   getResults(next = false){       
-    this.util.presentLoading(); 
     let params = {
       'keyword' : this.keyword
     }
@@ -41,16 +40,13 @@ export class SearchPage implements OnInit {
         this.searchResults = data.data
       }
             
-      this.util.hideLoading();
     }, error => {
     });
   }
 
 
-  viewProduct(product_id){
-    this.getProductDetail(product_id)
-    localStorage.setItem("product_id", product_id);
-    this.router.navigate(['/view-product']);
+  async viewProduct(product_id){
+    await this.getProductDetail(product_id)
   }
 
   loadData(event) {
@@ -69,7 +65,10 @@ export class SearchPage implements OnInit {
     this.api.get('api/product/'+product_id).subscribe((data: any) => {
       localStorage.setItem("brand_id",data.brand_id);
       localStorage.setItem("category_id", data.category_id);
+      localStorage.setItem("product_id",  data.id);
+      console.log("step1 ",localStorage.getItem("category_id"));
       this.util.hideLoading();
+      this.router.navigate(['/view-product']);
     });
   }
 

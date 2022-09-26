@@ -8,7 +8,7 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./view-product.page.scss'],
 })
 export class ViewProductPage implements OnInit {
-  category_id = localStorage.getItem("category_id")
+  category_id : any;
   disableBtn = true;
   
   constructor(
@@ -17,6 +17,9 @@ export class ViewProductPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log(localStorage.getItem("category_id"));
+    
+    this.category_id = localStorage.getItem("category_id");
     localStorage.removeItem("veriation_price");
   }
 
