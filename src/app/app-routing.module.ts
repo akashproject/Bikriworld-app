@@ -116,6 +116,14 @@ const routes: Routes = [
   {
     path: 'update-order',
     loadChildren: () => import('./update-order/update-order.module').then( m => m.UpdateOrderPageModule)
+  },
+  {
+    path: 'city',
+    loadChildren: () => import('./all-pages/city/city.module').then( m => m.CityPageModule)
+  },
+  {
+    path: 'search-city',
+    loadChildren: () => import('./all-pages/search-city/search-city.module').then( m => m.SearchCityPageModule)
   }
 
 

@@ -3,7 +3,8 @@ import { Location } from '@angular/common';
 import { CategoriesService } from '../../all-services/categories.service';
 import { Router } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
-
+import { ModalController } from '@ionic/angular';
+import { CityPage } from '../city/city.page';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -13,10 +14,12 @@ export class HomePage {
 
   categories : any = [];
   topSellingBrands : any = [];
+  selectCity : any = "Select City"
   constructor(
     private location:Location,
     private router : Router,
     public api: ApiService,
+    private modalCtrl: ModalController
   ) {
 
   }
@@ -80,8 +83,22 @@ export class HomePage {
     this.api.get('api/top-brands').subscribe((datas: any) => {
       this.topSellingBrands = datas;
       console.log(datas);
-      
     });
   }
+
+  async cityModal(){
+    const modal = await this.modalCtrl.create({
+      component: CityPage,
+    });
+    modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'confirm') {
+      this.selectCity = localStorage.getItem("selectedCity");
+    }
+  }
+
+
   
 }

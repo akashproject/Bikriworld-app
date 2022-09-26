@@ -1,7 +1,9 @@
 <ion-content>
   <div class="landing-header" >
+    <div class="location ion-margin-start ion-padding-top" >
+       <span class="ion-label"> City : </span> <span (click)="cityModal()"> {{selectCity}} <ion-icon name="chevron-down-outline"  style="vertical-align: middle;" size="medium"></ion-icon></span>
+    </div>
     <ion-searchbar placeholder="Search your model here" animated [routerLink]="['/search']"></ion-searchbar>
-
   </div>
   <ion-slides [options]="slideOpts">
     <ion-slide>

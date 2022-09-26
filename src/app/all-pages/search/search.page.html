@@ -11,7 +11,7 @@
 
 <ion-content>
   <div class="setting-outer ion-padding" >
-    <ion-list>
+    <ion-list *ngIf="searchResults != ''">
       <ion-item *ngFor="let result of searchResults"  (click)="viewProduct(result.id)">
         <ion-label class="ion-text-wrap"> {{ result.name }}</ion-label>
       </ion-item>
