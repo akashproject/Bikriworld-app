@@ -1,11 +1,26 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Search City</ion-title>
+    <ion-searchbar placeholder="Search your product" class="ion-no-border searchbar-input" [(ngModel)]="keyword" (ionChange)="getResults()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 <ion-content>
 
+
+<ion-content>
+  <div class="setting-outer ion-padding" >
+    <ion-list *ngIf="searchResults != ''">
+      <ion-item *ngFor="let result of searchResults"  (click)="viewProduct(result.id)">
+        <ion-label class="ion-text-wrap"> {{ result.name }}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
 </ion-content>

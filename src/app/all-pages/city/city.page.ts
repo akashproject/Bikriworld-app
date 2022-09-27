@@ -27,8 +27,10 @@ export class CityPage implements OnInit {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  gotoSearch(){
-    this.router.navigate(['/search-city']);
+  gotoSearch(event){    
+    console.log(event);
+    this.router.navigate(['/search-city', {state : {key :event.details}}]);
+    return this.modalCtrl.dismiss(null, 'cancel');
   }
 
   selectCity(city){
