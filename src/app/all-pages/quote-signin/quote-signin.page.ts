@@ -4,18 +4,18 @@ import { Location } from '@angular/common';
 import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
+
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.page.html',
-  styleUrls: ['./signin.page.scss'],
+  selector: 'app-quote-signin',
+  templateUrl: './quote-signin.page.html',
+  styleUrls: ['./quote-signin.page.scss'],
 })
-export class SigninPage implements OnInit {
+export class QuoteSigninPage implements OnInit {
 
   sendOtp = false;
   mobileNo : any ;
   userData : any [];
   session_id : any ;
-  loc
   @ViewChild("otp1") otp1:HTMLIonInputElement;
   @ViewChild('otp2') otp2:HTMLIonInputElement;
   @ViewChild("otp3") otp3:HTMLIonInputElement;
@@ -25,7 +25,6 @@ export class SigninPage implements OnInit {
   otpValue : any = [];
   otpInput : any ;
   disable: Boolean = true;
-  returnUrl : any;
   constructor( 
     public api: ApiService,
     private location:Location,
@@ -34,10 +33,7 @@ export class SigninPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loc = this.location.getState();
-    console.log(this.loc);
-    
-    this.returnUrl = this.loc.returnUrl;
+
   }
 
   sentOtp(){
@@ -95,7 +91,7 @@ export class SigninPage implements OnInit {
   }
 
   gotoNextField(next) {
-    next.setFocus()
+    
   }
 
   getUserByMobile(){
@@ -107,18 +103,12 @@ export class SigninPage implements OnInit {
       localStorage.setItem("user", JSON.stringify(data));
       this.util.userInfo = data;      
       this.util.hideLoading();
-      console.log(this.returnUrl);
-      
-      if(this.returnUrl == '/condition') {
-        this.router.navigate(['/quote']);
-      } else {
-        this.router.navigate(['/tabs/account']);
-      }
-      
+      this.router.navigate(['/quote']);
     }, error => {
       this.util.hideLoading();
       this.util.presentToast("Unable to Login! Please try again")
     });
   }
   
+
 }

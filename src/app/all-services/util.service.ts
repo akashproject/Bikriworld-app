@@ -43,5 +43,13 @@ export class UtilService {
     toast.present();
   }
 
+  reset(){    
+    let user = localStorage.getItem("user");
+    let selectedCity = localStorage.getItem("selectedCity");
+    localStorage.clear();
+    localStorage.setItem("user",user);
+    localStorage.setItem("selectedCity",selectedCity);
+  }
+
 
 }

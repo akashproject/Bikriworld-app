@@ -57,18 +57,9 @@ export class HomePage {
     spaceBetween: 5,    
   };
 
-  ngOnInit() {
-    
+  ngOnInit() {    
     this.getCategories();
     this.getTopSellingBrands();
-  }
-
-  ionViewWillEnter(){
-    this.selectCity = (localStorage.getItem("selectedCity"))?localStorage.getItem("selectedCity"):'Select City';
-  }
-
-  ionDidWillEnter(){
-    this.selectCity = (localStorage.getItem("selectedCity"))?localStorage.getItem("selectedCity"):'Select City';
   }
 
   getCategories(){    

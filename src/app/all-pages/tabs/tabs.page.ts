@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { UtilService } from 'src/app/all-services/util.service';
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
@@ -7,6 +7,13 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() {}
+  constructor(
+    private util:UtilService
+  ) {}
 
+  ionViewWillEnter(){
+    this.util.reset()
+  }
+
+  
 }

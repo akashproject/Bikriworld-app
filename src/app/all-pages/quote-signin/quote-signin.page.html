@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="home" size="large" [routerLink]="['/']"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <section class="ion-margin login-summary-wrap"  >
+    <ion-row class="ion-text-center" *ngIf="sendOtp == false">
+      <ion-col size="12"  >
+        <ion-label class="login_wrap">
+          <div class="login_label" for="">
+            <img src="https://bikriworld.com/assets/images/logo.png" style="width: auto;">
+            <h6 >  </h6>
+          </div> 
+        </ion-label>
+      </ion-col>
+      <ion-col size="12" class="custom_text-field" >
+        <ion-label class="form-label">Please enter your mobile number </ion-label>
+        <ion-input class="form-field" type="number" placeholder="Mobile number" maxLength="10" [(ngModel)]="mobileNo" (keyup)="validation($event)"> </ion-input>
+      </ion-col>
+    </ion-row>   
+    <ion-row class="" *ngIf="sendOtp == true">
+      <ion-col size="12"  >
+        <ion-label class="login_wrap">
+          <div class="login_label" for="">
+            <img src="https://bikriworld.com/assets/images/logo.png" style="width: auto;">
+          </div> 
+        </ion-label>
+      </ion-col>
+      <ion-col size="12" class="custom_text-field" >
+        <ion-label class="form-label">Please enter OTP </ion-label>
+        <ion-row >
+          <ion-col size="2">
+            <ion-input class="form-field" #otp1 maxlength="1" [(ngModel)]="otpValue[0]" (paste)="onPaste($event)" (keyup)="gotoNextField(otp2)" ></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-input class="form-field" #otp2 maxlength="1" [(ngModel)]="otpValue[1]" (keyup)="gotoNextField(otp3)"></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-input class="form-field" #otp3 maxlength="1" [(ngModel)]="otpValue[2]" (keyup)="gotoNextField(otp4)"></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-input class="form-field" #otp4 maxlength="1" [(ngModel)]="otpValue[3]" (keyup)="gotoNextField(otp5)"></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-input class="form-field" #otp5 maxlength="1" [(ngModel)]="otpValue[4]" (keyup)="gotoNextField(otp6)"></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-input class="form-field" #otp6 maxlength="1" [(ngModel)]="otpValue[5]"></ion-input>
+          </ion-col>
+        </ion-row>
+        
+      </ion-col>
+    </ion-row>   
+  </section>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" *ngIf="sendOtp == false" color="main" (click)="sentOtp()" [disabled]="disableBtn">
+      Continue
+    </ion-button>
+    <ion-button class="round-corner-btn" *ngIf="sendOtp == true" color="main" (click)="matchOtp()" [disabled]="disableBtn">
+      Submit
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
