@@ -9,6 +9,7 @@ import { ViewProductPageRoutingModule } from './view-product-routing.module';
 import { ViewProductPage } from './view-product.page';
 import { ProductViewComponent } from '../../all-components/product-view/product-view.component';
 import { LaptopViewComponent } from '../../all-components/laptop-view/laptop-view.component';
+import { VehicleViewComponent } from '../../all-components/vehicle-view/vehicle-view.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { LaptopViewComponent } from '../../all-components/laptop-view/laptop-vie
     IonicModule,
     ViewProductPageRoutingModule
   ],
-  declarations: [ViewProductPage,ProductViewComponent,LaptopViewComponent]
+  declarations: [ViewProductPage,ProductViewComponent,LaptopViewComponent,VehicleViewComponent]
 })
 export class ViewProductPageModule {}

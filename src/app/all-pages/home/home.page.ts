@@ -14,14 +14,14 @@ export class HomePage {
 
   categories : any = [];
   topSellingBrands : any = [];
-  selectCity : any = "Select City"
+  selectCity : any = (localStorage.getItem("selectedCity"))?localStorage.getItem("selectedCity"):'Select City';
   constructor(
     private location:Location,
     private router : Router,
     public api: ApiService,
     private modalCtrl: ModalController
-  ) {
-
+  ) {    
+    this.selectCity = (localStorage.getItem("selectedCity"))?localStorage.getItem("selectedCity"):'Select City';
   }
   
   slideOpts = {
@@ -58,21 +58,23 @@ export class HomePage {
   };
 
   ngOnInit() {
-    console.log("Init");
     
     this.getCategories();
     this.getTopSellingBrands();
   }
 
-  getCategories(){
-    console.log("one");
-    
-    this.api.get('api/categories').subscribe((datas: any) => {
-      console.log(datas);
-      
+  ionViewWillEnter(){
+    this.selectCity = (localStorage.getItem("selectedCity"))?localStorage.getItem("selectedCity"):'Select City';
+  }
+
+  ionDidWillEnter(){
+    this.selectCity = (localStorage.getItem("selectedCity"))?localStorage.getItem("selectedCity"):'Select City';
+  }
+
+  getCategories(){    
+    this.api.get('api/categories').subscribe((datas: any) => {      
       this.categories = datas;
     });
-    console.log("last");
   }
 
   goToBrands(category_id){
@@ -82,7 +84,6 @@ export class HomePage {
   getTopSellingBrands(){
     this.api.get('api/top-brands').subscribe((datas: any) => {
       this.topSellingBrands = datas;
-      console.log(datas);
     });
   }
 

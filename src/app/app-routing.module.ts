@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from "./guard/auth.guard";
+import { AreaGuard } from "./guard/area.guard";
 const routes: Routes = [
   {
     path: '',
@@ -17,15 +18,18 @@ const routes: Routes = [
   },
   {
     path: 'brands',
-    loadChildren: () => import('./all-pages/brands/brands.module').then( m => m.BrandsPageModule)
+    loadChildren: () => import('./all-pages/brands/brands.module').then( m => m.BrandsPageModule),
+    canActivate: [AreaGuard]
   },
   {
     path: 'products',
-    loadChildren: () => import('./all-pages/products/products.module').then( m => m.ProductsPageModule)
+    loadChildren: () => import('./all-pages/products/products.module').then( m => m.ProductsPageModule),
+    canActivate: [AreaGuard]
   },
   {
     path: 'view-product',
-    loadChildren: () => import('./all-pages/view-product/view-product.module').then( m => m.ViewProductPageModule)
+    loadChildren: () => import('./all-pages/view-product/view-product.module').then( m => m.ViewProductPageModule),
+    canActivate: [AreaGuard]
   },
   {
     path: 'question',
@@ -101,7 +105,8 @@ const routes: Routes = [
     path: 'order-placed',
     loadChildren: () => import('./all-pages/order-placed/order-placed.module').then( m => m.OrderPlacedPageModule),
     canActivate: [AuthGuard]
-  },  {
+  },
+  {
     path: 'mobile-transfar',
     loadChildren: () => import('./all-pages/mobile-transfar/mobile-transfar.module').then( m => m.MobileTransfarPageModule)
   },
@@ -124,7 +129,20 @@ const routes: Routes = [
   {
     path: 'search-city',
     loadChildren: () => import('./all-pages/search-city/search-city.module').then( m => m.SearchCityPageModule)
+  },
+  {
+    path: 'vehicle-configuration',
+    loadChildren: () => import('./all-pages/vehicle-configuration/vehicle-configuration.module').then( m => m.VehicleConfigurationPageModule)
+  },
+  {
+    path: 'vehicle-configuration',
+    loadChildren: () => import('./all-pages/vehicle-configuration/vehicle-configuration.module').then( m => m.VehicleConfigurationPageModule)
+  },  {
+    path: 'vehicle-condition',
+    loadChildren: () => import('./all-pages/vehicle-condition/vehicle-condition.module').then( m => m.VehicleConditionPageModule)
   }
+
+
 
 
 

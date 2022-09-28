@@ -6,13 +6,11 @@
     <ion-searchbar placeholder="Search your product" class="ion-no-border searchbar-input" [(ngModel)]="keyword" (ionChange)="getResults()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-
 
 <ion-content>
   <div class="setting-outer ion-padding" >
     <ion-list *ngIf="searchResults != ''">
-      <ion-item *ngFor="let result of searchResults"  (click)="viewProduct(result.id)">
+      <ion-item *ngFor="let result of searchResults"  (click)="selectCity(result.name)">
         <ion-label class="ion-text-wrap"> {{ result.name }}</ion-label>
       </ion-item>
     </ion-list>

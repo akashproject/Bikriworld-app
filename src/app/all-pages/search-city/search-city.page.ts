@@ -35,19 +35,23 @@ export class SearchCityPage implements OnInit {
         }
       } else {
         this.searchResults = data.data
+        console.log(this.searchResults);
+        
       }
             
     }, error => {
     });
   }
 
-  async viewProduct(product_id){
-    await this.getProductDetail(product_id)
+  selectCity(city){
+    console.log(city);
+    
+    localStorage.setItem("selectedCity",city);
+    this.router.navigate(['/']);
   }
 
   loadData(event) {
     setTimeout(() => {
-      console.log('Done');
       this.pagenum++;
       this.getResults(true)
       event.target.complete();
@@ -57,14 +61,5 @@ export class SearchCityPage implements OnInit {
     }, 500);
   }
 
-  getProductDetail(product_id){    
-    this.api.get('api/product/'+product_id).subscribe((data: any) => {
-      localStorage.setItem("brand_id",data.brand_id);
-      localStorage.setItem("category_id", data.category_id);
-      localStorage.setItem("product_id",  data.id);
-      console.log("step1 ",localStorage.getItem("category_id"));
-      this.util.hideLoading();
-      this.router.navigate(['/view-product']);
-    });
-  }
+ 
 }

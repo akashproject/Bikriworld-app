@@ -16,9 +16,7 @@ export class ViewProductPage implements OnInit {
     private alertController: AlertController,
   ) { }
 
-  ngOnInit() {
-    console.log(localStorage.getItem("category_id"));
-    
+  ngOnInit() {    
     this.category_id = localStorage.getItem("category_id");
     localStorage.removeItem("veriation_price");
   }
@@ -32,6 +30,20 @@ export class ViewProductPage implements OnInit {
         buttons: ['Dismiss']
       });
   
+      await alert.present();
+    }
+  }
+
+  async gotoVehicleDocument(){
+    console.log(localStorage.getItem("variation_type"));
+    
+    if(localStorage.getItem("variation_type")){
+      this.router.navigate(['/accessories']);
+    } else {
+      const alert = await this.alertController.create({
+        header: 'Select Vehicle Configuration',
+        buttons: ['Dismiss']
+      });
       await alert.present();
     }
   }

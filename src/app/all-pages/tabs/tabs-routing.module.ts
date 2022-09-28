@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { AuthGuard } from "../../guard/auth.guard";
+import { AreaGuard } from "../../guard/area.guard";
 const routes: Routes = [
   {
     path: 'tabs',
@@ -13,7 +14,8 @@ const routes: Routes = [
       },
       {
         path: 'catagories',
-        loadChildren: () => import('../catagories/catagories.module').then(m => m.CatagoriesPageModule)
+        loadChildren: () => import('../catagories/catagories.module').then(m => m.CatagoriesPageModule),
+        canActivate: [AreaGuard]
       },
       {
         path: 'account',

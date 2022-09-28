@@ -45,7 +45,12 @@ export class AccessoriesPage implements OnInit {
 
   saveCondition(){
     localStorage.setItem("accessories", JSON.stringify(this.selectedAccessories));    
-    this.router.navigate(['/age']);
+    if(localStorage.getItem("category_id") == '12'){
+      this.router.navigate(['/vehicle-condition']);
+    } else {
+      this.router.navigate(['/age']);
+    }
+    
   }
 
 }
