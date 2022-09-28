@@ -53,7 +53,6 @@ export class CancelReasonPage implements OnInit {
   }
 
   confirmCencel(){
-    console.log(this.reason,this.order_id);
     let params = {
       'reason':this.reason,
       'order_id':this.order_id,

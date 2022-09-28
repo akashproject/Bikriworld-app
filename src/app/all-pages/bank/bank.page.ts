@@ -44,13 +44,8 @@ export class BankPage implements OnInit {
     return this.modalCtrl.dismiss(null, 'cancel');
   }
 
-  checkValiation(){
-    console.log("jo");
-    
-    console.log(this.confirmAccount,this.bankAccount.account_no);
-    
+  checkValiation(){    
     if(this.confirmAccount == this.bankAccount.account_no) {
-      console.log(this.confirmAccount);
       this.disableBtn = true;
     }
   }

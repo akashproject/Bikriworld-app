@@ -39,7 +39,6 @@ export class ProfilePage implements OnInit {
   }
 
   validate(){
-    console.log(this.profile);
   }
 
 }

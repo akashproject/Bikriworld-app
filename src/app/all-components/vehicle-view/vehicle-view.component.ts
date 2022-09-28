@@ -57,4 +57,8 @@ export class VehicleViewComponent implements OnInit {
     }
   }
 
+  back(){
+    localStorage.removeItem("variation_type")
+  }
+
 }

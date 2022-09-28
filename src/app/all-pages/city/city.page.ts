@@ -28,7 +28,6 @@ export class CityPage implements OnInit {
   }
 
   gotoSearch(event){    
-    console.log(event);
     this.router.navigate(['/search-city']);
     return this.modalCtrl.dismiss(null, 'cancel');
   }

@@ -34,9 +34,7 @@ export class ViewAddressPage implements OnInit {
   }
 
   
-  ngOnInit() {     
-    console.log(this.address_id);
-      
+  ngOnInit() {           
     if (this.address_id !== null) {
       this.viewAddress();
     }
@@ -45,14 +43,11 @@ export class ViewAddressPage implements OnInit {
   }
 
   validate(){
-    console.log(this.address);
   }
 
   viewAddress(){
     this.util.presentLoading(); 
-    this.api.get('api/view-address/'+this.address_id).subscribe((data: any) => {
-      console.log(data);
-      
+    this.api.get('api/view-address/'+this.address_id).subscribe((data: any) => {      
       this.address = data
       this.util.hideLoading();
     }, error => {

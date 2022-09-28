@@ -46,8 +46,8 @@ export class ProductViewComponent implements OnInit {
     this.maxPrice = variant.price;
   }
 
-  cancel() {
-    return this.modalCtrl.dismiss(null, 'cancel');
+  back(){
+    localStorage.removeItem("variation_type")
   }
 
 }

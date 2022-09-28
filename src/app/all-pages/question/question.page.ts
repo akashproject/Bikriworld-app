@@ -40,7 +40,6 @@ export class QuestionPage implements OnInit {
   }
 
   saveCondition(){
-    console.log(this.checkedQuestions);
     localStorage.setItem("questions", JSON.stringify(this.checkedQuestions));    
     this.router.navigate(['/accessories']);
   }

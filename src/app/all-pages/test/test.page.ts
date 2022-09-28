@@ -33,9 +33,7 @@ export class TestPage implements OnInit {
     });
   }
 
-  handleChange(event,key){
-    console.log(this.selectedDeviceConfiguration);
-    
+  handleChange(event,key){    
     //this.selectedDeviceConfiguration[key] = event.detail.value;
     if( 
       this.selectedDeviceConfiguration['processer'] &&
@@ -50,7 +48,6 @@ export class TestPage implements OnInit {
   saveCondition(){
 
     this.util.presentLoading();   
-    console.log(this.selectedDeviceConfiguration);
     let config = {
       'config':this.selectedDeviceConfiguration,
       'product_id': localStorage.getItem("product_id")
@@ -65,7 +62,6 @@ export class TestPage implements OnInit {
       this.util.hideLoading();
       this.util.presentToast("Unable to Calculate! Please try again")
     });    
-    console.log(this.selectedDeviceConfiguration);
     
   }
 

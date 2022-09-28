@@ -42,8 +42,6 @@ export class SigninPage implements OnInit {
     }
     this.api.post('api/get-otp', param).subscribe((data: any) => {
       let reponse = JSON.parse(data)
-      console.log(reponse);
-
       this.session_id = reponse.Details;
       this.sendOtp = true;
       this.util.hideLoading();
@@ -92,7 +90,6 @@ export class SigninPage implements OnInit {
   }
 
   gotoNextField(next) {
-    console.log(next.setFocus());
     
   }
 
@@ -103,9 +100,7 @@ export class SigninPage implements OnInit {
     }
     this.api.post('api/get-user', param).subscribe((data: any) => {
       localStorage.setItem("user", JSON.stringify(data));
-      this.util.userInfo = data;
-      console.log(this.util.userInfo);
-      
+      this.util.userInfo = data;      
       this.util.hideLoading();
       return true;
     }, error => {

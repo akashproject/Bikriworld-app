@@ -34,9 +34,7 @@ export class ViewProductPage implements OnInit {
     }
   }
 
-  async gotoVehicleDocument(){
-    console.log(localStorage.getItem("variation_type"));
-    
+  async gotoVehicleDocument(){    
     if(localStorage.getItem("variation_type")){
       this.router.navigate(['/accessories']);
     } else {

@@ -31,7 +31,6 @@ export class OrdersPage implements OnInit {
   doRefresh(event) {
     this.getOrders()
     setTimeout(() => {
-      console.log('Async operation has ended');
       event.target.complete();
     }, 2000);
   }

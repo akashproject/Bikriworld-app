@@ -34,18 +34,14 @@ export class SearchCityPage implements OnInit {
           this.searchResults.push(data.data[i]);
         }
       } else {
-        this.searchResults = data.data
-        console.log(this.searchResults);
-        
+        this.searchResults = data.data        
       }
             
     }, error => {
     });
   }
 
-  selectCity(city){
-    console.log(city);
-    
+  selectCity(city){    
     localStorage.setItem("selectedCity",city);
     this.router.navigate(['/']);
   }

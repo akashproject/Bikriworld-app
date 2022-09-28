@@ -56,4 +56,8 @@ export class LaptopViewComponent implements OnInit {
       this.variation_type = (localStorage.getItem("variation_type"))?localStorage.getItem("variation_type"):'';
     }
   }
+
+  back(){
+    localStorage.removeItem("variation_type")
+  }
 }

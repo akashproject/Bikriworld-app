@@ -19,9 +19,7 @@ export class QuotePage implements OnInit {
     private util:UtilService
   ) { }
 
-  ngOnInit() {    
-    console.log(this.calculatedData);
-    
+  ngOnInit() {        
     this.viewProduct()
   }
   goToSelectAddress(){
@@ -30,9 +28,7 @@ export class QuotePage implements OnInit {
 
   viewProduct(){    
     this.util.presentLoading();
-    this.api.get('api/product/'+localStorage.getItem("product_id")).subscribe((data: any) => {
-      console.log(data);
-      
+    this.api.get('api/product/'+localStorage.getItem("product_id")).subscribe((data: any) => {      
       this.product = data
       this.util.hideLoading();
     });

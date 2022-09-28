@@ -51,19 +51,18 @@ export class ConfigurationPage implements OnInit {
   saveCondition(){
 
     this.util.presentLoading();   
-    console.log(this.selectedDeviceConfiguration);
     let config = {
       'config':this.selectedDeviceConfiguration,
       'product_id': localStorage.getItem("product_id")
     }
     this.api.post('api/set-device-price', config).subscribe((data: any) => {
       this.util.hideLoading();
-      let selectedConfigurationLabel;
+      let selectedConfigurationLabel = 'Year';
       if(this.selectedConfigurationLabel['year'] != ''){
         selectedConfigurationLabel = this.selectedConfigurationLabel['year']
       }
       let variation_type = selectedConfigurationLabel+" | Processer : "+this.selectedConfigurationLabel['processer']+" | Ram : "+this.selectedConfigurationLabel['ram']+" | Storage : "+this.selectedConfigurationLabel['hdd']+" | Graphic : "+this.selectedConfigurationLabel['graphic']+" | Screen : "+this.selectedConfigurationLabel['screen']
-      //localStorage.setItem("variant", JSON.stringify(variant));
+      //localStorage.setItem("variant", JSON.stringify(variant));      
       localStorage.setItem("variation_type", variation_type);
       localStorage.setItem("veriation_price", data);
       this.modalCtrl.dismiss(null, 'confirm');
@@ -71,7 +70,6 @@ export class ConfigurationPage implements OnInit {
       this.util.hideLoading();
       this.util.presentToast("Unable to Calculate! Please try again")
     });    
-    console.log(this.selectedDeviceConfiguration);
     
   }
 

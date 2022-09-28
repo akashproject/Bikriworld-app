@@ -47,9 +47,7 @@ export class VehicleConfigurationPage implements OnInit {
   } 
 
   saveCondition(){    
-    let variation_type = "Ragistration Year :"+this.selectedConfigurationLabel['year']+" | Kilometer Driven : "+this.selectedConfigurationLabel['km']+" | Registration City : "+this.city
-    console.log(variation_type);
-    
+    let variation_type = "Ragistration Year :"+this.selectedConfigurationLabel['year']+" | Kilometer Driven : "+this.selectedConfigurationLabel['km']+" | Registration City : "+this.city    
       //localStorage.setItem("variant", JSON.stringify(variant));
       localStorage.setItem("variation_type", variation_type);
       this.modalCtrl.dismiss(null, 'confirm');

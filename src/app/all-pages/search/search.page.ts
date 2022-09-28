@@ -51,7 +51,6 @@ export class SearchPage implements OnInit {
 
   loadData(event) {
     setTimeout(() => {
-      console.log('Done');
       this.pagenum++;
       this.getResults(true)
       event.target.complete();
@@ -66,7 +65,6 @@ export class SearchPage implements OnInit {
       localStorage.setItem("brand_id",data.brand_id);
       localStorage.setItem("category_id", data.category_id);
       localStorage.setItem("product_id",  data.id);
-      console.log("step1 ",localStorage.getItem("category_id"));
       this.util.hideLoading();
       this.router.navigate(['/view-product']);
     });
