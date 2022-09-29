@@ -144,6 +144,22 @@ const routes: Routes = [
   {
     path: 'quote-signin',
     loadChildren: () => import('./all-pages/quote-signin/quote-signin.module').then( m => m.QuoteSigninPageModule)
+  },
+  {
+    path: 'privacy',
+    loadChildren: () => import('./all-pages/privacy/privacy.module').then( m => m.PrivacyPageModule)
+  },
+  {
+    path: 'term',
+    loadChildren: () => import('./all-pages/term/term.module').then( m => m.TermPageModule)
+  },
+  {
+    path: 'help',
+    loadChildren: () => import('./all-pages/help/help.module').then( m => m.HelpPageModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./all-pages/about/about.module').then( m => m.AboutPageModule)
   }
 
 

@@ -11,27 +11,20 @@ import { UtilService } from 'src/app/all-services/util.service';
 })
 export class AccountPage {
 
+  hasUser = false;
   constructor( 
     public api: ApiService,
     public router: Router,
     private location:Location,
     private util:UtilService
   ) {
-    // let userInfo = localStorage.getItem("user");
-    // console.log(userInfo);
     
-    // if(userInfo === null){
-    //   this.router.navigate(['/signin']);
-    // }
   }
 
   ionViewWillEnter(){
-    // let userInfo = localStorage.getItem("user");
-    // console.log(userInfo);
-    
-    // if(userInfo === null){
-    //   this.router.navigate(['/signin']);
-    // }
+    if(localStorage.hasOwnProperty('user')){
+      this.hasUser = true;
+    }
   }
 
   ngOnInit() {

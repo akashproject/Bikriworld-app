@@ -35,10 +35,37 @@
       </div>
       <h6> Pickups </h6>
     </ion-row>
+    <h6 class="ion-margin-start ion-margin-top"> Additional Menus  </h6>
+    <ion-row class="account_options ion-padding" [routerLink]="['/about']">
+      <div class="setting-icon" >
+        <img src="assets/icon/about.png" >
+      </div>
+      <h6> About Us </h6>
+    </ion-row>
+    <ion-row class="account_options ion-padding" [routerLink]="['/help']">
+      <div class="setting-icon" >
+        <ion-icon name="alert-circle-outline"></ion-icon>
+      </div>
+      <h6> Help </h6>
+    </ion-row>
+    <ion-row class="account_options ion-padding" [routerLink]="['/privacy']">
+      <div class="setting-icon" >
+        <ion-icon name="warning-outline"></ion-icon>
+      </div>
+      <h6> Privacy Policy </h6>
+    </ion-row>
 
-    <ion-button class="round-corner-btn" color="main" (click)="logout()">
+    <ion-row class="account_options ion-padding" [routerLink]="['/term']">
+      <div class="setting-icon" >
+        <ion-icon name="document-outline"></ion-icon>
+      </div>
+      <h6> Terms & condition </h6>
+    </ion-row>
+    <ion-button class="round-corner-btn" color="main" (click)="logout()" *ngIf="hasUser">
       Logout
       <ion-icon slot="end" name="arrow-forward-circle-outline"></ion-icon>
     </ion-button>
+
+
   </div>
 </ion-content>
