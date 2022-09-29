@@ -12,7 +12,9 @@ export class TabsPage {
   ) {}
 
   ionViewWillEnter(){
-    this.util.reset()
+    if(localStorage.hasOwnProperty('user')){
+      this.util.reset()
+    }
   }
 
   

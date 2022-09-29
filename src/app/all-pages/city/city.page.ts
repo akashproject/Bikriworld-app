@@ -12,6 +12,7 @@ import { UtilService } from 'src/app/all-services/util.service';
 })
 export class CityPage implements OnInit {
 
+  dismiss = false
   constructor(
     public api: ApiService,
     private location:Location,
@@ -21,10 +22,13 @@ export class CityPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    
   }
 
   cancel() {
-    return this.modalCtrl.dismiss(null, 'cancel');
+    if(localStorage.hasOwnProperty('selectedCity')){
+      return this.modalCtrl.dismiss(null, 'cancel');
+    }
   }
 
   gotoSearch(event){    

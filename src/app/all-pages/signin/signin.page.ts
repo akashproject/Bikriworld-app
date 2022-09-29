@@ -35,8 +35,13 @@ export class SigninPage implements OnInit {
 
   ngOnInit() {
     this.loc = this.location.getState();
-    console.log(this.loc);
-    
+    console.log("return init",this.loc);
+    this.returnUrl = this.loc.returnUrl;
+  }
+
+  ionViewWillEnter(){
+    this.loc = this.location.getState();
+    console.log("return url",this.loc);
     this.returnUrl = this.loc.returnUrl;
   }
 

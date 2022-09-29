@@ -58,6 +58,10 @@ export class HomePage {
   };
 
   ngOnInit() {    
+    if(!localStorage.hasOwnProperty('selectedCity')){
+      this.cityModal()
+      return false;
+    }
     this.getCategories();
     this.getTopSellingBrands();
   }
@@ -81,6 +85,7 @@ export class HomePage {
   async cityModal(){
     const modal = await this.modalCtrl.create({
       component: CityPage,
+      backdropDismiss: false,
     });
     modal.present();
 
