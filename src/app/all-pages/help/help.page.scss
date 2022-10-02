@@ -1,0 +1,78 @@
+.summary-heading {
+    color: #303030;
+}
+
+.summary-wrap {
+    .contact_faq_box {
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 27px;
+        align-items: flex-start;
+        background: #f4fbf9;
+        .icon {
+            width: 24%;
+            position: relative;
+            top: 10px;
+            display: inline;
+            margin-right: 15px;
+        }
+        .text {
+            display: inline;
+            width: 70%;
+            font-size: 12px;
+            .contct-btn {
+                text-decoration: none;
+                background-color: #13c792;
+                font-size: 14px;
+                font-weight: bold;
+                color: #ffffff;
+                display: inline-flex;
+                align-items: center;
+                border: none;
+                padding: 10px 40px;
+                text-transform: uppercase;
+                transition: 0.5s all;
+                margin-right: 10px;
+                border-radius: 10px;
+                ion-icon {
+                    font-size: 21px;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+    .shadow_1 {
+        box-shadow: 0px 1px 30px 1px #ecf2ff;
+    }
+}
+.setting-outer {
+    background: #c8e9df33;
+    .confiduration_options {
+      box-shadow: 0px 1px 8px 3px rgb(215 215 215 / 54%);
+      padding: 0;
+      border-radius: 10px;
+      margin: 0.9rem 0;
+      background-color: #fff;
+      border: 1.5px solid #47b393;
+        /* DOES NOT work */
+        ion-select-option {
+            color: red;
+        }
+        .custom-options {
+            font-size: 20px;
+        }
+        ion-select {
+            font-size: 20px;
+        }
+    }
+    ion-button{
+        border-radius: 5px;
+        ion-icon{
+            color: #fff;
+        }
+    }
+}

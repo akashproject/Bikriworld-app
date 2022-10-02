@@ -1,9 +1,82 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>help</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contact Us</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="ion-text-center">
+    <h6 >The Way To Instant Cash</h6>
+  </div>
+  
+  <div class="ion-margin summary-wrap" >
+    <ion-row class="">
+      <ion-col size="12">
+        <div class="contact_faq_box">
+          <div class="icon">
+              <img src="assets/icon/support.png" alt="icon" class="image-fit-contain">
+          </div>
+          <div class="text">
+              <h4>Need Support?</h4>
+              <p>Are you stuck with payment issues or not getting the right price? Reach out &amp; we will work our magic.</p>
+              <a href="mailto:support@bikriworld.com" class="contct-btn">Mail Us <i class="fal fa-chevron-right ml-2"></i></a>
+          </div>
+        </div>
+      </ion-col>
+      <ion-col size="12">
+        <div class="contact_faq_box">
+          <div class="icon">
+              <img src="assets/icon/question.png" alt="icon" class="image-fit-contain">
+          </div>
+          <div class="text">
+              <h4>Need help selling?</h4>
+              <p>Have Any Questions about BikriWorld. Write to us & we will answer them happily.</p>
+              <a href="tell:+917439995068" class="contct-btn">Call Us <i class="fal fa-chevron-right ml-2"></i></a>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
 
+  <div class="setting-outer ion-padding" >
+    <form [formGroup]="ionicForm" (ngSubmit)="sendMessage()" novalidate>
+      <h6 >Have Any Questions Let’s Started Talk</h6>
+      <ion-list class="confiduration_options">
+        <ion-item>
+          <ion-label position="stacked"> Full Name </ion-label>
+          <ion-input formControlName="name" name="name" placeholder="Enter Your Name" type="text" ></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-list class="confiduration_options">
+        <ion-item>
+          <ion-label position="stacked"> Mobile Number </ion-label>
+          <ion-input formControlName="mobile" name="mobile" placeholder="Enter Mobile Number" type="number" ></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-list class="confiduration_options">
+        <ion-item>
+          <ion-label position="stacked"> Email Address </ion-label>
+          <ion-input formControlName="email"  name="email" placeholder="Enter Email Address" type="text" ></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-list class="confiduration_options">
+        <ion-item>
+          <ion-label position="stacked"> Subject </ion-label>
+          <ion-input formControlName="subject" name="subject" placeholder="Enter Subject" type="text" ></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-list class="confiduration_options">
+        <ion-item>
+          <ion-label position="stacked"> Message </ion-label>
+          <ion-textarea formControlName="message" name="message" placeholder="Enter Your Message" type="text" ></ion-textarea>
+        </ion-item>
+      </ion-list>
+      <ion-button type="submit" class="round-corner-btn" color="main">
+        Submit
+      </ion-button>
+  </form>
+  </div>
 </ion-content>
