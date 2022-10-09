@@ -17,7 +17,7 @@
       <p> {{ pickup.variation_type}}</p>
     </ion-col>
     <ion-col size="5" >
-      <img src="https://bikriworld.com/administrator/public/images/{{pickup.image}}" />
+      <img src="{{mediaUrl}}{{pickup.image}}" />
     </ion-col>
     <ion-col size="12" >
       <h6>Order Status : <span style="color:red"> {{pickup.status}} </span> </h6>
@@ -30,4 +30,7 @@
       </ion-button>
     </ion-col>
   </ion-row>
+  <div class="ion-text-center" *ngIf="!pickups">
+    <h3> No Records Found </h3>
+  </div>
 </ion-content>

@@ -11,12 +11,15 @@ import { UtilService } from 'src/app/all-services/util.service';
 export class ProductsPage implements OnInit {
   products : any = [];
   loc : any;
+  mediaUrl :any;
   constructor(
     public api: ApiService,
     private location:Location,
     public router: Router,
     private util:UtilService
-  ) { }
+  ) { 
+    this.mediaUrl = this.api.mediaURL;
+  }
 
   ngOnInit() {
     this.getProducts()

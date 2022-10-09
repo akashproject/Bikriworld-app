@@ -116,6 +116,8 @@ export class SigninPage implements OnInit {
       
       if(this.returnUrl == '/condition') {
         this.router.navigate(['/quote']);
+      }else if(this.returnUrl == '/vehicle-condition') {
+        this.router.navigate(['/select-addresses']);
       } else {
         this.router.navigate(['/tabs/account']);
       }

@@ -1,0 +1,27 @@
+.address_wraper {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    padding: 20px 0;
+    box-shadow: 0px 1px 8px 1px rgb(204 212 229 / 54%);
+    border-radius: 10px;
+    label {
+        display: inline;
+    }
+    h5{
+        margin: 0;
+        font-size: 13px;
+    }
+    .labels {
+        // margin-bottom: 1.5rem;
+        // display: block;
+        // overflow: hidden;
+        // margin-left: 2rem;
+    }
+    .options {
+        margin-top: 0.9rem;
+        .option {
+            padding: 0 0.9rem;
+            margin: 0 0.9rem;
+        }
+    }
+}

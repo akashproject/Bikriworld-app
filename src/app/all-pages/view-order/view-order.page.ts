@@ -15,12 +15,15 @@ export class ViewOrderPage implements OnInit {
   userInfo : any = JSON.parse(localStorage.getItem("user"))
   loc : any;
   order : any = {};
+  mediaUrl :any;
   constructor(public api: ApiService,
     private location:Location,
     public router: Router,
     private util:UtilService,
     private modalCtrl: ModalController
-    ) { }
+    ) { 
+      this.mediaUrl = this.api.mediaURL;
+    }
 
   ngOnInit() {
     this.loc = this.location.getState(); 

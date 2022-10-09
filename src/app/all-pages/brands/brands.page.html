@@ -14,7 +14,7 @@
   <ion-row class="ion-text-center">
     <ion-col size="4" *ngFor="let brand of brands" (click)="goToProducts(brand.id)">
       <div class="category-grid" >
-        <img src="https://bikriworld.com/administrator/public/images/{{ brand.image }}" />
+        <img src="{{mediaUrl}}{{ brand.image }}" />
         <ion-label>
           <h2 class="product_label"> {{ brand.name }} </h2>
         </ion-label>

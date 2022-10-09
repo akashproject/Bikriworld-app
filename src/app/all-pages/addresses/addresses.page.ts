@@ -40,6 +40,8 @@ export class AddressesPage implements OnInit {
     }
     this.api.post('api/addresses', param).subscribe((data: any) => {
       this.addresses = data;
+      console.log(this.addresses.length);
+      
       this.util.hideLoading();
     }, error => {
 

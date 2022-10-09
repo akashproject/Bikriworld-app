@@ -23,7 +23,7 @@
       <p> {{ order.variation_type}}</p>
     </ion-col>
     <ion-col size="5" >
-      <img src="https://bikriworld.com/administrator/public/images/{{order.image}}" />
+      <img src="{{mediaUrl}}/{{order.image}}" />
     </ion-col>
   </ion-row>
   <ion-button class="round-corner-btn" color="main" (click)="updateOrder()"  *ngIf="order.status == 'pending'">

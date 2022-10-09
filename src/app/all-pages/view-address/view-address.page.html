@@ -10,22 +10,34 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-item lines="full">
-    <ion-label position="floating">Address</ion-label>
-    <ion-input [(ngModel)]="address.address_1" type="text" (change)="validate()"></ion-input>
-  </ion-item>
-  <ion-item lines="full">
-    <ion-label position="floating">City</ion-label>
-    <ion-input [(ngModel)]="address.city" type="text" (change)="validate()"></ion-input>
-  </ion-item>
-  <ion-item lines="full">
-    <ion-label position="floating">State</ion-label>
-    <ion-input [(ngModel)]="address.state" type="text" (change)="validate()"></ion-input>
-  </ion-item>
-  <ion-item lines="full">
-    <ion-label position="floating">Pincode</ion-label>
-    <ion-input [(ngModel)]="address.pincode" type="number" (change)="validate()"></ion-input>
-  </ion-item>
+  <ion-list class="input_outer_design">
+    <ion-item>
+      <ion-label position="stacked"> Address </ion-label>
+      <ion-input [(ngModel)]="address.address_1" type="text" (change)="validate()"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="input_outer_design">
+    <ion-item>
+      <ion-label position="stacked"> City </ion-label>
+      <ion-input [(ngModel)]="address.city" type="text" (change)="validate()"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="input_outer_design">
+    <ion-item>
+      <ion-label position="stacked"> State </ion-label>
+      <ion-input [(ngModel)]="address.state" type="text" (change)="validate()"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="input_outer_design">
+    <ion-item>
+      <ion-label position="stacked"> Pincode </ion-label>
+      <ion-input [(ngModel)]="address.pincode" type="number" (change)="validate()"></ion-input>
+    </ion-item>
+  </ion-list>
+
   <h5> Address Type </h5>
   <ion-radio-group [(ngModel)]="address.type">
     <ion-row class="ion-text-center">

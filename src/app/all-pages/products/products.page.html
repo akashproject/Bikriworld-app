@@ -15,7 +15,7 @@
     <ion-col size="4" *ngFor="let product of products" (click)="viewProduct(product.id)">
       <div class="product-grid" >
         <div class="image_wrap">
-          <img style="width: 80px;" src="https://bikriworld.com/administrator/public/images/{{ product.image }}" />
+          <img style="width: 80px;" src="{{mediaUrl}}{{ product.image }}" />
         </div>
         
         <ion-label>

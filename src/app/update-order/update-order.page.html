@@ -3,13 +3,73 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
     </ion-buttons>
-    <ion-title>Order Details</ion-title>
+    <ion-title>Update Order</ion-title>
     <ion-buttons slot="end">
       <ion-icon slot="end" name="home" size="large" [routerLink]="['/']"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 
+  <h6 class="ion-margin-start"> Change Pickup Address </h6>
+  <ion-radio-group [(ngModel)]="selected_address" >
+    <ion-row class="address_wraper" *ngFor="let address of addresses">
+      <ion-col size="12">
+        <ion-item >
+          <ion-radio color="main" slot="start" value="{{address.id}}" id="address_{{address.id}}" ></ion-radio>
+          <label class="labels" for="address_{{address.id}}">
+            <h5> {{address.address_1}}, {{address.city}} {{ address.state }}, {{ address.pincode }} </h5>
+            <h5> Type : {{address.type}} </h5>
+          </label>
+        </ion-item>  
+      </ion-col>
+    </ion-row>
+  </ion-radio-group>
+  <h6 class="ion-margin-start"> Change Payment Option </h6>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="paymentOption">
+      <ion-item>
+        <ion-label>
+          Bank Transfar
+          <p>Provide your bank account details</p>
+        </ion-label>  
+        <ion-radio slot="start" color="main" value="Bank Transfar" ></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>
+          UPI
+          <p>Add a verified UPI id</p>
+        </ion-label>
+        <ion-radio slot="start" color="main" value="Upi" ></ion-radio>
+      </ion-item>   
+
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          Mobile Transfar
+          <p slot="content">Add mobile number which connected to UPI</p>
+        </ion-label>
+        <ion-radio slot="start" color="main" value="Online Payment"></ion-radio>
+      </ion-item>  
+
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          Instant Cash
+          <p slot="content">Signature on payment recive invoice </p>
+        </ion-label>
+        <ion-radio slot="start" color="main" value="Cash on pickup"></ion-radio>
+      </ion-item>  
+    </ion-radio-group>
+  </ion-list>
+
+  <h6 class="ion-margin-start"> Change Pickup Option </h6>
+  <ion-datetime presentation="date" [min]="minDate" [(ngModel)]="pickupSchedule" [value]="pickupSchedule" (ionChange)="setSchedule($event)" ></ion-datetime>
 </ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" color="main" (click)="updateOrder()" [disabled]="disableBtn">
+      Save
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

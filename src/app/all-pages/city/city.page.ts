@@ -13,6 +13,7 @@ import { UtilService } from 'src/app/all-services/util.service';
 export class CityPage implements OnInit {
 
   dismiss = false
+  isCity = localStorage.hasOwnProperty('selectedCity')
   constructor(
     public api: ApiService,
     private location:Location,
@@ -26,9 +27,7 @@ export class CityPage implements OnInit {
   }
 
   cancel() {
-    if(localStorage.hasOwnProperty('selectedCity')){
-      return this.modalCtrl.dismiss(null, 'cancel');
-    }
+    return this.modalCtrl.dismiss(null, 'cancel');
   }
 
   gotoSearch(event){    

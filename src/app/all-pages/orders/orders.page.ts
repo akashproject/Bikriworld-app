@@ -14,13 +14,14 @@ export class OrdersPage implements OnInit {
   pickups : any = [];
   loc : any;
   userInfo : any = JSON.parse(localStorage.getItem("user"))
+  mediaUrl :any;
   constructor( 
     public api: ApiService,
     public router: Router,
     private location:Location,
     private util:UtilService
   ) { 
-    
+    this.mediaUrl = this.api.mediaURL;
   }
 
   ngOnInit() {

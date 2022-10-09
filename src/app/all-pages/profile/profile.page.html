@@ -8,22 +8,32 @@
 </ion-header>
 
 <ion-content>
-  <ion-item lines="full">
-    <ion-label position="floating">Fullname</ion-label>
-    <ion-input [(ngModel)]="profile.name" type="text" (change)="validate()"></ion-input>
-  </ion-item>
-  <ion-item lines="full">
-    <ion-label position="floating">Mobile Number</ion-label>
-    <ion-input [(ngModel)]="profile.mobile" type="number" (change)="validate()" readonly="true" [disabled]="true"></ion-input>
-  </ion-item>
-  <ion-item lines="full">
-    <ion-label position="floating">Email Address</ion-label>
-    <ion-input [(ngModel)]="profile.email" type="text" (change)="validate()"></ion-input>
-  </ion-item>
-  <ion-item lines="full">
-    <ion-label position="floating">Alt Mobile No</ion-label>
-    <ion-input [(ngModel)]="profile.alt_mobile" type="number" (change)="validate()"></ion-input>
-  </ion-item>
+  <div class="setting-outer ion-padding" >
+    <ion-list class="input_outer_design">
+      <ion-item>
+        <ion-label position="stacked"> Full Name </ion-label>
+        <ion-input [(ngModel)]="profile.name" type="text" (change)="validate()"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list class="input_outer_design">
+      <ion-item>
+        <ion-label position="stacked"> Mobile Number </ion-label>
+        <ion-input [(ngModel)]="profile.mobile" type="number" (change)="validate()" readonly="true" [disabled]="true"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list class="input_outer_design">
+      <ion-item>
+        <ion-label position="stacked">Email Address </ion-label>
+        <ion-input [(ngModel)]="profile.email" type="text" (change)="validate()"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list class="input_outer_design">
+      <ion-item>
+        <ion-label position="floating">Alt Mobile No</ion-label>
+        <ion-input [(ngModel)]="profile.alt_mobile" type="number" (change)="validate()"></ion-input>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
 <ion-footer collapse="fade">
   <ion-toolbar class="ion-padding-start ion-padding-end">

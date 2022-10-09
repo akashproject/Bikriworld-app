@@ -12,12 +12,15 @@ export class BrandsPage implements OnInit {
   category_id : string;
   loc : any;
   brands : any = [];
+  mediaUrl :any;
   constructor(
     public api: ApiService,
     private location:Location,
     public router: Router,
     private util:UtilService
-  ) { }
+  ) { 
+    this.mediaUrl = this.api.mediaURL;
+  }
 
   ngOnInit() {
     

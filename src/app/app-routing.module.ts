@@ -17,6 +17,11 @@ const routes: Routes = [
     loadChildren: () => import('./all-pages/search/search.module').then( m => m.SearchPageModule)
   },
   {
+    path: 'catagories',
+    loadChildren: () => import('./all-pages/catagories/catagories.module').then( m => m.CatagoriesPageModule),
+    canActivate: [AreaGuard]
+  },
+  {
     path: 'brands',
     loadChildren: () => import('./all-pages/brands/brands.module').then( m => m.BrandsPageModule),
     canActivate: [AreaGuard]
@@ -137,7 +142,8 @@ const routes: Routes = [
   {
     path: 'vehicle-configuration',
     loadChildren: () => import('./all-pages/vehicle-configuration/vehicle-configuration.module').then( m => m.VehicleConfigurationPageModule)
-  },  {
+  },
+  {
     path: 'vehicle-condition',
     loadChildren: () => import('./all-pages/vehicle-condition/vehicle-condition.module').then( m => m.VehicleConditionPageModule)
   },

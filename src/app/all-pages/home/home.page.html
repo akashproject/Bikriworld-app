@@ -7,64 +7,105 @@
   </div>
   <ion-slides [options]="slideOpts">
     <ion-slide>
-      <img src="https://bikriworld.com/assets/images/banner/mobile%20banner-1.png" />
+      <ion-row class="ion-padding banner-slide" style="background: #0f5132;">
+        <ion-col size="7" >
+          <h3> Sell Old Gadget </h3>
+          <p> Simply Sell Old Gadgets For Cash At Your Door In 24 Hours.</p>
+        </ion-col>
+        <ion-col size="5" >
+          <img src="assets/icon/banner_image-1.png" />
+        </ion-col>
+      </ion-row>
     </ion-slide>
     <ion-slide>
-      <img src="https://bikriworld.com/assets/images/banner/mobile%20banner-2.png" />
+      <ion-row class="ion-padding banner-slide" style="background: #050313;">
+        <ion-col size="7" >
+          <h3> Fast Free Pickup </h3>
+          <p> One click & get cash at your door in 24 Hours with free pickup.</p>
+        </ion-col>
+        <ion-col size="5" >
+          <img src="assets/icon/banner_image-2.png" />
+        </ion-col>
+      </ion-row>
     </ion-slide>
     <ion-slide>
-      <img src="https://bikriworld.com/assets/images/banner/mobile%20banner-3.png" />
+      <ion-row class="ion-padding banner-slide" style="background: #381f08;">
+        <ion-col size="7" >
+          <h3> Get Paid Instantly </h3>
+          <p> In One Click & Get Cash in your Hand/Bank Account/GPay in 24 hours..</p>
+        </ion-col>
+        <ion-col size="5" >
+          <img src="assets/icon/banner_image-3.png" />
+        </ion-col>
+      </ion-row>
     </ion-slide>
   </ion-slides>
   
-  <h4 class="ion-margin-start"> Select Your Device For Sell </h4>
+  <h6 class="ion-margin-start"> Select Your Device For Sell </h6>
    <!-- List of Text Items -->
   <ion-row class="ion-text-center">
-    <ion-col size="4" *ngFor="let category of categories" (click)="goToBrands(category.id)">
+    <ion-col size="3" *ngFor="let category of categories | slice:0:3; let i=index" (click)="goToBrands(category.id)">
       <div class="category-grid" >
         <div class="image-wrap">
-          <img src="https://bikriworld.com/assets/images/icons/{{category.icon}}.png" />
+          <img src="assets/icon/{{category.icon}}.png" />
         </div>
         <ion-label>
           <h4 > Sell {{category.name }} </h4>
         </ion-label>
       </div>
     </ion-col>
+    <ion-col size="3"  (click)="gotoCategories()">
+      <div class="category-grid" >
+        <div class="image-wrap">
+          <img src="assets/icon/more.png" />
+        </div>
+        <ion-label>
+          <h4 > More... </h4>
+        </ion-label>
+      </div>
+    </ion-col>
   </ion-row>
+
+  <h6 class="ion-margin-start"> Top Selling Brands </h6>
+  <ion-slides [options]="slideBrands">
+    <ion-slide *ngFor="let brand of topSellingBrands" class="topbrandImage">
+      <img src="{{mediaUrl}}{{ brand.image }}" />
+    </ion-slide>
+  </ion-slides>
+
+  <h6 class="ion-margin-start"> Why People Choose BikriWorld? </h6>
   
-  <section class="color-light">
-    <h4 class="ion-margin-start"> Why People Choose BikriWorld? </h4>
-    <div class="container" >
-      <div class="why_choose_us">
-        <span slot="start" class="why_choose_img column-left">
-          <ion-icon name="checkmark-circle-outline"  size="large"></ion-icon>
-        </span>
-        <div class="why_choose_content">
-          <h2>100% Ensured Seller Protection.</h2>
-          <p>When you sell old phones to us, we provide two things: Data Protection & Seller Paperwork. Your anonymity is ensured when you sell to us.</p>
-        </div>
+  <section class="color-light ion-margin-top ion-padding-top">
+    <div class="why_choose_us">
+      <span slot="start" class="why_choose_img column-left">
+        <ion-icon name="calculator-outline"  size="large"></ion-icon>
+      </span>
+      <div class="why_choose_content">
+        <h2>100% Ensured Seller Protection.</h2>
+        <p>When you sell old phones to us, we provide two things: Data Protection & Seller Paperwork. Your anonymity is ensured when you sell to us.</p>
       </div>
-      <div class="why_choose_us">
-        <span slot="start" class="why_choose_img column-left">
-          <ion-icon name="checkmark-circle-outline"  size="large"></ion-icon>
-        </span>
-        <div class="why_choose_content">
-          <h2>100% Ensured Seller Protection.</h2>
-          <p>When you sell old phones to us, we provide two things: Data Protection & Seller Paperwork. Your anonymity is ensured when you sell to us.</p>
-        </div>
+    </div>
+    <div class="why_choose_us">
+      <span slot="start" class="why_choose_img column-left">
+        <ion-icon name="bag-outline"  size="large"></ion-icon>
+      </span>
+      <div class="why_choose_content">
+        <h2>Mind-Blowing BuyBack Prices.</h2>
+        <p>Apart from the cash on buying, we give the best market value prices for your used gadgets. Sell smartphones, TVs and Smartwatches at the best prices.</p>
       </div>
-      <div class="why_choose_us">
-        <span slot="start" class="why_choose_img  column-left">
-          <ion-icon name="checkmark-circle-outline" size="large"></ion-icon>
-        </span>
-        <div class="why_choose_content">
-          <h2>100% Ensured Seller Protection.</h2>
-          <p>When you sell old phones to us, we provide two things: Data Protection & Seller Paperwork. Your anonymity is ensured when you sell to us.</p>
-        </div>
+    </div>
+    <div class="why_choose_us">
+      <span slot="start" class="why_choose_img  column-left">
+        <ion-icon name="finger-print-outline" size="large"></ion-icon>
+      </span>
+      <div class="why_choose_content">
+        <h2>Lightning Fast Buying Process.</h2>
+        <p>Sell your phones and laptops instantly. Once you confirm the pickup time and date, the wheels of the machine roll. Get cash on the spot in 24 hours.</p>
       </div>
     </div>
   </section>
-  <h4 class="ion-margin-start"> Our Stories </h4>
+  
+  <h6 class="ion-margin-start"> Our Stories </h6>
   <ion-slides [options]="slideBlogs">
     <ion-slide>
       <ion-card class="blog-content">
@@ -118,14 +159,9 @@
       </ion-card>
     </ion-slide>
   </ion-slides>
-  <h4 class="ion-margin-start"> Top Selling Brands </h4>
-  <ion-slides [options]="slideBrands">
-    <ion-slide *ngFor="let brand of topSellingBrands" class="topbrandImage">
-      <img src="https://bikriworld.com/administrator/public/images/{{ brand.image }}" />
-    </ion-slide>
-  </ion-slides>
+
   <section class="color-light ion-margin-top">
-    <h4 class="ion-margin-start"> Customers ❤ BikriWorld: <br> What Are They Saying? </h4>
+    <h6 class="ion-margin-start"> Customers ❤ BikriWorld: <br> What Are They Saying? </h6>
     <ion-slides [options]="slideOpts">
       <ion-slide>
         <ion-card>

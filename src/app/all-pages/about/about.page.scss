@@ -1,44 +1,84 @@
-.about_inner {
-    .image_box {
-        margin-right: 0;
-        .image-fit {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-    }
-    .section-title.left-align {
-        text-align: left;
-        margin: 0;
-        .subtitle {
-            justify-content: flex-start;
-        }
-        .title {
-            font-size: 17px;
-        }
-        .section-title p {
-            font-weight: 600;
-        }
-    }
-
-    .about_list {
-        li {
-            max-width: 100%;
-            .icon {
-                width: 60px;
-                height: 60px;
-                margin-right: 15px;
-                margin-top: 12px;
-                img {
-                    object-fit: contain;
-                }
-            }
-            .text {
-                width: calc(100% - 90px);
-            }
-        }
-    }
-        
-
+.title {
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
+.description_content {
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    color: #545151;
+}
+.about_inner {
+    .icon {
+        display: inline-block;
+        vertical-align: bottom;
+        margin-right: 0.5rem;
+    }
+    .text {
+        display: inline-table;
+        width: 77%;
+        font-size: 12px;
+        h6{
+            margin-top: 0;
+        }
+    }
+}
+.stat {
+    .counter_box {
+        box-shadow: 0px 1px 30px 1px #ecf2ff;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        padding: 30px 0 30px 30px;
+        width: 100%;
+        margin-bottom: 30px;
+        .counter {
+            h3 {
+                margin: 0;
+                font-size: 3rem;
+                color: #198754;
+            }
+        }
+        .icon {
+            width: 65px;
+            margin-right: 1rem;
+        }
+        .text {
+            margin-left: 1rem;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+.about_list {
+    list-style-type: none;
+    li {
+        display: flex;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        position: relative;
+        max-width: 100%;
+    }
+    li:before {
+        content: '';
+        width: 26px;
+        height: 26px;
+        background-color: var(--thm-white);
+        border-radius: 50%;
+        top: 2px;
+        position: relative;
+        margin-right: 15px;
+        box-shadow: 0px 5px 20px 0px rgb(101, 207, 169, 40%);
+    }
+    li:after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background-color: #65cfa9;
+        border-radius: 50%;
+        top: 10px;
+        position: absolute;
+        left: 8px;
+        right: 0;
+    }
+} 

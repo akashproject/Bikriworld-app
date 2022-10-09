@@ -15,6 +15,7 @@ export class HomePage {
   categories : any = [];
   topSellingBrands : any = [];
   selectCity : any = (localStorage.getItem("selectedCity"))?localStorage.getItem("selectedCity"):'Select City';
+  mediaUrl :any;
   constructor(
     private location:Location,
     private router : Router,
@@ -22,6 +23,7 @@ export class HomePage {
     private modalCtrl: ModalController
   ) {    
     this.selectCity = (localStorage.getItem("selectedCity"))?localStorage.getItem("selectedCity"):'Select City';
+    this.mediaUrl = this.api.mediaURL;
   }
   
   slideOpts = {
@@ -58,10 +60,16 @@ export class HomePage {
   };
 
   ngOnInit() {    
+    this.getCategories();
+    this.getTopSellingBrands();
     if(!localStorage.hasOwnProperty('selectedCity')){
       this.cityModal()
       return false;
     }
+    
+  }
+
+  ionViewWillEnter(){
     this.getCategories();
     this.getTopSellingBrands();
   }
@@ -80,6 +88,10 @@ export class HomePage {
     this.api.get('api/top-brands').subscribe((datas: any) => {
       this.topSellingBrands = datas;
     });
+  }
+
+  gotoCategories(){
+    this.router.navigate(['/catagories']);
   }
 
   async cityModal(){

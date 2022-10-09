@@ -13,7 +13,7 @@ import * as moment from 'moment';
 })
 export class PickupOptionsComponent {
   pickupSchedule : string;
-  public minDate = moment().format();
+  minDate = moment().format();
   profile : any = JSON.parse(localStorage.getItem("user"))
   calculatedData : any = JSON.parse(localStorage.getItem("calculatedData"))
   category_id : any;

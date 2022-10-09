@@ -5,6 +5,26 @@
 .landing-header {
     background: #cbe9eb;
 }
+.banner-slide {
+    text-align: left;
+    color: #fff;
+    margin: 8px;
+    border-radius: 12px;
+    padding-top: 5px;
+    h3 {
+        padding-top: 15px;
+        margin-top: 0;
+        font-size: 18px;
+    }
+    p {
+        font-size: 11px;
+    }
+}
+.image-wrap {
+    img {
+        width: 60%;
+    }
+}
 .blog-content {
     text-align: left;
     h5.blog-title{
@@ -17,21 +37,32 @@
         justify-content: center;
         margin-right: 10px;
         display: flex;
+        width: 20%;
     }
     .why_choose_content{
-        font-size: 12px;
         display: table-cell;
         h2 {
             font-size: 15px;
             font-weight: 600;
             margin-top: 0;
         }
+        p {
+            font-size: 10px;
+        }
     }
 }
-.category-grid h4 {
-    height: 34px;
+.category-grid {
+    h4 {
+        height: 12px;
+        font-size: 8px;
+        margin-top: 6px;
+    }
+    
 }
 
-.topbrandImage img{
-    width: 60%;
+.topbrandImage{
+    img {
+        width: 60%;
+    }
+    
 }

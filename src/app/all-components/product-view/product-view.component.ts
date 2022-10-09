@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
-import { AlertController ,ModalController } from '@ionic/angular';
+import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-product-view',
   templateUrl: './product-view.component.html',
@@ -15,6 +15,7 @@ export class ProductViewComponent implements OnInit {
   maxPrice : string;
   loc : any;
   category_id = localStorage.getItem("category_id")
+  mediaUrl :any;
   constructor(
     public api: ApiService,
     public router: Router,
@@ -22,6 +23,7 @@ export class ProductViewComponent implements OnInit {
     private util:UtilService,
     private modalCtrl: ModalController
   ) {
+    this.mediaUrl = this.api.mediaURL;
     this.viewProduct();
    }
 
