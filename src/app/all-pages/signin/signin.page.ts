@@ -10,15 +10,22 @@ import { UtilService } from 'src/app/all-services/util.service';
   styleUrls: ['./signin.page.scss'],
 })
 export class SigninPage implements OnInit {
-
-  sendOtp = true;
+  mobileScreen = true;
+  registerScreen = false;
+  sendOtp = false;
   reSendOtp = false;
-  mobileNo : any ;
-  userData : any [];
   session_id : any ;
   timeLeft: number = 60;
   interval;
   loc
+  userExist : any = '';
+
+  userData : any = {
+    'mobile':'',
+    'name':'',
+    'email': ''
+  }
+
   @ViewChild("otp1") otp1:HTMLIonInputElement;
   @ViewChild('otp2') otp2:HTMLIonInputElement;
   @ViewChild("otp3") otp3:HTMLIonInputElement;
@@ -37,7 +44,6 @@ export class SigninPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.startTimer()
     this.loc = this.location.getState();
     console.log("return init",this.loc);
     this.returnUrl = this.loc.returnUrl;
@@ -49,15 +55,36 @@ export class SigninPage implements OnInit {
     this.returnUrl = this.loc.returnUrl;
   }
 
+  checkUserExist(){
+    this.util.presentLoading(); 
+    let param = {
+      "mobile":this.userData.mobile,
+    }
+    this.api.post('api/check-user-exist', param).subscribe((data: any) => {
+     this.userExist = data;
+     if (data > 0) {
+      this.sentOtp();
+     } else {
+      this.mobileScreen = false;
+      this.registerScreen = true;
+     }
+     this.util.hideLoading();
+    }, error => {
+      this.util.hideLoading();
+    });
+  }
+
   sentOtp(){
     this.reSendOtp = false;
     this.util.presentLoading(); 
     let param = {
-      "mobile":this.mobileNo,
+      "mobile":this.userData.mobile,
     }
     this.api.post('api/get-otp', param).subscribe((data: any) => {
       let reponse = JSON.parse(data)
       this.session_id = reponse.Details;
+      this.mobileScreen = false;
+      this.registerScreen = false;
       this.sendOtp = true;
       this.util.hideLoading();
       this.util.presentToast("OTP has been sent to your mobile number")
@@ -95,6 +122,7 @@ export class SigninPage implements OnInit {
   }
 
   matchOtp() {
+    
     this.util.presentLoading(); 
     let param = {
       "session_id":this.session_id,
@@ -104,7 +132,12 @@ export class SigninPage implements OnInit {
       let reponse = JSON.parse(data)
       this.util.hideLoading();
       if(reponse.Status == "Success") {
-        this.getUserByMobile();
+        if (this.userExist > 0) {
+          this.getUserByMobile();
+        } else {
+          this.registerUserByMobile();
+        }
+        
       } else {
         this.util.presentToast(reponse.Details)
       }
@@ -120,10 +153,32 @@ export class SigninPage implements OnInit {
     next.setFocus()
   }
 
+  registerUserByMobile(){
+    this.util.presentLoading(); 
+    this.api.post('api/register-user', this.userData).subscribe((data: any) => {
+      localStorage.setItem("user", JSON.stringify(data));
+      this.util.userInfo = data;      
+      this.util.hideLoading();
+      console.log(this.returnUrl);
+      
+      if(this.returnUrl == '/condition') {
+        this.router.navigate(['/quote']);
+      }else if(this.returnUrl == '/vehicle-condition') {
+        this.router.navigate(['/select-addresses']);
+      } else {
+        this.router.navigate(['/tabs/account']);
+      }
+      
+    }, error => {
+      this.util.hideLoading();
+      this.util.presentToast("Unable to Login! Please try again")
+    });
+  }
+
   getUserByMobile(){
     this.util.presentLoading(); 
     let param = {
-      "mobile":this.mobileNo,
+      "mobile":this.userData.mobile,
     }
     this.api.post('api/get-user', param).subscribe((data: any) => {
       localStorage.setItem("user", JSON.stringify(data));

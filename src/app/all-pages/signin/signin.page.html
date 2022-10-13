@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content>
   <section class="ion-margin login-summary-wrap"  >
-    <ion-row class="ion-text-center" *ngIf="sendOtp == false">
+    <ion-row class="ion-text-center" *ngIf="mobileScreen == true">
       <ion-col size="12"  >
         <ion-label class="login_wrap">
           <div class="login_label" for="">
@@ -19,7 +19,25 @@
       </ion-col>
       <ion-col size="12" class="custom_text-field" >
         <ion-label class="form-label">Please enter your mobile number </ion-label>
-        <ion-input class="form-field" type="number" placeholder="Mobile number" maxLength="10" [(ngModel)]="mobileNo" (keyup)="validation($event)"> </ion-input>
+        <ion-input class="form-field" type="number" placeholder="Mobile number" maxLength="10" [(ngModel)]="userData.mobile" (keyup)="validation($event)"> </ion-input>
+      </ion-col>
+    </ion-row> 
+    <ion-row class="ion-text-left" *ngIf="registerScreen == true">
+      <ion-col size="12"  >
+        <ion-label class="login_wrap">
+          <div class="login_label" for="">
+            <img src="https://bikriworld.com/assets/images/logo.png" style="width: auto;">
+            <h6 >  </h6>
+          </div> 
+        </ion-label>
+      </ion-col>
+      <ion-col size="12" class="custom_text-field" >
+        <ion-label class="form-label">Your Name </ion-label>
+        <ion-input class="form-field" type="text" placeholder="Enter Your Name" [(ngModel)]="userData.name" (keyup)="validation($event)"> </ion-input>
+      </ion-col>
+      <ion-col size="12" class="custom_text-field" >
+        <ion-label class="form-label">Your Email </ion-label>
+        <ion-input class="form-field" type="Email" placeholder="Enter Your Email Address" [(ngModel)]="userData.email" (keyup)="validation($event)"> </ion-input>
       </ion-col>
     </ion-row>   
     <ion-row class="" *ngIf="sendOtp == true">
@@ -66,7 +84,10 @@
 </ion-content>
 <ion-footer collapse="fade">
   <ion-toolbar class="ion-padding-start ion-padding-end">
-    <ion-button class="round-corner-btn" *ngIf="sendOtp == false" color="main" (click)="sentOtp()" [disabled]="disableBtn">
+    <ion-button class="round-corner-btn" *ngIf="mobileScreen == true" color="main" (click)="checkUserExist()" [disabled]="disableBtn">
+      Continue
+    </ion-button>
+    <ion-button class="round-corner-btn" *ngIf="registerScreen == true" color="main" (click)="sentOtp()" [disabled]="disableBtn">
       Continue
     </ion-button>
     <ion-button class="round-corner-btn" *ngIf="sendOtp == true" color="main" (click)="matchOtp()" [disabled]="disableBtn">
