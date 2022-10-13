@@ -50,6 +50,10 @@ export class SigninPage implements OnInit {
   }
 
   ionViewWillEnter(){
+    this.mobileScreen = true;
+    this.registerScreen = false;
+    this.sendOtp = false;
+    this.reSendOtp = false;
     this.loc = this.location.getState();
     console.log("return url",this.loc);
     this.returnUrl = this.loc.returnUrl;

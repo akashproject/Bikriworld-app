@@ -16,6 +16,8 @@ export class HomePage {
   topSellingBrands : any = [];
   selectCity : any = (localStorage.getItem("selectedCity"))?localStorage.getItem("selectedCity"):'Select City';
   mediaUrl :any;
+  baseUrl :any;
+  insights : any = [];
   constructor(
     private location:Location,
     private router : Router,
@@ -24,6 +26,7 @@ export class HomePage {
   ) {    
     this.selectCity = (localStorage.getItem("selectedCity"))?localStorage.getItem("selectedCity"):'Select City';
     this.mediaUrl = this.api.mediaURL;
+    this.baseUrl = this.api.baseUrl;
   }
   
   slideOpts = {
@@ -61,6 +64,7 @@ export class HomePage {
 
   ngOnInit() {    
     this.getCategories();
+    this.getBlogs();
     this.getTopSellingBrands();
     if(!localStorage.hasOwnProperty('selectedCity')){
       this.cityModal()
@@ -77,6 +81,12 @@ export class HomePage {
   getCategories(){    
     this.api.get('api/categories').subscribe((datas: any) => {      
       this.categories = datas;
+    });
+  }
+
+  getBlogs(){    
+    this.api.get('api/get-blogs').subscribe((datas: any) => {      
+      this.insights = datas;
     });
   }
 

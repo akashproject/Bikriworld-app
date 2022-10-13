@@ -105,54 +105,20 @@
     </div>
   </section>
   
-  <h6 class="ion-margin-start"> Our Stories </h6>
+  <h6 class="ion-margin-start"> Our Insights </h6>
   <ion-slides [options]="slideBlogs">
-    <ion-slide>
+    <ion-slide *ngFor="let insight of insights" >
       <ion-card class="blog-content">
-        <img src="https://dummyimage.com/768x500" />
+        <img src="{{baseUrl}}{{insight.image}}" />
         <ion-card-content>
           <ion-card-title>
             <h5 class="blog-title">
-               Once you like the price, you can simply choose the When & Where! Get doorstep 
+              {{insight.title}} 
             </h5>
           </ion-card-title>
           <ion-card-subtitle>
             <p class="blog-description">
-              Simply select your gadget & answer some questions about the current condition of your device.
-            </p>
-          </ion-card-subtitle>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card class="blog-content">
-        <img src="https://dummyimage.com/768x500" />
-        <ion-card-content>
-          <ion-card-title>
-            <h5 class="blog-title">
-              Once you like the price, you can simply choose the When & Where! Get doorstep 
-           </h5>
-          </ion-card-title>
-          <ion-card-subtitle> 
-            <p class="blog-description">
-              Simply select your gadget & answer some questions about the current condition of your device.
-            </p>
-          </ion-card-subtitle>
-        </ion-card-content>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card class="blog-content">
-        <img src="https://dummyimage.com/768x500" />
-        <ion-card-content>
-          <ion-card-title>
-            <h5 class="blog-title">
-              Once you like the price, you can simply choose the When & Where! Get doorstep 
-            </h5>
-          </ion-card-title>
-          <ion-card-subtitle>
-            <p class="blog-description">
-              Simply select your gadget & answer some questions about the current condition of your device.
+              {{insight.short_description}} 
             </p>
           </ion-card-subtitle>
         </ion-card-content>
