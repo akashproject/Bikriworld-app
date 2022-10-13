@@ -11,10 +11,13 @@ import { UtilService } from 'src/app/all-services/util.service';
 })
 export class SigninPage implements OnInit {
 
-  sendOtp = false;
+  sendOtp = true;
+  reSendOtp = false;
   mobileNo : any ;
   userData : any [];
   session_id : any ;
+  timeLeft: number = 60;
+  interval;
   loc
   @ViewChild("otp1") otp1:HTMLIonInputElement;
   @ViewChild('otp2') otp2:HTMLIonInputElement;
@@ -34,6 +37,7 @@ export class SigninPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.startTimer()
     this.loc = this.location.getState();
     console.log("return init",this.loc);
     this.returnUrl = this.loc.returnUrl;
@@ -46,6 +50,7 @@ export class SigninPage implements OnInit {
   }
 
   sentOtp(){
+    this.reSendOtp = false;
     this.util.presentLoading(); 
     let param = {
       "mobile":this.mobileNo,
@@ -56,11 +61,23 @@ export class SigninPage implements OnInit {
       this.sendOtp = true;
       this.util.hideLoading();
       this.util.presentToast("OTP has been sent to your mobile number")
+      this.startTimer()
     }, error => {
       this.util.hideLoading();
       this.util.presentToast("Unable to send OTP! Please try again")
     });
     
+  }
+
+  startTimer() {
+    this.timeLeft = 60;
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.reSendOtp = true;
+      }
+    },1000)
   }
 
   validation(event){

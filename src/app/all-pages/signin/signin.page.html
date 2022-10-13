@@ -32,6 +32,7 @@
       </ion-col>
       <ion-col size="12" class="custom_text-field" >
         <ion-label class="form-label">Please enter OTP </ion-label>
+        <h6 class="otp-message-text"> We have sent OTP to your given mobile number </h6>
         <ion-row >
           <ion-col size="2">
             <ion-input class="form-field" #otp1 maxlength="1" [(ngModel)]="otpValue[0]" (paste)="onPaste($event)" (keyup)="gotoNextField(otp2)" ></ion-input>
@@ -51,8 +52,14 @@
           <ion-col size="2">
             <ion-input class="form-field" #otp6 maxlength="1" [(ngModel)]="otpValue[5]"></ion-input>
           </ion-col>
-        </ion-row>
-        
+        </ion-row>     
+        <h6 class="otp-message-text"> OTP will resend on : {{timeLeft}} </h6>
+      </ion-col>
+      <ion-col size="12" class="custom_text-field ion-text-right" *ngIf="reSendOtp == true">
+        <ion-label class="form-label"> Did'nt recive OTP yet</ion-label>
+        <div (click)="sentOtp()">
+          <span class="text-main-color" >Resend OTP</span>
+        </div>
       </ion-col>
     </ion-row>   
   </section>
@@ -63,7 +70,7 @@
       Continue
     </ion-button>
     <ion-button class="round-corner-btn" *ngIf="sendOtp == true" color="main" (click)="matchOtp()" [disabled]="disableBtn">
-      Submit
+      Login
     </ion-button>
   </ion-toolbar>
 </ion-footer>
