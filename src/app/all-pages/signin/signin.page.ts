@@ -45,7 +45,6 @@ export class SigninPage implements OnInit {
 
   ngOnInit() {
     this.loc = this.location.getState();
-    console.log("return init",this.loc);
     this.returnUrl = this.loc.returnUrl;
   }
 
@@ -55,7 +54,6 @@ export class SigninPage implements OnInit {
     this.sendOtp = false;
     this.reSendOtp = false;
     this.loc = this.location.getState();
-    console.log("return url",this.loc);
     this.returnUrl = this.loc.returnUrl;
   }
 
@@ -126,7 +124,6 @@ export class SigninPage implements OnInit {
   }
 
   matchOtp() {
-    
     this.util.presentLoading(); 
     let param = {
       "session_id":this.session_id,
@@ -153,8 +150,21 @@ export class SigninPage implements OnInit {
 
   }
 
-  gotoNextField(next) {
-    next.setFocus()
+  gotoNextField(event,prev,next) {      
+    console.log(event.key);  
+    let re = new RegExp("^(?=.*[0-9])");
+    if(re.test(event.key)){
+      next.setFocus()
+    }else if(event.key == "Backspace"){
+      prev.setFocus()
+    } 
+
+  }
+
+  gotoPrevField(event,prev) {
+    if(event.key == "Backspace"){
+      prev.setFocus()
+    }
   }
 
   registerUserByMobile(){
