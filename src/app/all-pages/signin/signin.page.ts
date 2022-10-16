@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
 import { Location } from '@angular/common';
 import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.page.html',
@@ -19,21 +19,15 @@ export class SigninPage implements OnInit {
   interval;
   loc
   userExist : any = '';
-
+  checkMatchOtpIsExicuted : any = false;
   userData : any = {
     'mobile':'',
     'name':'',
     'email': ''
   }
+  @ViewChild('ngOtpInput') ngOtpInputRef:any;
 
-  @ViewChild("otp1") otp1:HTMLIonInputElement;
-  @ViewChild('otp2') otp2:HTMLIonInputElement;
-  @ViewChild("otp3") otp3:HTMLIonInputElement;
-  @ViewChild("otp4") otp4:HTMLIonInputElement;
-  @ViewChild("otp5") otp5:HTMLIonInputElement;
-  @ViewChild("otp6") otp6:HTMLIonInputElement;
-  otpValue : any = [];
-  otpInput : any ;
+  otpValue : any = '';
   disable: Boolean = true;
   returnUrl : any;
   constructor( 
@@ -77,6 +71,7 @@ export class SigninPage implements OnInit {
   }
 
   sentOtp(){
+    this.otpValue = '';
     this.reSendOtp = false;
     this.util.presentLoading(); 
     let param = {
@@ -116,7 +111,7 @@ export class SigninPage implements OnInit {
   onPaste(event: ClipboardEvent){
     let clipboardData = event.clipboardData;
     let pastedText = clipboardData.getData('text').split("");
-    this.otpValue = pastedText;
+    this.ngOtpInputRef.setValue(pastedText);
   }
 
   gotoQuote(){
@@ -124,46 +119,40 @@ export class SigninPage implements OnInit {
   }
 
   matchOtp() {
-    this.util.presentLoading(); 
-    let param = {
-      "session_id":this.session_id,
-      "otp_value":this.otpValue.join(""),
-    }
-    this.api.post('api/verify-otp', param).subscribe((data: any) => {
-      let reponse = JSON.parse(data)
-      this.util.hideLoading();
-      if(reponse.Status == "Success") {
-        if (this.userExist > 0) {
-          this.getUserByMobile();
-        } else {
-          this.registerUserByMobile();
-        }
-        
-      } else {
-        this.util.presentToast(reponse.Details)
+    if(this.checkMatchOtpIsExicuted == false){
+      this.util.presentLoading(); 
+      let param = {
+        "session_id":this.session_id,
+        "otp_value":this.otpValue,
       }
-      //
-    }, error => {
-      this.util.hideLoading();
-      this.util.presentToast("Unable to send OTP! Please try again")
-    });
-
+      this.api.post('api/verify-otp', param).subscribe((data: any) => {
+        let reponse = JSON.parse(data)
+        this.util.hideLoading();
+        if(reponse.Status == "Success") {
+          if (this.userExist > 0) {
+            this.getUserByMobile();
+          } else {
+            this.registerUserByMobile();
+          }
+          
+        } else {
+          this.util.presentToast("Otp Invalid! Please try again")
+          this.util.hideLoading();
+        }
+        //
+      }, error => {
+        this.util.presentToast("Otp Invalid! Please try again")
+        this.util.hideLoading();
+      });
+      this.checkMatchOtpIsExicuted = true
+    }
+    
   }
 
-  gotoNextField(event,prev,next) {      
-    console.log(event.key);  
-    let re = new RegExp("^(?=.*[0-9])");
-    if(re.test(event.key)){
-      next.setFocus()
-    }else if(event.key == "Backspace"){
-      prev.setFocus()
-    } 
-
-  }
-
-  gotoPrevField(event,prev) {
-    if(event.key == "Backspace"){
-      prev.setFocus()
+  onOtpChange(event){
+    this.otpValue = event
+    if (event.length === 6) {
+        this.matchOtp()
     }
   }
 
