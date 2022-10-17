@@ -13,7 +13,7 @@ import { AlertController } from '@ionic/angular';
 export class AccountPage {
 
   hasUser = false;
-  copywriteDate = new Date('2011-02-02T08:00:00Z')
+  copywriteDate = new Date().getFullYear();
   constructor( 
     public api: ApiService,
     public router: Router,
