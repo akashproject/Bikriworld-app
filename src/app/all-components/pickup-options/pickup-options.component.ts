@@ -46,6 +46,7 @@ export class PickupOptionsComponent {
       "question_id": localStorage.getItem("questions"),
       "accessories": localStorage.getItem("accessories"),
       "age_id": localStorage.getItem("age"),
+      "condition_id" : localStorage.getItem("condition"),
       "token": btoa(this.profile.id),
       "product_id": this.calculatedData.product_id,
       "variation_type": this.calculatedData.variation_type,
