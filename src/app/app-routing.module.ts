@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from "./guard/auth.guard";
 import { AreaGuard } from "./guard/area.guard";
+import { LogoutGuard } from "./guard/logout.guard";
 const routes: Routes = [
   {
     path: '',
@@ -54,7 +55,8 @@ const routes: Routes = [
   },
   {
     path: 'signin',
-    loadChildren: () => import('./all-pages/signin/signin.module').then( m => m.SigninPageModule)
+    loadChildren: () => import('./all-pages/signin/signin.module').then( m => m.SigninPageModule),
+    canActivate: [LogoutGuard]
   },
   {
     path: 'quote',

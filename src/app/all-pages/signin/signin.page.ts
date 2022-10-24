@@ -73,7 +73,6 @@ export class SigninPage implements OnInit {
   sentOtp(){
     this.otpValue = '';
     this.reSendOtp = false;
-    this.util.presentLoading(); 
     let param = {
       "mobile":this.userData.mobile,
     }
@@ -83,11 +82,9 @@ export class SigninPage implements OnInit {
       this.mobileScreen = false;
       this.registerScreen = false;
       this.sendOtp = true;
-      this.util.hideLoading();
       this.util.presentToast("OTP has been sent to your mobile number")
       this.startTimer()
     }, error => {
-      this.util.hideLoading();
       this.util.presentToast("Unable to send OTP! Please try again")
     });
     
@@ -169,7 +166,8 @@ export class SigninPage implements OnInit {
       }else if(this.returnUrl == '/vehicle-condition') {
         this.router.navigate(['/select-addresses']);
       } else {
-        this.router.navigate(['/tabs/account']);
+        window.location.reload();
+        //this.router.navigate(['/tabs/account']);
       }
       
     }, error => {
@@ -194,13 +192,13 @@ export class SigninPage implements OnInit {
       }else if(this.returnUrl == '/vehicle-condition') {
         this.router.navigate(['/select-addresses']);
       } else {
-        this.router.navigate(['/tabs/account']);
+        window.location.reload();
       }
-      
     }, error => {
       this.util.hideLoading();
       this.util.presentToast("Unable to Login! Please try again")
     });
   }
+  
   
 }
