@@ -14,7 +14,7 @@
 <ion-content>
   <!-- List of Text Items -->
   <ion-row class="ion-text-center">
-    <ion-col size="6" *ngFor="let category of categories" (click)="goToBrands(category.id)">
+    <ion-col size="6" *ngFor="let category of categories" (click)="goToBrands(category)">
       <div class="category-grid">
         <img src="https://bikriworld.com/assets/images/icons/{{category.icon}}.png" />
         <ion-label>

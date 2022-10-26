@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-catagories',
@@ -13,6 +14,7 @@ export class CatagoriesPage {
   constructor(
     public api: ApiService,
     public router: Router,
+    private alertController: AlertController
   ) {    
     this.getCatagories();
   }
@@ -23,12 +25,35 @@ export class CatagoriesPage {
     });
   }
 
-  goToBrands(category_id){
-    this.router.navigate(['/brands'], {state : {category_id :category_id}});
+  goToBrands(category){
+    if (category.status =="1") {
+      this.router.navigate(['/brands'], {state : {category_id :category.id}});
+    } else {
+      this.alertComingSoon()
+    }
+    
   }
 
   goToSearch(key){
     this.router.navigate(['/search'], {state : {key :key}});
+  }
+
+  async alertComingSoon() {
+    
+    const alert = await this.alertController.create({
+      header: 'Coming Soon',
+      message: 'This service will coming soon!',
+      buttons: [
+        {
+          text: 'OK',
+          role: 'confirm',
+          handler: () => {
+          },
+        },
+      ],
+    });
+
+    await alert.present();
   }
 
 }
