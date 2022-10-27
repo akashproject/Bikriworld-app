@@ -16,8 +16,10 @@
   <ion-row class="ion-text-center">
     <ion-col size="6" *ngFor="let category of categories" (click)="goToBrands(category)">
       <div class="category-grid">
-        <img src="assets/icon/{{category.icon}}.png" />
-        <ion-label>
+        <div class="left-image" >
+          <img src="assets/icon/{{category.icon}}.png" />
+        </div>       
+        <ion-label class="right-contact">
           <h2 class="product_label"> {{category.name }} </h2>
         </ion-label>
       </div>

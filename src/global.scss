@@ -80,6 +80,29 @@ ion-icon,ion-title {
 .text-main-color {
     color: #00986b;
 }
+
+.category-list {
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 1px 1px #3ead8c85;
+    text-align: left;
+    .left-image {
+        display: inline-flex;
+        vertical-align: middle;
+        margin: 0.2rem 1.9rem;
+    }
+    .right-contact {
+        display: inline-block;
+        .product_label{
+            font-size: 17px;
+            min-height: 20px;
+            color: #00986b;
+            margin-top: 1rem;
+            margin-bottom: 0;
+        }
+    }
+}
+
 ion-label {
     .product_label{
         font-size: 12px;
