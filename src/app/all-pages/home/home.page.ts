@@ -79,8 +79,14 @@ export class HomePage {
   }
 
   getCategories(){    
-    this.api.get('api/categories').subscribe((datas: any) => {      
-      this.categories = datas;
+    this.api.get('api/categories').subscribe((datas: any) => { 
+      let i = 0;
+      for (let x in datas) {
+        if(datas[x].status == '1'){
+          this.categories[i] = datas[x];
+          i++;
+        }
+      }      
     });
   }
 
