@@ -19,6 +19,7 @@
           <input class="condition_input" name="condition" type="radio" (click)="setCondition(condition.id)" id="condition_{{condition.id}}" >
           <label class="condition_label" for="condition_{{condition.id}}">
             <h6 >  {{condition.condition}}  </h6>
+            <div class="device-description" [innerHTML]="condition.description"></div>
           </label> 
         </ion-label>
       </ion-col>
