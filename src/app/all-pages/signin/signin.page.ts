@@ -158,9 +158,7 @@ export class SigninPage implements OnInit {
     this.api.post('api/register-user', this.userData).subscribe((data: any) => {
       localStorage.setItem("user", JSON.stringify(data));
       this.util.userInfo = data;      
-      this.util.hideLoading();
-      console.log(this.returnUrl);
-      
+      this.util.hideLoading();      
       if(this.returnUrl == '/condition') {
         this.router.navigate(['/quote']);
       }else if(this.returnUrl == '/vehicle-condition') {
@@ -184,9 +182,7 @@ export class SigninPage implements OnInit {
     this.api.post('api/get-user', param).subscribe((data: any) => {
       localStorage.setItem("user", JSON.stringify(data));
       this.util.userInfo = data;      
-      this.util.hideLoading();
-      console.log(this.returnUrl);
-      
+      this.util.hideLoading();      
       if(this.returnUrl == '/condition') {
         this.router.navigate(['/quote']);
       }else if(this.returnUrl == '/vehicle-condition') {

@@ -80,7 +80,6 @@ export class UpdateOrderPage implements OnInit {
   }
 
   setSchedule(event){
-    console.log(event);
     this.pickupSchedule = event.detail.value.split('T')[0];
   }
 

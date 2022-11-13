@@ -39,9 +39,7 @@ export class AddressesPage implements OnInit {
       "token":btoa(this.userInfo.id),
     }
     this.api.post('api/addresses', param).subscribe((data: any) => {
-      this.addresses = data;
-      console.log(this.addresses.length);
-      
+      this.addresses = data;      
       this.util.hideLoading();
     }, error => {
 

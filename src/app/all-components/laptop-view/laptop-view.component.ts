@@ -5,6 +5,7 @@ import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
 import { ModalController } from '@ionic/angular';
 import { ConfigurationPage } from '../../all-pages/configuration/configuration.page';
+import { Platform } from '@ionic/angular';
 @Component({
   selector: 'app-laptop-view',
   templateUrl: './laptop-view.component.html',
@@ -21,11 +22,15 @@ export class LaptopViewComponent implements OnInit {
   constructor(
     public api: ApiService,
     public router: Router,
-    private location:Location,
     private util:UtilService,
+    private platform: Platform,
     private modalCtrl: ModalController
   ) {
     this.viewProduct();
+    this.platform.backButton.subscribeWithPriority(10, () => {
+      localStorage.removeItem("variation_type")
+      this.router.navigate(['/products']);
+    });
    }
 
   ngOnInit() {
@@ -54,6 +59,7 @@ export class LaptopViewComponent implements OnInit {
 
     if (role === 'confirm') {
       this.variation_type = (localStorage.getItem("variation_type"))?localStorage.getItem("variation_type"):'';
+      this.router.navigate(['/question']);
     }
   }
 

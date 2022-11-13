@@ -18,7 +18,6 @@ export class LogoutGuard implements CanActivate {
             return true;
         } else {
             let url = this.router.url;
-            console.log(url);
             this.router.navigate(['/tabs/account'], {state : {returnUrl :url}});
             return false;
         }

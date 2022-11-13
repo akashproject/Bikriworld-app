@@ -24,6 +24,9 @@ export class ProductsPage implements OnInit {
   ngOnInit() {
     this.getProducts()
   }
+  ionViewWillEnter(){
+    localStorage.removeItem("variation_type")
+  }
 
   getProducts(){   
     this.util.presentLoading(); 

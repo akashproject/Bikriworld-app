@@ -39,14 +39,11 @@ export class HelpPage implements OnInit {
   sendMessage() {
     this.isSubmitted = true;
     if (!this.ionicForm.valid) {
-      console.log('Please provide all the required values!')
       this.validationAlert()
       return false;
     } else {
-      console.log(this.ionicForm.value)
       this.util.presentLoading(); 
       this.api.post('api/save-contact', this.ionicForm.value).subscribe((data: any) => {
-        console.log(data);
         this.successAlert();
         this.ionicForm.reset()
         this.util.hideLoading();
