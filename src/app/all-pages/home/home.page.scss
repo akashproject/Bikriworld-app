@@ -2,6 +2,27 @@
     box-shadow: none;
     --box-shadow: none !important;
 }
+.update-version {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    .version-text {
+        font-size: 10px;
+        font-size: 11px;
+        vertical-align: middle;
+        margin-right: 0.5rem;
+    }
+    .updateBtn{
+        vertical-align: middle;
+        background: #00986b;
+        color: rgb(255, 255, 255);
+        border-radius: 20px;
+        padding: 8px 15px;
+        font-size: 12px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+}
 .landing-header {
     background: #cbe9eb;
 }

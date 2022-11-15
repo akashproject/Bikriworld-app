@@ -1,4 +1,8 @@
 <ion-content>
+  <div *ngIf="checkVersion" class="update-version ion-padding-start ion-text-center" >
+    <span class="version-text"> New version available </span>
+    <a class="updateBtn" href="https://play.google.com/store/apps/details?id=com.bikriworld" > Update Now </a>
+  </div>
   <div class="landing-header" >
     <div class="location ion-margin-start ion-padding-top" >
        <span class="ion-label"> City : </span> <span (click)="cityModal()"> {{selectCity}} <ion-icon name="chevron-down-outline"  style="vertical-align: middle;" size="medium"></ion-icon></span>

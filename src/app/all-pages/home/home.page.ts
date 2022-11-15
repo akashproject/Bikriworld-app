@@ -18,6 +18,7 @@ export class HomePage {
   mediaUrl :any;
   baseUrl :any;
   insights : any = [];
+  checkVersion : boolean;
   constructor(
     private location:Location,
     private router : Router,
@@ -63,6 +64,7 @@ export class HomePage {
   };
 
   ngOnInit() {    
+    this.checkVersionUpdate();
     this.getCategories();
     this.getBlogs();
     this.getTopSellingBrands();
@@ -74,8 +76,15 @@ export class HomePage {
   }
 
   ionViewWillEnter(){
+    this.checkVersionUpdate();
     this.getCategories();
     this.getTopSellingBrands();
+  }
+
+  checkVersionUpdate(){
+    this.api.get('api/version-update').subscribe((datas: any) => { 
+      this.checkVersion = datas
+    });
   }
 
   getCategories(){    
