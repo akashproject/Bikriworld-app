@@ -83,7 +83,7 @@ export class HomePage {
 
   checkVersionUpdate(){
     this.api.get('api/version-update').subscribe((datas: any) => { 
-      this.checkVersion = datas
+      this.checkVersion = true//datas
     });
   }
 
