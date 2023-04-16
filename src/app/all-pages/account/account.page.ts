@@ -4,7 +4,6 @@ import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
 import { AlertController } from '@ionic/angular';
-
 @Component({
   selector: 'app-account',
   templateUrl: 'account.page.html',
@@ -65,5 +64,9 @@ export class AccountPage {
     localStorage.clear();
     this.util.presentToast("You have successfuly logged out form your account")
     window.location.reload();
+  }
+
+  openMail(){
+    parent.location='mailto:service@bikriworld.com'
   }
 }
