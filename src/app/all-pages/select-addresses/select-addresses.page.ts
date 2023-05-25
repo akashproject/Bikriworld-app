@@ -107,16 +107,7 @@ export class SelectAddressesPage implements OnInit {
 
   async selectAddress(id){
     localStorage.setItem("address_id",id)
-    const modal = await this.modalCtrl.create({
-      component: PamentOptionsComponent,
-    });
-    modal.present();
-
-    const { data, role } = await modal.onWillDismiss();
-
-    if (role === 'confirm') {
-      this.getAddress();
-    }
+    this.router.navigate(['/payments']);
   }
 
 }

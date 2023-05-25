@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AccountPage } from './account.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import { AccountPageRoutingModule } from './account-routing.module';
 
 @NgModule({
@@ -13,6 +13,7 @@ import { AccountPageRoutingModule } from './account-routing.module';
     IonicModule,
     CommonModule,
     FormsModule,
+    FontAwesomeModule,
     ExploreContainerComponentModule,
     RouterModule.forChild([{ path: '', component: AccountPage }]),
     AccountPageRoutingModule,

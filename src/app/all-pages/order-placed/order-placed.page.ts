@@ -14,12 +14,15 @@ import { JsonPipe } from '@angular/common';
 export class OrderPlacedPage implements OnInit {
   product : any = {};
   order : any = JSON.parse(localStorage.getItem("orderData"));
+  mediaUrl :any;
   constructor(
     public api: ApiService,
     public router: Router,
     private util:UtilService,
     private modalCtrl: ModalController
-  ) { }
+  ) { 
+    this.mediaUrl = this.api.mediaURL;
+  }
 
   ngOnInit() {
     this.viewProduct()

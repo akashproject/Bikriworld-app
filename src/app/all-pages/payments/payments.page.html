@@ -6,27 +6,51 @@
     <ion-title>Payment Options</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content class="">
-  <div class="setting-outer ion-padding" >
-    <ion-row class="account_options ion-padding" (click)="openBankTransfar()">
-      <div class="setting-icon" >
-        <img src="assets/icon/valid.png" >
-      </div>
-      <h6> Bank Transfar </h6>
-    </ion-row>
+<ion-content>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="paymentOption">
+      <ion-list-header>
+        <ion-label>Payment you want to recive</ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>
+          Bank Transfar
+          <p>Provide your bank account details</p>
+        </ion-label>  
+        <ion-radio slot="start" color="main" value="Bank Transfar" (click)="changePaymentOption('Bank Transfar')"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>
+          UPI
+          <p>Add a verified UPI id</p>
+        </ion-label>
+        <ion-radio slot="start" color="main" value="Upi" (click)="changePaymentOption('Upi')" ></ion-radio>
+      </ion-item>   
 
-    <ion-row class="account_options ion-padding" (click)="openUpi()">
-      <div class="setting-icon" >
-        <img src="assets/icon/upi.png" >
-      </div>
-      <h6> UPI </h6>
-    </ion-row>
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          Mobile Transfar
+          <p slot="content">Add mobile number which connected to UPI</p>
+        </ion-label>
+        <ion-radio slot="start" color="main" value="Online Payment" (click)="changePaymentOption('Online Payment')"></ion-radio>
+      </ion-item>  
 
-    <ion-row class="account_options ion-padding" (click)="openMobileTransfar()">
-      <div class="setting-icon" >
-        <img src="assets/icon/mobile-payment.png" >
-      </div>
-      <h6> Mobile Transfar </h6>
-    </ion-row>
-  </div>
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          Instant Cash
+          <p slot="content">Signature on payment recive invoice </p>
+        </ion-label>
+        <ion-radio slot="start" color="main" value="Cash on pickup" (click)="changePaymentOption('Cash on pickup')"></ion-radio>
+      </ion-item>  
+    </ion-radio-group>
+  </ion-list>
 </ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" color="main" (click)="selectPaymentOption()"  [disabled]="disableBtn">
+      Next 
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { Router, NavigationExtras } from '@angular/router';
 import { ApiService } from '../../all-services/api.service';
 import { UtilService } from 'src/app/all-services/util.service';
+import { InfiniteScrollCustomEvent } from '@ionic/angular';
 @Component({
   selector: 'app-products',
   templateUrl: './products.page.html',
@@ -12,6 +13,7 @@ export class ProductsPage implements OnInit {
   products : any = [];
   loc : any;
   mediaUrl :any;
+  page:any = 1;
   constructor(
     public api: ApiService,
     private location:Location,
@@ -29,14 +31,20 @@ export class ProductsPage implements OnInit {
   }
 
   getProducts(){   
-    this.util.presentLoading(); 
+    //this.util.presentLoading(); 
     let param = {
       "brand_id":localStorage.getItem("brand_id"),
       "category_id":localStorage.getItem("category_id")
     }
 
-    this.api.post('api/products', param).subscribe((data: any) => {
-      this.products = data;
+    this.api.post('api/products?page='+this.page, param).subscribe((data: any) => {
+      for (let element of data) {
+        console.log(element);
+        this.products.push(element);
+      }
+      
+      console.log(this.products);
+      
       this.util.hideLoading();
     }, error => {
     });
@@ -49,6 +57,14 @@ export class ProductsPage implements OnInit {
 
   goToSearch(key){
     this.router.navigate(['/search'], {state : {key :key}});
+  }
+
+  onIonInfinite(ev) {
+    this.page = this.page + 1
+    this.getProducts();
+    setTimeout(() => {
+      (ev as InfiniteScrollCustomEvent).target.complete();
+    }, 500);
   }
 
 }

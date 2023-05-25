@@ -8,10 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 //import { AndroidPermissions } from '@awesome-cordova-plugins/android-permissions/ngx';
 import { NgOtpInputModule } from  'ng-otp-input';
-
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, NgOtpInputModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule],
+  imports: [BrowserModule, NgOtpInputModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule, FontAwesomeModule],
   providers: [/*SmsRetriever,AndroidPermissions,*/
     {
     provide: RouteReuseStrategy,
@@ -19,4 +22,8 @@ import { NgOtpInputModule } from  'ng-otp-input';
    }],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(library: FaIconLibrary) { 
+		library.addIconPacks(fas, fab, far);
+	}
+}

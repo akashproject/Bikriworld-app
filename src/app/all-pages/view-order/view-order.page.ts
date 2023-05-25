@@ -23,11 +23,12 @@ export class ViewOrderPage implements OnInit {
     private modalCtrl: ModalController
     ) { 
       this.mediaUrl = this.api.mediaURL;
+      this.loc = this.location.getState(); 
+      this.viewOrder(this.loc.order_id)
     }
 
   ngOnInit() {
-    this.loc = this.location.getState(); 
-    this.viewOrder(this.loc.order_id)
+   
     
   }
 

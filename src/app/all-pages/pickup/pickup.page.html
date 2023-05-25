@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Pickup Schedule</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-datetime presentation="date" [min]="minDate" [(ngModel)]="pickupSchedule" (ionChange)="setSchedule($event)" ></ion-datetime>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" color="main" (click)="confirm()">
+      {{ ConfirmLabel}}
+      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

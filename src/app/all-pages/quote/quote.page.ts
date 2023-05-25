@@ -13,11 +13,14 @@ export class QuotePage implements OnInit {
   calculatedData : any = JSON.parse(localStorage.getItem("calculatedData"));
   user = JSON.parse(localStorage.getItem("user"));
   product : any = {};
+  mediaUrl :any;
   constructor(
     public api: ApiService,
     public router: Router,
     private util:UtilService
-  ) { }
+  ) {
+    this.mediaUrl = this.api.mediaURL;
+   }
 
   ngOnInit() {        
     this.viewProduct()

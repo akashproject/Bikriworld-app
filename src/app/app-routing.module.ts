@@ -168,7 +168,11 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./all-pages/about/about.module').then( m => m.AboutPageModule)
+  },  {
+    path: 'pickup',
+    loadChildren: () => import('./all-pages/pickup/pickup.module').then( m => m.PickupPageModule)
   }
+
 
 
 
