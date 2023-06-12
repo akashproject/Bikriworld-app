@@ -39,12 +39,8 @@ export class ProductsPage implements OnInit {
 
     this.api.post('api/products?page='+this.page, param).subscribe((data: any) => {
       for (let element of data) {
-        console.log(element);
         this.products.push(element);
-      }
-      
-      console.log(this.products);
-      
+      }      
       this.util.hideLoading();
     }, error => {
     });

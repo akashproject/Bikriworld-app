@@ -19,6 +19,8 @@ export class SigninPage implements OnInit {
   interval;
   loc
   userExist : any = '';
+  form_validate = false;
+  validMobileNo = false;
   checkMatchOtpIsExicuted : any = false;
   userData : any = {
     'mobile':'',
@@ -101,7 +103,31 @@ export class SigninPage implements OnInit {
     },1000)
   }
 
+  mobileValidation(event){
+    let mobileNo = new String(this.userData.mobile);
+    console.log(mobileNo.length);
+    
+    if(mobileNo.length == 10){
+      this.validMobileNo = true;
+    } else {
+      this.validMobileNo = false;
+    }
+    console.log(this.validMobileNo);
+  }
+
   validation(event){
+    let re = new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{1,}$");
+    
+    if (
+      this.userData.name != ''  &&
+      re.test(this.userData.email)
+    ) {
+      console.log(this.form_validate);
+      this.form_validate = true;
+    } else {
+      console.log(this.form_validate);
+      this.form_validate = false;
+    }
     
   }
 
@@ -115,7 +141,7 @@ export class SigninPage implements OnInit {
     this.router.navigate(['/quote']);
   }
 
-  matchOtp() {
+  matchOtp() {    
     if(this.checkMatchOtpIsExicuted == false){
       this.util.presentLoading(); 
       let param = {
@@ -126,6 +152,7 @@ export class SigninPage implements OnInit {
         let reponse = JSON.parse(data)
         this.util.hideLoading();
         if(reponse.Status == "Success") {
+          this.checkMatchOtpIsExicuted = true
           if (this.userExist > 0) {
             this.getUserByMobile();
           } else {
@@ -141,7 +168,7 @@ export class SigninPage implements OnInit {
         this.util.presentToast("Otp Invalid! Please try again")
         this.util.hideLoading();
       });
-      this.checkMatchOtpIsExicuted = true
+      
     }
     
   }

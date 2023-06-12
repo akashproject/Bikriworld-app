@@ -16,7 +16,7 @@ export class AreaGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      let city = ['Kolkata','Howrah','Patna'];  
+      let city = ['Kolkata','Howrah','Patna','Bhubaneswar','Cuttack'];  
       if(!localStorage.hasOwnProperty('selectedCity')){
         this.cityModal()
         return false;

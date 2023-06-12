@@ -19,7 +19,7 @@
       </ion-col>
       <ion-col size="12" class="custom_text-field" >
         <ion-label class="form-label">Please enter your mobile number </ion-label>
-        <ion-input class="form-field" type="number" placeholder="Mobile number" maxLength="10" [(ngModel)]="userData.mobile" (keyup)="validation($event)"> </ion-input>
+        <ion-input class="form-field" type="number" placeholder="Mobile number" maxLength="10" [(ngModel)]="userData.mobile"> </ion-input>
       </ion-col>
     </ion-row> 
     <ion-row class="ion-text-left" *ngIf="registerScreen == true">
@@ -37,7 +37,7 @@
       </ion-col>
       <ion-col size="12" class="custom_text-field" >
         <ion-label class="form-label">Your Email </ion-label>
-        <ion-input class="form-field" type="Email" placeholder="Enter Your Email Address" [(ngModel)]="userData.email" (keyup)="validation($event)"> </ion-input>
+        <ion-input class="form-field" type="email" placeholder="Enter Your Email Address" [(ngModel)]="userData.email" (keyup)="validation($event)"> </ion-input>
       </ion-col>
     </ion-row>   
     <ion-row class="" *ngIf="sendOtp == true">
@@ -70,11 +70,18 @@
     <ion-button class="round-corner-btn" *ngIf="mobileScreen == true" color="main" (click)="checkUserExist()" [disabled]="disableBtn">
       Continue
     </ion-button>
-    <ion-button class="round-corner-btn" *ngIf="registerScreen == true" color="main" (click)="sentOtp()" [disabled]="disableBtn">
-      Continue
-    </ion-button>
     <ion-button class="round-corner-btn" *ngIf="sendOtp == true" color="main" (click)="matchOtp()" [disabled]="disableBtn">
       Login
     </ion-button>
+    <div class="" *ngIf="registerScreen == true" >
+      <ion-button class="round-corner-btn" *ngIf="form_validate == true" color="main" (click)="sentOtp()">
+        Register 
+      </ion-button>
+      <ion-button class="round-corner-btn disableBtn" *ngIf="form_validate != true" color="main" [disabled]="true">
+        Register 
+      </ion-button>
+    </div>
+    
+    
   </ion-toolbar>
 </ion-footer>
