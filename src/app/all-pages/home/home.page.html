@@ -1,11 +1,7 @@
 <ion-content>
-  <div *ngIf="checkVersion" class="update-version ion-padding-start ion-text-center" >
-    <span class="version-text"> New version available </span>
-    <a class="updateBtn" href="https://play.google.com/store/apps/details?id=com.bikriworld" > Update Now </a>
-  </div>
   <div class="landing-header" >
     <div class="location ion-margin-start ion-padding-top" >
-       <span class="ion-label"> City : </span> <span (click)="cityModal()"> {{selectCity}} <ion-icon name="chevron-down-outline"  style="vertical-align: middle;" size="medium"></ion-icon></span>
+      <span class="ion-label"> City : </span> <span (click)="cityModal()"> {{selectCity}} <ion-icon name="chevron-down-outline"  style="vertical-align: middle;" size="medium"></ion-icon></span>
     </div>
     <ion-searchbar placeholder="Search your model here" animated [routerLink]="['/search']"></ion-searchbar>
   </div>
@@ -45,10 +41,10 @@
     </ion-slide>
   </ion-slides>
   
-  <h6 class="ion-margin-start"> Select Your Device For Sell </h6>
+  <h5 class="ion-margin-start"> Select Your Device For Sell </h5>
    <!-- List of Text Items -->
   <ion-row class="ion-text-center">
-    <ion-col size="3" *ngFor="let category of categories | slice:0:3; let i=index" (click)="goToBrands(category.id)">
+    <ion-col size="3" *ngFor="let category of categories | slice:0:7; let i=index" (click)="goToBrands(category.id,'sell')">
       <div class="category-grid" >
         <div class="image-wrap">
           <img src="assets/icon/{{category.icon}}.png" />
@@ -58,7 +54,32 @@
         </ion-label>
       </div>
     </ion-col>
-    <ion-col size="3"  (click)="gotoCategories()">
+    <ion-col size="3"  (click)="gotoCategories('sell')">
+      <div class="category-grid" >
+        <div class="image-wrap">
+          <img src="assets/icon/more.png" />
+        </div>
+        <ion-label>
+          <h4 > More... </h4>
+        </ion-label>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <h5 class="ion-margin-start"> Select Your Device For Repair </h5>
+   <!-- List of Text Items -->
+  <ion-row class="ion-text-center">
+    <ion-col size="3" *ngFor="let category of categories | slice:0:3; let i=index" (click)="goToBrands(category.id,'repair')">
+      <div class="category-grid" >
+        <div class="image-wrap">
+          <img src="assets/icon/{{category.icon}}.png" />
+        </div>
+        <ion-label>
+          <h4 > Repair {{category.name }} </h4>
+        </ion-label>
+      </div>
+    </ion-col>
+    <ion-col size="3" (click)="gotoCategories('repair')">
       <div class="category-grid" >
         <div class="image-wrap">
           <img src="assets/icon/more.png" />

@@ -168,15 +168,47 @@ const routes: Routes = [
   {
     path: 'about',
     loadChildren: () => import('./all-pages/about/about.module').then( m => m.AboutPageModule)
-  },  {
+  },
+  {
     path: 'pickup',
     loadChildren: () => import('./all-pages/pickup/pickup.module').then( m => m.PickupPageModule)
+  },
+  {
+    path: 'repair-product',
+    loadChildren: () => import('./all-pages/repair-product/repair-product.module').then( m => m.RepairProductPageModule)
+  },
+  {
+    path: 'repair',
+    loadChildren: () => import('./all-pages/repair/repair.module').then( m => m.RepairPageModule)
+  },
+  {
+    path: 'repair-quote',
+    loadChildren: () => import('./all-pages/repair-quote/repair-quote.module').then( m => m.RepairQuotePageModule)
+  },
+  {
+    path: 'repair-checkout',
+    loadChildren: () => import('./all-pages/repair-checkout/repair-checkout.module').then( m => m.RepairCheckoutPageModule)
+  },
+  {
+    path: 'repair-order-placed',
+    loadChildren: () => import('./all-pages/repair-order-placed/repair-order-placed.module').then( m => m.RepairOrderPlacedPageModule)
+  },
+  {
+    path: 'repair-view-order',
+    loadChildren: () => import('./all-pages/repair-view-order/repair-view-order.module').then( m => m.RepairViewOrderPageModule)
+  },
+  {
+    path: 'bookings',
+    loadChildren: () => import('./all-pages/bookings/bookings.module').then( m => m.BookingsPageModule)
+  },
+  {
+    path: 'view-booking',
+    loadChildren: () => import('./all-pages/view-booking/view-booking.module').then( m => m.ViewBookingPageModule)
+  },
+  {
+    path: 'update-booking',
+    loadChildren: () => import('./all-pages/update-booking/update-booking.module').then( m => m.UpdateBookingPageModule)
   }
-
-
-
-
-
 
 ];
 @NgModule({

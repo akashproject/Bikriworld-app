@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Proceed to chcekout</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="home" size="large" [routerLink]="['/']"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="step === 1">
+    <ion-button color="main" fill="outline" expand="block" (click)="modalViewAddress()" *ngIf="addresses.length < 3"> 
+      Add new Address
+    </ion-button>
+    <ion-radio-group [(ngModel)]="selected_address">
+      <ion-row class="address_wraper" *ngFor="let address of addresses">
+        <ion-col size="12">
+          <ion-item >
+            <ion-radio color="main" slot="start" value="{{address.id}}" id="address_{{address.id}}" (click)="selectAddress(address.id)"></ion-radio>
+            <label class="labels" for="address_{{address.id}}">
+              <h5> {{address.address_1}}, {{address.city}} {{ address.state }}, {{ address.pincode }} </h5>
+              <h5> Type : {{address.type}} </h5>
+            </label>
+          </ion-item>  
+        </ion-col>
+        <ion-col size="12" >
+          <div class="options ion-margin-start" >
+            <ion-router-link color="primary" class="option" (click)="modalViewAddress(address.id)" >Edit</ion-router-link>
+            <ion-router-link color="danger" class="option" (click)="confirmDelete(address.id)" >Delete</ion-router-link>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-radio-group>
+  </div>  
+
+  <div *ngIf="step === 2">
+    <ion-datetime presentation="date" [min]="minDate" [(ngModel)]="pickupSchedule" (ionChange)="setSchedule($event)" ></ion-datetime>
+  </div>
+</ion-content>
+
+<ion-footer collapse="fade">
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" color="main" (click)="placeOrder()" [disabled]="disableBtn" >
+      Comfirm Pickup <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

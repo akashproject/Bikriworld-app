@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Update Order</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="home" size="large" [routerLink]="['/']"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h6 class="ion-margin-start"> Change Pickup Address </h6>
+  <ion-radio-group [(ngModel)]="selected_address" >
+    <ion-row class="address_wraper" *ngFor="let address of addresses">
+      <ion-col size="12">
+        <ion-item >
+          <ion-radio color="main" slot="start" value="{{address.id}}" id="address_{{address.id}}" ></ion-radio>
+          <label class="labels" for="address_{{address.id}}">
+            <h5> {{address.address_1}}, {{address.city}} {{ address.state }}, {{ address.pincode }} </h5>
+            <h5> Type : {{address.type}} </h5>
+          </label>
+        </ion-item>  
+      </ion-col>
+    </ion-row>
+  </ion-radio-group>
+  <h6 class="ion-margin-start"> Change Pickup Option </h6>
+  <ion-datetime presentation="date" [min]="minDate" [(ngModel)]="pickupSchedule" [value]="pickupSchedule" (ionChange)="setSchedule($event)" ></ion-datetime>
+</ion-content>
+<ion-footer collapse="fade">
+  <ion-toolbar class="ion-padding-start ion-padding-end">
+    <ion-button class="round-corner-btn" color="main" (click)="updateBooking()" [disabled]="disableBtn">
+      Save
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

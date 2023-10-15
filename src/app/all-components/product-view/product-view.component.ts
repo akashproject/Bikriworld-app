@@ -37,6 +37,10 @@ export class ProductViewComponent implements OnInit {
       this.product = data;
       this.variants = JSON.parse(data.variant);
       this.maxPrice = data.max_price
+      if(!this.variants){
+        localStorage.setItem("veriation_price", data.max_price);
+      }
+      
       this.util.hideLoading();
     });
   }

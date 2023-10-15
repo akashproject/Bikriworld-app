@@ -22,8 +22,8 @@ const routes: Routes = [
         loadChildren: () => import('../account/account.module').then(m => m.AccountPageModule),
       },
       {
-        path: 'orders',
-        loadChildren: () => import('../orders/orders.module').then(m => m.OrdersPageModule),
+        path: 'repair',
+        loadChildren: () => import('../repair/repair.module').then(m => m.RepairPageModule),
         canActivate: [AuthGuard]
       },
       {

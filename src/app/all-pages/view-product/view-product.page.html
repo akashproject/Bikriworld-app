@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
   <app-laptop-view *ngIf="category_id == '2'"></app-laptop-view>
-  <app-product-view *ngIf="category_id == '1'"></app-product-view> 
+  <app-product-view *ngIf="category_id != '2' && category_id != '12'"></app-product-view> 
   <app-vehicle-view *ngIf="category_id == '12'"></app-vehicle-view> 
 </ion-content>
 <ion-footer collapse="fade">

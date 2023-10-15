@@ -29,6 +29,10 @@ export class QuotePage implements OnInit {
     this.router.navigate(['/select-addresses']);
   }
 
+  goToCategory(){
+    this.router.navigate(['/catagories']);
+  }
+
   viewProduct(){    
     this.util.presentLoading();
     this.api.get('api/product/'+localStorage.getItem("product_id")).subscribe((data: any) => {      

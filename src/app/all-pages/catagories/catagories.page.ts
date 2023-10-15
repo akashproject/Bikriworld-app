@@ -25,13 +25,9 @@ export class CatagoriesPage {
     });
   }
 
-  goToBrands(category){
-    if (category.status =="1") {
-      this.router.navigate(['/brands'], {state : {category_id :category.id}});
-    } else {
-      this.alertComingSoon()
-    }
-    
+  goToBrands(category,sellType){    
+    localStorage.setItem("orderType",sellType)
+    this.router.navigate(['/brands'], {state : {category_id :category}});
   }
 
   goToSearch(key){
@@ -39,7 +35,6 @@ export class CatagoriesPage {
   }
 
   async alertComingSoon() {
-    
     const alert = await this.alertController.create({
       header: 'Coming Soon',
       message: 'This service will coming soon!',

@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      All Categories
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon slot="end" name="search-circle" size="large" (click)="goToSearch('category')" ></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- List of Text Items -->
+  <h5 class="ion-margin-start"> Select Your Device For Repair </h5>
+  <ion-row class="ion-text-center">
+    <ion-col size="4" *ngFor="let category of categories" (click)="goToBrands(category.id,'repair')">
+      <div class="category-grid">
+        <div class="image-wrap">
+          <img src="assets/icon/{{category.icon}}.png" />
+        </div>       
+        <ion-label class="right-contact">
+          <h2 class="product_label">Repair {{category.name }} </h2>
+        </ion-label>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

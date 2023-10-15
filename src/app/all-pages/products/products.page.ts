@@ -48,7 +48,12 @@ export class ProductsPage implements OnInit {
 
   viewProduct(product_id){
     localStorage.setItem("product_id", product_id);
-    this.router.navigate(['/view-product']);
+    if (localStorage.getItem("orderType") == 'repair') {
+      this.router.navigate(['/repair-product']);
+    } else {
+      this.router.navigate(['/view-product']);
+    }
+    
   }
 
   goToSearch(key){

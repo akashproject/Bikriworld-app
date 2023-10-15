@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Bookings Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-row class="order_wraper" *ngFor="let pickup of pickups">
+    <ion-col size="7" >
+      <h5 style="margin:0"> {{pickup.name}} </h5>
+    </ion-col>
+    <ion-col size="5" >
+      <img src="{{mediaUrl}}{{pickup.image}}" />
+    </ion-col>
+    <ion-row class="order_wraper" *ngFor="let part of pickup.parts">
+      <ion-col size="2" >
+        <h6 style="margin:0"> {{part.name}} </h6>
+      </ion-col>
+    </ion-row>
+    <ion-col size="12" >
+      <h6>Order Status : <span style="color:red"> {{pickup.status}} </span> </h6>
+      <h6>Service Date : {{pickup.schedule}} </h6>
+      <h6>Booking Amount : Rs. {{pickup.amount}}/- </h6>
+    </ion-col>
+    <ion-col size="12" >
+      <ion-button class="round-corner-btn" color="main" (click)="goToViewOrder(pickup)">
+        View More
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <div class="ion-text-center" *ngIf="!pickups">
+    <h3> No Records Found </h3>
+  </div>
+</ion-content>

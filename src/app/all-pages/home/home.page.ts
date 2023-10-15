@@ -105,7 +105,8 @@ export class HomePage {
     });
   }
 
-  goToBrands(category_id){
+  goToBrands(category_id,sellType){
+    localStorage.setItem("orderType",sellType)
     this.router.navigate(['/brands'], {state : {category_id :category_id}});
   }
 
@@ -115,7 +116,8 @@ export class HomePage {
     });
   }
 
-  gotoCategories(){
+  gotoCategories(sellType){
+    localStorage.setItem("orderType",sellType)
     this.router.navigate(['/catagories']);
   }
 
