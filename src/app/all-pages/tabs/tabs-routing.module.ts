@@ -24,7 +24,7 @@ const routes: Routes = [
       {
         path: 'repair',
         loadChildren: () => import('../repair/repair.module').then(m => m.RepairPageModule),
-        canActivate: [AuthGuard]
+        canActivate: [AreaGuard]
       },
       {
         path: '',

@@ -37,7 +37,7 @@
       </ion-col>
       <ion-col size="12" class="custom_text-field" >
         <ion-label class="form-label">Your Email </ion-label>
-        <ion-input class="form-field" type="email" placeholder="Enter Your Email Address" [(ngModel)]="userData.email" (keyup)="validation($event)"> </ion-input>
+        <ion-input class="form-field" type="email" placeholder="Enter Your Email Address" [(ngModel)]="userData.email" (keyup)="validation($event)" (change)="validation($event)"> </ion-input>
       </ion-col>
     </ion-row>   
     <ion-row class="" *ngIf="sendOtp == true">
@@ -74,7 +74,7 @@
       Login
     </ion-button>
     <div class="" *ngIf="registerScreen == true" >
-      <ion-button class="round-corner-btn" *ngIf="form_validate == true" color="main" (click)="sentOtp()">
+      <ion-button class="round-corner-btn" *ngIf="form_validate == true" color="main" (click)="checkEmailValidation()">
         Register 
       </ion-button>
       <ion-button class="round-corner-btn disableBtn" *ngIf="form_validate != true" color="main" [disabled]="true">

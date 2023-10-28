@@ -116,11 +116,11 @@ export class SigninPage implements OnInit {
   }
 
   validation(event){
-    let re = new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{1,}$");
+    
     
     if (
       this.userData.name != ''  &&
-      re.test(this.userData.email)
+      this.userData.email != ''
     ) {
       console.log(this.form_validate);
       this.form_validate = true;
@@ -130,6 +130,17 @@ export class SigninPage implements OnInit {
     }
     
   }
+
+  checkEmailValidation(){
+    let re = new RegExp("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{1,}$");
+    if(re.test(this.userData.email)){
+      this.sentOtp();
+    } else {
+      this.util.presentToast("Enter valid Email Address")
+    }
+
+  }
+
 
   onPaste(event: ClipboardEvent){
     let clipboardData = event.clipboardData;

@@ -115,7 +115,8 @@ const routes: Routes = [
   },
   {
     path: 'mobile-transfar',
-    loadChildren: () => import('./all-pages/mobile-transfar/mobile-transfar.module').then( m => m.MobileTransfarPageModule)
+    loadChildren: () => import('./all-pages/mobile-transfar/mobile-transfar.module').then( m => m.MobileTransfarPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'test',
@@ -123,11 +124,13 @@ const routes: Routes = [
   },
   {
     path: 'configuration',
-    loadChildren: () => import('./all-pages/configuration/configuration.module').then( m => m.ConfigurationPageModule)
+    loadChildren: () => import('./all-pages/configuration/configuration.module').then( m => m.ConfigurationPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'update-order',
-    loadChildren: () => import('./update-order/update-order.module').then( m => m.UpdateOrderPageModule)
+    loadChildren: () => import('./update-order/update-order.module').then( m => m.UpdateOrderPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'city',
@@ -199,15 +202,18 @@ const routes: Routes = [
   },
   {
     path: 'bookings',
-    loadChildren: () => import('./all-pages/bookings/bookings.module').then( m => m.BookingsPageModule)
+    loadChildren: () => import('./all-pages/bookings/bookings.module').then( m => m.BookingsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'view-booking',
-    loadChildren: () => import('./all-pages/view-booking/view-booking.module').then( m => m.ViewBookingPageModule)
+    loadChildren: () => import('./all-pages/view-booking/view-booking.module').then( m => m.ViewBookingPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'update-booking',
-    loadChildren: () => import('./all-pages/update-booking/update-booking.module').then( m => m.UpdateBookingPageModule)
+    loadChildren: () => import('./all-pages/update-booking/update-booking.module').then( m => m.UpdateBookingPageModule),
+    canActivate: [AuthGuard]
   }
 
 ];

@@ -121,6 +121,13 @@ export class HomePage {
     this.router.navigate(['/catagories']);
   }
 
+  gotoRepair(sellType){
+    localStorage.setItem("orderType",sellType)
+    this.router.navigate(['/repair']);
+  }
+
+
+
   async cityModal(){
     const modal = await this.modalCtrl.create({
       component: CityPage,

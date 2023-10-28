@@ -48,7 +48,7 @@ export class RepairViewComponent implements OnInit {
 
   getParts(){    
     //this.util.presentLoading();
-    this.api.get('api/parts/'+this.category_id).subscribe((data: any) => {
+    this.api.get('api/parts/'+localStorage.getItem("product_id")).subscribe((data: any) => {
       this.parts = data;
       console.log(data); 
     });
