@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "466608724556",
+    "project_id": "bikriworld-caae3",
+    "storage_bucket": "bikriworld-caae3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466608724556:android:2050f7b5817be4a561b2e9",
+        "android_client_info": {
+          "package_name": "com.bikriworld"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1Ds4lI32SLqxeKnAglZ9bwOnv3TE8c-0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
